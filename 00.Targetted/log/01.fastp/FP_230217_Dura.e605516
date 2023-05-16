@@ -1,0 +1,52 @@
+Detecting adapter sequence for read1...
+>Illumina TruSeq Adapter Read 1
+AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+
+Detecting adapter sequence for read2...
+>Illumina TruSeq Adapter Read 2
+AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+
+Read1 before filtering:
+total reads: 23274451
+total bases: 3514442101
+Q20 bases: 3415122184(97.1739%)
+Q30 bases: 3248430325(92.4309%)
+
+Read2 before filtering:
+total reads: 23274451
+total bases: 3514442101
+Q20 bases: 3423463855(97.4113%)
+Q30 bases: 3265350434(92.9123%)
+
+Read1 after filtering:
+total reads: 23085060
+total bases: 3415959148
+Q20 bases: 3326379866(97.3776%)
+Q30 bases: 3167240814(92.7189%)
+
+Read2 aftering filtering:
+total reads: 23085060
+total bases: 3416340008
+Q20 bases: 3339336356(97.746%)
+Q30 bases: 3189662551(93.3649%)
+
+Filtering result:
+reads passed filter: 46170120
+reads failed due to low quality: 305496
+reads failed due to too many N: 696
+reads failed due to too short: 65718
+reads failed due to low complexity: 6872
+reads with adapter trimmed: 7762653
+bases trimmed due to adapters: 133114457
+reads with polyX in 3' end: 262898
+bases trimmed in polyX tail: 3610625
+
+Duplication rate: 29.708%
+
+Insert size peak (evaluated by paired-end reads): 167
+
+JSON report: fastp.json
+HTML report: /data/project/Meningioma/00.Targetted/01.QC/01.fastp/Dura/230217.html
+
+fastp -i /data/project/Meningioma/00.Targetted/01.QC/00.raw/Dura/230217_Dura_1.fq.gz -I /data/project/Meningioma/00.Targetted/01.QC/00.raw/Dura/230217_Dura_2.fq.gz -o /data/project/Meningioma/00.Targetted/01.QC/01.fastp/Dura/230217_Dura.R1.fq -O /data/project/Meningioma/00.Targetted/01.QC/01.fastp/Dura/230217_Dura.R2.fq -p -w 5 -5 -3 --trim_poly_g --trim_poly_x --length_required 15 -y --detect_adapter_for_pe -h /data/project/Meningioma/00.Targetted/01.QC/01.fastp/Dura/230217.html 
+fastp v0.21.0, time used: 284 seconds

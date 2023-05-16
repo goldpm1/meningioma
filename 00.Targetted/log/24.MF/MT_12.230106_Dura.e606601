@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/goldpm1/tools/MosaicForecast2/argparse_YS/ReadLevel_Features_extraction.py", line 32, in <module>
+    import pysamstats
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/pysamstats-1.1.2-py3.8-linux-x86_64.egg/pysamstats/__init__.py", line 8, in <module>
+    from .pileup import *
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/pysamstats-1.1.2-py3.8-linux-x86_64.egg/pysamstats/pileup.py", line 6, in <module>
+    import pysamstats.opt as opt
+  File "pysamstats/opt.pyx", line 1, in init pysamstats.opt
+AttributeError: module 'pysam.libcalignmentfile' has no attribute 'PileupColumn'

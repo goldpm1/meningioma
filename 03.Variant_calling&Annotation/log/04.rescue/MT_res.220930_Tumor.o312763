@@ -1,0 +1,7 @@
+***Start_time: Mon Mar  6 17:33:59 KST 2023
+python3 mutect_pipe_21.rescue.py     --Sample_ID 220930 --TISSUE Tumor     --MULTIPLE_VCF_PATH /home/goldpm1/Meningioma/04.mutect/03.vep/220930_multiple.MT2.FMC.HF.RMBLACK.vep.vcf  --MULTIPLE_VCF_GZ_PATH /home/goldpm1/Meningioma/04.mutect/03.vep/220930_multiple.MT2.FMC.HF.RMBLACK.vep.vcf.gz     --INDIVIDUAL_VCF_PATH /home/goldpm1/Meningioma/04.mutect/03.vep/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.vcf --INDIVIDUAL_VCF_GZ_PATH /home/goldpm1/Meningioma/04.mutect/03.vep/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.vcf.gz     --INDIVIDUAL_RESCUED_VCF_PATH /home/goldpm1/Meningioma/04.mutect/04.rescue/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.rescue.vcf --INDIVIDUAL_RESCUED_VCF_GZ_PATH /home/goldpm1/Meningioma/04.mutect/04.rescue/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.rescue.vcf.gz     --INDIVIDUAL_UNIQUE_VCF_PATH /home/goldpm1/Meningioma/04.mutect/05.unique/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf --INDIVIDUAL_UNIQUE_VCF_GZ_PATH /home/goldpm1/Meningioma/04.mutect/05.unique/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf.gz
+/opt/Yonsei/bcftools/1.7/bcftools sort -Ov /home/goldpm1/Meningioma/04.mutect/04.rescue/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.rescue.vcf.unsorted -o /home/goldpm1/Meningioma/04.mutect/04.rescue/220930_Tumor.MT2.FMC.HF.RMBLACK.vep.rescue.vcf
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Mon Mar  6 17:38:23 KST 2023

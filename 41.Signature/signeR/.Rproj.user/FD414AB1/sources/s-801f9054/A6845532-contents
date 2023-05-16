@@ -1,0 +1,76 @@
+library("signeR")
+library("VariantAnnotation")
+library("BSgenome.Hsapiens.UCSC.hg38")
+library("rtracklayer")
+
+CURRENT_PATH=getwd()
+
+SIGNER_INPUT_VCF_DIR = "/home/goldpm1/Meningioma/41.Signature/02.signeR/01.vcf"
+SIGNER_RESULT_COSMIC_DIR = "/home/goldpm1/Meningioma/41.Signature/02.signeR/02.result_cosmic"
+SIGNER_RESULT_EXTRACT_DIR = "/home/goldpm1/Meningioma/41.Signature/02.signeR/02.result_denovo"
+
+vcf_files = Sys.glob( paste0( SIGNER_INPUT_VCF_DIR, "/*.vcf")  )
+
+#01. Make sample*96 matrix from multi-sample vcfs
+mut = matrix(ncol=96,nrow=0)
+for(i in vcf_files) {
+  vo = readVcf(i, "hg38")
+  # colnames(vo) = i        # 이렇게 안하면 자동으로 prefix가 된다
+  m0 = signeR::genCountMatrixFromVcf(BSgenome.Hsapiens.UCSC.hg38, vo)
+  mut = rbind(mut, m0)
+}
+
+
+#02. make opportunity matrix
+target_regions <- rtracklayer::import(con="/home/goldpm1/resources/Agilent_SureSelectXT_Human_All_Exon_Kit_V5_hg38/a.bed", format="bed")
+opp = signeR::genOpportunityFromGenome(BSgenome.Hsapiens.UCSC.hg38, target_regions, nsamples=nrow(mut))
+
+
+#03. Load reference COSMIC database
+Pmatrix_BRC = as.matrix(read.table(system.file("extdata","Cosmic_signatures_BRC.txt", package="signeR"), sep="\t", check.names=FALSE))      # 96 context * 6 signatures
+Pmatrix_COSMICv3 = as.matrix(read.table( "/home/goldpm1/resources/COSMIC_SBS/COSMIC_v3.3.1_SBS_GRCh38.txt", sep="\t", header = TRUE, check.names=FALSE, row.names = 1))   # 96 context * 80 signatures
+#rownames()
+
+
+#04.signature decomposition
+signatures <- signeR::signeR(M=mut, Opport=opp,  P=Pmatrix_COSMICv3 , fixedP=FALSE, main_eval=100, EM_eval=50, EMit_lim=20, nlim=c(2,4))
+#signatures <- signeR::signeR(M=mut, Opport=opp, EMit_lim=20, nlim=c(2,4))
+
+
+#05. 최적의 K값을 BIC plot을 통해 찾기
+png( paste0(RESULT_PATH, "/BICboxplot.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 300 )
+signeR::BICboxplot (signatures)
+dev.off()
+
+#06. Results and Plots
+png( paste0(RESULT_PATH, "/path.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 300 )
+signeR::Paths(signatures$SignExposures)
+dev.off()
+
+png( paste0(RESULT_PATH, "/SignPlot.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 300 )
+signeR::SignPlot(signatures$SignExposures)
+dev.off()
+
+png( paste0(RESULT_PATH, "/SignHeat.png"), width=1080, height=1900, units = "px", pointsize = 10, res = 300 )
+signeR::SignHeat(signatures$SignExposures)
+dev.off()
+
+png( paste0(RESULT_PATH, "/ExposureBoxplot.png"), width=1920, height=1080, units = "px", pointsize = 8, res = 400 )
+signeR::ExposureBoxplot(signatures$SignExposures)
+dev.off()
+
+png( paste0(RESULT_PATH, "/ExposureBarplot.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 400 )
+signeR::ExposureBarplot(signatures$SignExposures, relative=TRUE)
+dev.off()
+
+png( paste0(RESULT_PATH, "/ExposureHeat.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 300 )
+signeR::ExposureHeat(signatures$SignExposures)
+dev.off()
+
+png( paste0(RESULT_PATH, "/Hieraquical_Clustering.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 300 )
+HCE <- HClustExp(signatures$SignExposures,method.dist="euclidean", method.hclust="average")
+dev.off()
+
+png( paste0(RESULT_PATH, "/Fuzzy_Clustering.png"), width=1920, height=1080, units = "px", pointsize = 10, res = 300 )
+FCE <- FuzzyClustExp(signatures$SignExposures, Clim=c(3,7))
+dev.off()

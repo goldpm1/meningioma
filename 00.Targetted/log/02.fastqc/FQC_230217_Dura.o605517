@@ -1,0 +1,11 @@
+***Start_time: Tue May  2 15:03:50 KST 2023
+Sample_ID: 230217
+FASTQ_PATH_1: /data/project/Meningioma/00.Targetted/01.QC/01.fastp/Dura/230217_Dura.R1.fq.gz
+FASTQ_PATH_2: /data/project/Meningioma/00.Targetted/01.QC/01.fastp/Dura/230217_Dura.R2.fq.gz
+FASQTC_PATH: /data/project/Meningioma/00.Targetted/01.QC/02.fastqc/Dura
+Analysis complete for 230217_Dura.R1.fq.gz
+Analysis complete for 230217_Dura.R2.fq.gz
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Tue May  2 15:12:11 KST 2023

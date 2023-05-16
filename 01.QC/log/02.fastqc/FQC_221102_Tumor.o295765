@@ -1,0 +1,11 @@
+***Start_time: 2023. 02. 25. (토) 00:36:32 KST
+Sample_ID: 221102
+FASTQ_PATH_1: /home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221102_Tumor.R1.fq.gz
+FASTQ_PATH_2: /home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221102_Tumor.R2.fq.gz
+FASQTC_PATH: /home/goldpm1/Meningioma/01.QC/02.fastqc/Tumor
+Analysis complete for 221102_Tumor.R1.fq.gz
+Analysis complete for 221102_Tumor.R2.fq.gz
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2023. 02. 25. (토) 00:50:54 KST

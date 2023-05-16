@@ -1,0 +1,24 @@
+{
+    "id": "EAB59AF2",
+    "path": "~/Meningioma/script/31.Clonality/MutationTimeR/MutationTimer.R",
+    "project_path": "MutationTimer.R",
+    "type": "r_source",
+    "hash": "2297091184",
+    "contents": "",
+    "dirty": false,
+    "created": 1677803772045.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "cursorPosition": "45,0",
+        "scrollLine": "35"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1677897800,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1677897800215,
+    "read_only": false,
+    "read_only_alternatives": []
+}

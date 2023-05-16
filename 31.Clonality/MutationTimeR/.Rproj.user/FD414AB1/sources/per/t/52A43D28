@@ -1,0 +1,24 @@
+{
+    "id": "52A43D28",
+    "path": "~/Meningioma/script/31.Clonality/MutationTimeR/MutationTimer_SeYoung.R",
+    "project_path": "MutationTimer_SeYoung.R",
+    "type": "r_source",
+    "hash": "3224281162",
+    "contents": "",
+    "dirty": false,
+    "created": 1677803821018.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "cursorPosition": "32,0",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1677897804,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1677897804526,
+    "read_only": false,
+    "read_only_alternatives": []
+}

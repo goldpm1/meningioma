@@ -1,0 +1,10 @@
+***Start_time: Tue May  2 22:05:05 KST 2023
+/data/project/Meningioma/00.Targetted/03.HC2/03.HF/230217/Dura/230217_Dura.DP100.vcf
+/home/goldpm1/reference/genome.fa
+/data/project/Meningioma/00.Targetted/03.HC2/04.vep/230217/Dura/230217_Dura.DP100.vep.vcf
+bgzip start
+bgzip end
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Tue May  2 22:20:30 KST 2023

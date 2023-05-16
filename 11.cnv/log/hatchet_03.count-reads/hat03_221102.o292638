@@ -1,0 +1,21 @@
+***Start_time: Wed Feb 22 10:29:58 KST 2023
+Wed Feb 22 10:29:59 KST 2023
+python3 -m hatchet count-reads     --tumors  /home/goldpm1/Meningioma/02.Align/Tumor/05.Final_bam/221102_Tumor.bam /home/goldpm1/Meningioma/02.Align/Dura/05.Final_bam/221102_Dura.bam --samples 221102_Blood 221102_Tumor 221102_Dura --normal /home/goldpm1/Meningioma/02.Align/Blood/05.Final_bam/221102_Blood.bam --refversion hg38 --baffile /home/goldpm1/Meningioma/11.cnv/3.hatchet/02.count-alleles/221102/221102.outputnormal.tsv     --outdir /home/goldpm1/Meningioma/11.cnv/3.hatchet/03.count-reads/221102     --samtools /opt/Yonsei/samtools/1.7/ --processes 3  --readquality 20 
+``Error in chromosome chr5:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+Error in chromosome chr9:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+Error in chromosome chr13:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+Error in chromosome chr19:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+Error in chromosome chr3:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+Error in chromosome chr7:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+Error in chromosome chr17:
+[91mExpected 2 samples, found 1 samples in SNPs file.[0m
+--------
+Job_exited_code: 1 (Check your Error log file or Contact to admin)
+--------
+***End_time: Wed Feb 22 10:53:38 KST 2023

@@ -1,0 +1,45 @@
+[95m[1m# Parsing and checking input arguments
+[0m[95m[1m# Reading input BBC file
+[0m[95m[1m# Bin's clusters are selected accordingly to the provided thresholds
+[0m[96m## Selected clusters: 
+2:	SIZE= 211.0,	# CHRS= {'chr17', 'chr11', 'chr22', 'chr10', 'chr6', 'chr14', 'chr8', 'chr4', 'chr18', 'chr7', 'chr21', 'chr9', 'chr19', 'chr16', 'chr1'}
+1:	SIZE= 247.0,	# CHRS= {'chr17', 'chr2', 'chr5', 'chr7', 'chr13', 'chr15', 'chr9', 'chr20', 'chr1', 'chr12', 'chr3'}
+[0m[95m[1m# [BAF] Plotting B-allele frequency (BAF) for all samples in /home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930/ballelefrequency.pdf
+[0m[96m## Plotting for all samples..
+[0m[96m## Plotting for 220930_Dura..
+[0m[96m## Plotting for 220930_Tumor..
+[0m[95m[1m# Parsing and checking input arguments
+[0m[95m[1m# Reading input BBC file
+[0m[95m[1m# Bin's clusters are selected accordingly to the provided thresholds
+[0m[96m## Selected clusters: 
+2:	SIZE= 211.0,	# CHRS= {'chr10', 'chr17', 'chr11', 'chr22', 'chr8', 'chr4', 'chr21', 'chr1', 'chr6', 'chr9', 'chr18', 'chr16', 'chr14', 'chr7', 'chr19'}
+1:	SIZE= 247.0,	# CHRS= {'chr20', 'chr17', 'chr12', 'chr7', 'chr1', 'chr9', 'chr13', 'chr3', 'chr2', 'chr15', 'chr5'}
+[0m[95m[1m# [CBAF] Plotting the clustered B-allele frequency (BAF) for each sample in /home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930/ballelefrequency_clustered.pdf
+[0m[96m## Plotting for 220930_Dura..
+[0m[96m## Plotting for 220930_Tumor..
+[0m[95m[1m# Parsing and checking input arguments
+[0m[95m[1m# Reading input BBC file
+[0m[95m[1m# Bin's clusters are selected accordingly to the provided thresholds
+[0m[96m## Selected clusters: 
+2:	SIZE= 211.0,	# CHRS= {'chr16', 'chr8', 'chr6', 'chr19', 'chr14', 'chr11', 'chr1', 'chr17', 'chr21', 'chr4', 'chr7', 'chr10', 'chr9', 'chr22', 'chr18'}
+1:	SIZE= 247.0,	# CHRS= {'chr2', 'chr5', 'chr1', 'chr12', 'chr20', 'chr17', 'chr7', 'chr3', 'chr9', 'chr13', 'chr15'}
+[0m[95m[1m# [BB] Plotting RDR-BB for all samples in /home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930/bb.pdf
+[0m[96m## Plotting for 220930_Dura..
+[0m[96m## Plotting for 220930_Tumor..
+[0m[95m[1m# Parsing and checking input arguments
+[0m[95m[1m# Reading input BBC file
+[0m[95m[1m# Bin's clusters are selected accordingly to the provided thresholds
+[0m[96m## Selected clusters: 
+1:	SIZE= 247.0,	# CHRS= {'chr13', 'chr20', 'chr9', 'chr15', 'chr2', 'chr5', 'chr12', 'chr17', 'chr7', 'chr3', 'chr1'}
+2:	SIZE= 211.0,	# CHRS= {'chr14', 'chr22', 'chr9', 'chr16', 'chr4', 'chr18', 'chr19', 'chr8', 'chr6', 'chr11', 'chr17', 'chr7', 'chr21', 'chr10', 'chr1'}
+[0m[95m[1m# [CBB] Plotting clustered RDR-BB for all samples in /home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930/bb_clustered.png
+[0m[95m[1m# Parsing and checking input arguments
+[0m[95m[1m# Reading input BBC file
+[0m[95m[1m# Bin's clusters are selected accordingly to the provided thresholds
+[0m[96m## Selected clusters: 
+2:	SIZE= 211.0,	# CHRS= {'chr21', 'chr10', 'chr1', 'chr14', 'chr4', 'chr7', 'chr9', 'chr11', 'chr19', 'chr17', 'chr18', 'chr22', 'chr6', 'chr16', 'chr8'}
+1:	SIZE= 247.0,	# CHRS= {'chr15', 'chr1', 'chr3', 'chr7', 'chr9', 'chr12', 'chr17', 'chr20', 'chr2', 'chr5', 'chr13'}
+[0m[95m[1m# [CRD] Plotting the clustered read-depth ratio (RDR) for each sample in /home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930/readdepthratio_clustered.pdf
+[0m[96m## Plotting for 220930_Dura..
+[0m[96m## Plotting for 220930_Tumor..
+[0m

@@ -1,0 +1,10 @@
+***Start_time: 2023. 02. 25. (토) 00:51:59 KST
+/data/resource/reference/human/UCSC/hg38/WholeGenomeFasta/genome.fa
+/home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221102_Tumor.R1.fq.gz
+/home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221102_Tumor.R2.fq.gz
+2023. 02. 25. (토) 01:35:27 KST
+bwamem done
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2023. 02. 25. (토) 01:36:33 KST

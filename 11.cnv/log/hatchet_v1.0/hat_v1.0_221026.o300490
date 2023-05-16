@@ -1,0 +1,39 @@
+***Start_time: Tue Feb 28 09:49:13 KST 2023
+Tue Feb 28 09:49:14 KST 2023
+/opt/Yonsei/python/3.8.1/bin/python3 -m hatchet solve -i /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk -n 2,6 -p 400 -u 0.06 -eD 6 -eT 12 -g 0.35 -l 0.6 -j 3 -r 15089 --diploid --runningdir /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/07.RES/221026
+[96m## solver:	/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/solve
+## input:	/home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk
+## seg:	/home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk.seg
+## bbc:	/home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk.bbc
+## ln:	2
+## un:	6
+## clonal:	None
+## ampdel:	True
+## d:	None
+## eD:	6
+## eT:	12
+## ts:	0.008
+## tc:	1
+## td:	0.01
+## tR:	0.08
+## tB:	0.04
+## mR:	0.08
+## mB:	0.04
+## limit:	0.6
+## g:	0.35
+## p:	400
+## j:	3
+## r:	11481
+## s:	None
+## m:	None
+## u:	0.06
+## f:	None
+## M:	2
+## x:	/home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/07.RES/221026
+## diploid:	True
+## tetraploid:	False
+## v:	2
+[0m--------
+Job_exited_code: 1 (Check your Error log file or Contact to admin)
+--------
+***End_time: Tue Feb 28 09:49:25 KST 2023

@@ -1,0 +1,10 @@
+***Start_time: Thu Dec  8 16:20:08 KST 2022
+/data/resource/reference/human/UCSC/hg38/WholeGenomeFasta/genome.fa
+/home/goldpm1/Meningioma/01.QC/01.fastp/Dura/221026_Dura.R1.fq.gz
+/home/goldpm1/Meningioma/01.QC/01.fastp/Dura/221026_Dura.R2.fq.gz
+Thu Dec  8 17:26:49 KST 2022
+bwamem done
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Thu Dec  8 17:26:50 KST 2022

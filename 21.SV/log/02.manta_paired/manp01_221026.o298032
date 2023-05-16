@@ -1,0 +1,15 @@
+***Start_time: Sun Feb 26 14:17:44 KST 2023
+/opt/Yonsei/python/2.7.17/bin/python2 /opt/Yonsei/Manta/1.6.0/bin/configManta.py --referenceFasta /data/resource/reference/human/UCSC/hg38/WholeGenomeFasta/genome.fa --bam /home/goldpm1/Meningioma/02.Align/Blood/05.Final_bam/221026_Blood.bam --bam /home/goldpm1/Meningioma/02.Align/Tumor/05.Final_bam/221026_Tumor.bam  --bam /home/goldpm1/Meningioma/02.Align/Dura/05.Final_bam/221026_Dura.bam  --runDir /home/goldpm1/Meningioma/21.SV/02.manta_paired/01.raw/221026 --generateEvidenceBam --exome --callRegions /home/goldpm1/resources/Agilent_SureSelectXT_Human_All_Exon_Kit_V5_hg38/S04380110_Covered.bed.gz 
+
+Successfully created workflow run script.
+To execute the workflow, run the following script and set appropriate options:
+
+/home/goldpm1/Meningioma/21.SV/02.manta_paired/01.raw/221026/runWorkflow.py
+Sun Feb 26 14:17:53 KST 2023
+Configuration done
+Sun Feb 26 14:35:40 KST 2023
+Execution done
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Sun Feb 26 14:35:41 KST 2023

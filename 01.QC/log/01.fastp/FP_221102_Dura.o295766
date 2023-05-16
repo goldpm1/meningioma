@@ -1,0 +1,10 @@
+***Start_time: 2023. 02. 24. (금) 23:23:53 KST
+SampleID: 221102
+FASTQ_PATH_1: /home/goldpm1/Meningioma/01.QC/00.raw/Dura/221102_Dura_1.fq.gz
+FASTQ_PATH_2: /home/goldpm1/Meningioma/01.QC/00.raw/Dura/221102_Dura_2.fq.gz
+FASTP_PATH_1: /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/221102_Dura.R1.fq
+FASTP_PATH_2: /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/221102_Dura.R2.fq
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2023. 02. 25. (토) 01:18:50 KST

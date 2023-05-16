@@ -1,0 +1,17 @@
+***Start_time: Wed Mar 15 09:59:22 KST 2023
+Wed Mar 15 10:22:45 KST 2023
+Mark & Remove duplicate done
+Wed Mar 15 10:37:42 KST 2023
+AddOrReplaceRG done
+Tool returned:
+SUCCESS
+Wed Mar 15 13:23:55 KST 2023
+1st BaseRecalibrator done
+Wed Mar 15 13:54:56 KST 2023
+1st ApplyBQSR done
+Left alignment done
+Wed Mar 15 13:59:36 KST 2023
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Wed Mar 15 13:59:36 KST 2023

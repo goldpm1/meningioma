@@ -1,0 +1,6 @@
+[1m[95m[2023-Feb-22 10:57:06]# Parsing and checking input arguments
+[0musage: __main__.py [-h] -A ARRAY -t TOTALCOUNTS -b BAFFILE -o OUTFILE
+                   [--msr MSR] [--mtr MTR] [-j PROCESSES] [-p PHASE]
+                   [-s MAX_BLOCKSIZE] [-m MAX_SPB] [-a ALPHA] [--ss_em] [-z]
+                   -V REFVERSION
+__main__.py: error: argument -b/--baffile: expected one argument

@@ -1,0 +1,24 @@
+{
+    "id": "A6845532",
+    "path": "~/Meningioma/script/41.Signature/signeR/signeR_pipe_01.multi_sample.R",
+    "project_path": "signeR_pipe_01.multi_sample.R",
+    "type": "r_source",
+    "hash": "0",
+    "contents": "",
+    "dirty": true,
+    "created": 1677813241883.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "cursorPosition": "39,28",
+        "scrollLine": "0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1677825200,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1678254264313,
+    "read_only": false,
+    "read_only_alternatives": []
+}

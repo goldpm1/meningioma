@@ -1,0 +1,20 @@
+[1m[95m[2023-Feb-22 10:57:17]# Parsing and checking input arguments
+[0m[92m
+	bbfile: /home/goldpm1/Meningioma/11.cnv/3.hatchet/05.combine-counts/221026/221026.tsv
+	diploidbaf: 0.1
+	seed: 0
+	decoding: map
+	minK: 2
+	maxK: 30
+	exactK: 0
+	covar: diag
+	transmat: diag
+	tau: 1e-06
+	outsegments: /home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/221026/221026.seg
+	outbins: /home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/221026/221026.bbc
+[0m[1m[95m[2023-Feb-22 10:57:17]# Reading the combined BB file
+[0m[1m[95m[2023-Feb-22 10:57:17]# Clustering bins by RD and BAF across tumor samples using locality
+[0m[1m[95m[2023-Feb-22 10:57:29]# Checking consistency of results
+[0m[1m[95m[2023-Feb-22 10:57:29]# Writing output
+[0m[1m[95m[2023-Feb-22 10:57:29]# Done
+[0m

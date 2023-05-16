@@ -1,0 +1,17 @@
+***Start_time: Fri Dec  9 17:09:54 KST 2022
+Fri Dec  9 17:23:07 KST 2022
+Mark & Remove duplicate done
+Fri Dec  9 17:27:59 KST 2022
+AddOrReplaceRG done
+Tool returned:
+SUCCESS
+Fri Dec  9 19:40:49 KST 2022
+1st BaseRecalibrator done
+Fri Dec  9 19:54:58 KST 2022
+1st ApplyBQSR done
+Left alignment done
+Fri Dec  9 19:56:57 KST 2022
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Fri Dec  9 19:56:58 KST 2022

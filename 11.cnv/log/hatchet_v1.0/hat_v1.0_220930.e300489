@@ -1,0 +1,37 @@
+[95m[1m# Checking and parsing input arguments
+[0m[95m[1m# Reading and parsing clustered bins in BBC file
+[0m[95m[1m# Reading and parsing bin clusters in SEG file
+[0m[95m[1m# Computing the cluster sizes
+[0m[95m[1m# Filtering clusters based on covered genome size and covered chromosomes
+[0m[96m# Selected clusters: 21, 34, 22, 31, 18, 26, 4, 8, 35
+[0m[96m## Features of selected clusters:
+[0m[96m## 21: SIZE= 363132.0	#CHRS= 17	(RDR, BAF)= (0.9224157683544761, 0.0005949292986021541)-(0.5999153578848232, 0.21948345517506734)
+## 34: SIZE= 427237.0	#CHRS= 20	(RDR, BAF)= (0.8961320971461569, 0.5)-(0.9015787147107458, 0.5)
+## 22: SIZE= 104306.0	#CHRS= 21	(RDR, BAF)= (0.9747835449066036, 0.22654320987654322)-(1.1212748024787913, 0.3799056890781868)
+## 31: SIZE= 2697765.0	#CHRS= 22	(RDR, BAF)= (0.9195413554087959, 0.0008324989886896088)-(1.0709045896037148, 0.42928822355349666)
+## 18: SIZE= 245427.0	#CHRS= 22	(RDR, BAF)= (0.937254588276948, 0.45585034741083835)-(1.2094491363041404, 0.3606035098187553)
+## 26: SIZE= 688494.0	#CHRS= 21	(RDR, BAF)= (0.8972322864746411, 0.5)-(1.1319727515801743, 0.3872319629384159)
+## 4: SIZE= 72194.0	#CHRS= 21	(RDR, BAF)= (0.9060462721237056, 0.43247241273842757)-(0.8189345418077113, 0.46369169002485916)
+## 8: SIZE= 164549.0	#CHRS= 13	(RDR, BAF)= (0.8995793408101996, 0.4936512808125959)-(0.596346847858461, 0.2224463872076515)
+## 35: SIZE= 81271.0	#CHRS= 18	(RDR, BAF)= (0.9010264407506661, 0.21420067622267727)-(0.9288873100352407, 0.4879731917814662)
+[0m[95m[1m# Finding the neutral diploid/tetraploid cluster
+[0m[96m## Cluster selected as neutral (diploid/tetraploid) is 34
+[0m[95m[1m# Running diploid
+[0m[95m[1m## Running diploid with 2 clones
+[0mTraceback (most recent call last):
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/runpy.py", line 193, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/__main__.py", line 47, in <module>
+    solve([solve_bin] + args)
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/bin/HATCHet.py", line 214, in main
+    diploidObjs = runningDiploid(neutral=neutral, args=args)
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/bin/HATCHet.py", line 380, in runningDiploid
+    results.append((n , execute(args, basecmd, n, outprefix), outprefix))
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/bin/HATCHet.py", line 643, in execute
+    raise RuntimeError(error("The following command failed: \n\t\t{}\nwith {}\n".format(cmd, buffer)))
+RuntimeError: [91m[1mThe following command failed: 
+		/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/solve /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/220930/bulk -f  -e 6 -j 3 -p 400 -u 0.06 -r 11481 -M 2 -v 2 -c 34:1:1 -n 2 -o /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/07.RES/220930/results.diploid.n2
+with ['\x1b[95m\x1b[1m[09:49:20]### Parsing and checking input arguments\t\x1b[0m', '\x1b[92m[09:49:20]## \tInput prefix:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/220930/bulk', 'Input SEG:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/220930/bulk.seg', 'Input BBC:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/220930/bulk.bbc', 'Number of clones:  2', 'Clonal copy numbers:  { 34 [Cluster] : 1|1 [CN] }', 'Help message:  0', 'Maximum number of copy-number states:  -1', 'Maximum integer copy number:  6', 'Number of jobs:  3', 'Number of seeds:  400', 'Minimum tumor-clone threshold:  0.06', 'Maximum resident memory:  -1', 'Time limit:  -1', 'Maximum number of iteratios:  10', 'Random seed:  11481', 'Solving mode:  Coordinate-descent only', 'Verbose:  2', 'Output prefix:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/07.RES/220930/results.diploid.n2', 'Diploid threshold:  0.1', 'Base:  1', 'Force amp-del:  1\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:20]### Reading the input SEG file\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:20]### Scale the read-depth ratios into fractional copy numbers using the provided copy numbers\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:20]### Compute allele-specific fractional copy numbers using BAF\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:20]### Starting coordinate descent algorithm on 400 seeds\t\x1b[0m', '\x1b[92m[09:49:20]## Coordinate Descence {\t\x1b[0m', "terminate called after throwing an instance of 'GRBException'", '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+[0m

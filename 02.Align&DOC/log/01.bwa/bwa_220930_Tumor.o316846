@@ -1,0 +1,10 @@
+***Start_time: Wed Mar 15 09:09:21 KST 2023
+/home/goldpm1/reference/genome.fa
+/home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/220930_Tumor.R1.fq.gz
+/home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/220930_Tumor.R2.fq.gz
+Wed Mar 15 09:49:28 KST 2023
+bwamem done
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Wed Mar 15 09:49:29 KST 2023

@@ -1,0 +1,7 @@
+***Start_time: Wed Feb 22 10:53:51 KST 2023
+Wed Feb 22 10:53:51 KST 2023
+python3 -m hatchet cluster-bins /home/goldpm1/Meningioma/11.cnv/3.hatchet/05.combine-counts/221102/221102.tsv     --decoding map --outbins /home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/221102/221102.bbc --outsegments /home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/221102/221102.seg
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Wed Feb 22 10:54:13 KST 2023

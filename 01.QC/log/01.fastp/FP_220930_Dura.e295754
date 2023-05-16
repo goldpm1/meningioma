@@ -1,0 +1,52 @@
+Detecting adapter sequence for read1...
+>Illumina TruSeq Adapter Read 1
+AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+
+Detecting adapter sequence for read2...
+>Illumina TruSeq Adapter Read 2
+AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+
+Read1 before filtering:
+total reads: 85070142
+total bases: 12845591442
+Q20 bases: 12635534862(98.3648%)
+Q30 bases: 12271679167(95.5322%)
+
+Read2 before filtering:
+total reads: 85070142
+total bases: 12845591442
+Q20 bases: 12614397829(98.2002%)
+Q30 bases: 12195739048(94.941%)
+
+Read1 after filtering:
+total reads: 84290127
+total bases: 12247465014
+Q20 bases: 12076677823(98.6055%)
+Q30 bases: 11743391593(95.8843%)
+
+Read2 aftering filtering:
+total reads: 84290127
+total bases: 12249644661
+Q20 bases: 12080370027(98.6181%)
+Q30 bases: 11703387018(95.5406%)
+
+Filtering result:
+reads passed filter: 168580254
+reads failed due to low quality: 1154490
+reads failed due to too many N: 5504
+reads failed due to too short: 364506
+reads failed due to low complexity: 35530
+reads with adapter trimmed: 40650151
+bases trimmed due to adapters: 936323492
+reads with polyX in 3' end: 900159
+bases trimmed in polyX tail: 13748769
+
+Duplication rate: 28.3382%
+
+Insert size peak (evaluated by paired-end reads): 158
+
+JSON report: fastp.json
+HTML report: /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/220930.html
+
+fastp -i /home/goldpm1/Meningioma/01.QC/00.raw/Dura/220930_Dura_1.fq.gz -I /home/goldpm1/Meningioma/01.QC/00.raw/Dura/220930_Dura_2.fq.gz -o /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/220930_Dura.R1.fq -O /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/220930_Dura.R2.fq -p -w 5 -5 -3 --trim_poly_g --trim_poly_x --length_required 15 -y --detect_adapter_for_pe -h /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/220930.html 
+fastp v0.21.0, time used: 786 seconds

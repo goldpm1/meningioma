@@ -1,0 +1,97 @@
+***Start_time: Wed Feb 22 10:55:20 KST 2023
+Wed Feb 22 10:55:21 KST 2023
+python3 -m hatchet plot-bins      /home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/220930/220930.bbc --rundir /home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930  -c BAF -m Set1 --figsize 9,2.5 --markersize 1 --ymax 1 --ymin 0
+[96m## input:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/220930/220930.bbc
+## command:	BAF
+## segfile:	None
+## ct:	None
+## st:	None
+## cmap:	Set1
+## resolution:	None
+## xmin:	None
+## xmax:	None
+## ymin:	0.0
+## ymax:	1.0
+## x:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930
+## figsize:	(9.0, 2.5)
+## markersize:	50
+## colwrap:	2
+## fontscale:	2.0
+## pdf:	False
+## dpi:	300
+[0m[96m## input:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/220930/220930.bbc
+## command:	CBAF
+## segfile:	None
+## ct:	None
+## st:	None
+## cmap:	Set1
+## resolution:	None
+## xmin:	None
+## xmax:	None
+## ymin:	0.0
+## ymax:	1.0
+## x:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930
+## figsize:	(9.0, 2.5)
+## markersize:	50
+## colwrap:	2
+## fontscale:	2.0
+## pdf:	False
+## dpi:	300
+[0m[96m## input:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/220930/220930.bbc
+## command:	BB
+## segfile:	None
+## ct:	None
+## st:	None
+## cmap:	Set1
+## resolution:	None
+## xmin:	None
+## xmax:	None
+## ymin:	None
+## ymax:	None
+## x:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930
+## figsize:	(8.0, 6.0)
+## markersize:	50
+## colwrap:	2
+## fontscale:	2.0
+## pdf:	False
+## dpi:	300
+[0m[96m## input:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/220930/220930.bbc
+## command:	CBB
+## segfile:	None
+## ct:	None
+## st:	0.005
+## cmap:	Set1
+## resolution:	None
+## xmin:	None
+## xmax:	None
+## ymin:	None
+## ymax:	None
+## x:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930
+## figsize:	None
+## markersize:	50
+## colwrap:	1
+## fontscale:	2.0
+## pdf:	False
+## dpi:	300
+[0m[96m## input:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/06.cluster-bins/220930/220930.bbc
+## command:	CRD
+## segfile:	None
+## ct:	None
+## st:	None
+## cmap:	Set1
+## resolution:	None
+## xmin:	None
+## xmax:	None
+## ymin:	None
+## ymax:	None
+## x:	/home/goldpm1/Meningioma/11.cnv/3.hatchet/07.plot-bins/220930
+## figsize:	(9.0, 2.5)
+## markersize:	30
+## colwrap:	2
+## fontscale:	2.0
+## pdf:	False
+## dpi:	300
+[0m--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Wed Feb 22 10:56:04 KST 2023

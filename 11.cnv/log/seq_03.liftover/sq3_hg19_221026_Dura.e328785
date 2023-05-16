@@ -1,0 +1,6 @@
+2023-03-21 02:23:34 [INFO]  Read the chain file "/home/goldpm1/resources/hg19ToHg38.over.chain.gz" 
+Start coordinate is not an integer. skip chromosome	start.pos	end.pos	Bf	N.BAF	sd.BAF	depth.ratio	N.ratio	sd.ratio	CNt	A	B	LPP
+/opt/sge/default/spool/compute14/job_scripts/328785: line 39: /221026_Dura_segments.txt: Permission denied
+cat: /home/goldpm1/Meningioma/11.cnv/2.sequenza/hg19to38/221026_Dura_segments.body.txt: input file is output file
+2023-03-21 02:23:36 [INFO]  Read the chain file "/home/goldpm1/resources/hg19ToHg38.over.chain.gz" 
+Start coordinate is not an integer. skip chromosome	position	1	good.reads	adjusted.ratio	F	mutation	CNn	CNt	Mt	LPP

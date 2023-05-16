@@ -1,0 +1,31 @@
+***Start_time: Sun Feb 26 14:17:09 KST 2023
+cnv_facets.R -t /home/goldpm1/Meningioma/02.Align/Dura/05.Final_bam/221026_Dura.bam -n /home/goldpm1/Meningioma/02.Align/Blood/05.Final_bam/221026_Blood.bam -vcf /data/public/dbSNP/b154/GRCh38/GCF_000001405.38.re.common.vcf.gz --targets /home/goldpm1/resources/Agilent_SureSelectXT_Human_All_Exon_Kit_V5_hg38/S04380110_Covered.bed -o /home/goldpm1/Meningioma/11.cnv/5.facetcnv/221026/Dura/221026 -g hg38
+Finished in 77.830000 seconds.
+Finished in 63.380000 seconds.
+Finished in 48.440000 seconds.
+Finished in 34.700000 seconds.
+Finished in 38.190000 seconds.
+Finished in 44.010000 seconds.
+Finished in 41.250000 seconds.
+Finished in 30.620000 seconds.
+Finished in 32.850000 seconds.
+Finished in 34.020000 seconds.
+Finished in 45.930000 seconds.
+Finished in 42.430000 seconds.
+Finished in 17.970000 seconds.
+Finished in 26.510000 seconds.
+Finished in 27.700000 seconds.
+Finished in 31.330000 seconds.
+Finished in 42.510000 seconds.
+Finished in 13.840000 seconds.
+Finished in 43.920000 seconds.
+Finished in 19.570000 seconds.
+Finished in 9.470000 seconds.
+Finished in 15.830000 seconds.
+Finished in 17.890000 seconds.
+Finished in 1.260000 seconds.
+Finished in 0.100000 seconds.
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Sun Feb 26 14:36:24 KST 2023

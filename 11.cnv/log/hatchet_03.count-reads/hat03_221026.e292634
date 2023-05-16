@@ -1,0 +1,211 @@
+
+EnvironmentNameNotFound: Could not find conda environment: cnvpytor
+You can list all discoverable environments with `conda info --envs`.
+
+
+[1m[95m[2023-Feb-22 10:30:05]# Parsing and checking input arguments
+[0m[92m
+	bams: ['/home/goldpm1/Meningioma/02.Align/Blood/05.Final_bam/221026_Blood.bam', '/home/goldpm1/Meningioma/02.Align/Tumor/05.Final_bam/221026_Tumor.bam', '/home/goldpm1/Meningioma/02.Align/Dura/05.Final_bam/221026_Dura.bam']
+	names: ['221026_Blood', '221026_Tumor', '221026_Dura']
+	chromosomes: ['chr1', 'chr2', 'chr3', 'chr4', 'chr5', 'chr6', 'chr7', 'chr8', 'chr9', 'chr10', 'chr11', 'chr12', 'chr13', 'chr14', 'chr15', 'chr16', 'chr17', 'chr18', 'chr19', 'chr20', 'chr21', 'chr22', 'chrX', 'chrY']
+	samtools: /opt/Yonsei/samtools/1.7/samtools
+	mosdepth: mosdepth
+	tabix: tabix
+	j: 3
+	outdir: /home/goldpm1/Meningioma/11.cnv/3.hatchet/03.count-reads/221026
+	use_chr: True
+	refversion: hg38
+	baf_file: /home/goldpm1/Meningioma/11.cnv/3.hatchet/02.count-alleles/221026/221026.outputnormal.tsv
+	readquality: 20
+[0m[1m[95m[2023-Feb-22 10:30:05]Sample 221026_Blood -- Starting chromosome chr1
+[0m[1m[95m[2023-Feb-22 10:30:05]Sample 221026_Blood -- Starting chromosome chr3
+[0m[1m[95m[2023-Feb-22 10:30:05]Sample 221026_Blood -- Starting chromosome chr5
+[0m[1m[95m[2023-Feb-22 10:30:48]Sample 221026_Blood -- Done chromosome chr5
+[0m[1m[95m[2023-Feb-22 10:30:48]Sample 221026_Dura -- Starting chromosome chr5
+[0m[1m[95m[2023-Feb-22 10:30:57]Sample 221026_Blood -- Done chromosome chr3
+[0m[1m[95m[2023-Feb-22 10:30:57]Sample 221026_Dura -- Starting chromosome chr3
+[0m[1m[95m[2023-Feb-22 10:31:24]Sample 221026_Blood -- Done chromosome chr1
+[0m[1m[95m[2023-Feb-22 10:31:24]Sample 221026_Dura -- Starting chromosome chr1
+[0m[1m[95m[2023-Feb-22 10:32:12]Sample 221026_Dura -- Done chromosome chr5
+[0m[1m[95m[2023-Feb-22 10:32:12]Sample 221026_Tumor -- Starting chromosome chr5
+[0m[1m[95m[2023-Feb-22 10:32:53]Sample 221026_Dura -- Done chromosome chr3
+[0m[1m[95m[2023-Feb-22 10:32:53]Sample 221026_Tumor -- Starting chromosome chr3
+[0m[1m[95m[2023-Feb-22 10:32:55]Sample 221026_Tumor -- Done chromosome chr5
+[0m[1m[95m[2023-Feb-22 10:32:55]Sample 221026_Blood -- Starting chromosome chr6
+[0m[1m[95m[2023-Feb-22 10:33:36]Sample 221026_Blood -- Done chromosome chr6
+[0m[1m[95m[2023-Feb-22 10:33:36]Sample 221026_Dura -- Starting chromosome chr6
+[0m[1m[95m[2023-Feb-22 10:33:51]Sample 221026_Tumor -- Done chromosome chr3
+[0m[1m[95m[2023-Feb-22 10:33:51]Sample 221026_Blood -- Starting chromosome chr4
+[0m[1m[95m[2023-Feb-22 10:34:21]Sample 221026_Dura -- Done chromosome chr1
+[0m[1m[95m[2023-Feb-22 10:34:21]Sample 221026_Tumor -- Starting chromosome chr1
+[0m[1m[95m[2023-Feb-22 10:34:31]Sample 221026_Blood -- Done chromosome chr4
+[0m[1m[95m[2023-Feb-22 10:34:31]Sample 221026_Dura -- Starting chromosome chr4
+[0m[1m[95m[2023-Feb-22 10:35:41]Sample 221026_Dura -- Done chromosome chr6
+[0m[1m[95m[2023-Feb-22 10:35:41]Sample 221026_Tumor -- Starting chromosome chr6
+[0m[1m[95m[2023-Feb-22 10:35:43]Sample 221026_Tumor -- Done chromosome chr1
+[0m[1m[95m[2023-Feb-22 10:35:43]Sample 221026_Blood -- Starting chromosome chr2
+[0m[1m[95m[2023-Feb-22 10:36:08]Sample 221026_Dura -- Done chromosome chr4
+[0m[1m[95m[2023-Feb-22 10:36:08]Sample 221026_Tumor -- Starting chromosome chr4
+[0m[1m[95m[2023-Feb-22 10:36:21]Sample 221026_Tumor -- Done chromosome chr6
+[0m[1m[95m[2023-Feb-22 10:36:21]Sample 221026_Blood -- Starting chromosome chr7
+[0m[1m[95m[2023-Feb-22 10:36:44]Sample 221026_Blood -- Done chromosome chr2
+[0m[1m[95m[2023-Feb-22 10:36:44]Sample 221026_Dura -- Starting chromosome chr2
+[0m[1m[95m[2023-Feb-22 10:36:52]Sample 221026_Tumor -- Done chromosome chr4
+[0m[1m[95m[2023-Feb-22 10:36:52]Sample 221026_Blood -- Starting chromosome chr9
+[0m[1m[95m[2023-Feb-22 10:37:09]Sample 221026_Blood -- Done chromosome chr7
+[0m[1m[95m[2023-Feb-22 10:37:09]Sample 221026_Dura -- Starting chromosome chr7
+[0m[1m[95m[2023-Feb-22 10:37:31]Sample 221026_Blood -- Done chromosome chr9
+[0m[1m[95m[2023-Feb-22 10:37:31]Sample 221026_Dura -- Starting chromosome chr9
+[0m[1m[95m[2023-Feb-22 10:38:57]Sample 221026_Dura -- Done chromosome chr9
+[0m[1m[95m[2023-Feb-22 10:38:57]Sample 221026_Tumor -- Starting chromosome chr9
+[0m[1m[95m[2023-Feb-22 10:39:00]Sample 221026_Dura -- Done chromosome chr7
+[0m[1m[95m[2023-Feb-22 10:39:00]Sample 221026_Tumor -- Starting chromosome chr7
+[0m[1m[95m[2023-Feb-22 10:39:39]Sample 221026_Tumor -- Done chromosome chr9
+[0m[1m[95m[2023-Feb-22 10:39:39]Sample 221026_Blood -- Starting chromosome chr10
+[0m[1m[95m[2023-Feb-22 10:39:40]Sample 221026_Dura -- Done chromosome chr2
+[0m[1m[95m[2023-Feb-22 10:39:40]Sample 221026_Tumor -- Starting chromosome chr2
+[0m[1m[95m[2023-Feb-22 10:39:43]Sample 221026_Tumor -- Done chromosome chr7
+[0m[1m[95m[2023-Feb-22 10:39:43]Sample 221026_Blood -- Starting chromosome chr8
+[0m[1m[95m[2023-Feb-22 10:40:11]Sample 221026_Blood -- Done chromosome chr10
+[0m[1m[95m[2023-Feb-22 10:40:11]Sample 221026_Dura -- Starting chromosome chr10
+[0m[1m[95m[2023-Feb-22 10:40:12]Sample 221026_Blood -- Done chromosome chr8
+[0m[1m[95m[2023-Feb-22 10:40:12]Sample 221026_Dura -- Starting chromosome chr8
+[0m[1m[95m[2023-Feb-22 10:40:48]Sample 221026_Tumor -- Done chromosome chr2
+[0m[1m[95m[2023-Feb-22 10:40:48]Sample 221026_Blood -- Starting chromosome chr11
+[0m[1m[95m[2023-Feb-22 10:41:16]Sample 221026_Dura -- Done chromosome chr8
+[0m[1m[95m[2023-Feb-22 10:41:16]Sample 221026_Tumor -- Starting chromosome chr8
+[0m[1m[95m[2023-Feb-22 10:41:23]Sample 221026_Dura -- Done chromosome chr10
+[0m[1m[95m[2023-Feb-22 10:41:23]Sample 221026_Tumor -- Starting chromosome chr10
+[0m[1m[95m[2023-Feb-22 10:41:27]Sample 221026_Blood -- Done chromosome chr11
+[0m[1m[95m[2023-Feb-22 10:41:27]Sample 221026_Dura -- Starting chromosome chr11
+[0m[1m[95m[2023-Feb-22 10:41:45]Sample 221026_Tumor -- Done chromosome chr8
+[0m[1m[95m[2023-Feb-22 10:41:45]Sample 221026_Blood -- Starting chromosome chr13
+[0m[1m[95m[2023-Feb-22 10:41:56]Sample 221026_Tumor -- Done chromosome chr10
+[0m[1m[95m[2023-Feb-22 10:41:56]Sample 221026_Blood -- Starting chromosome chr15
+[0m[1m[95m[2023-Feb-22 10:41:59]Sample 221026_Blood -- Done chromosome chr13
+[0m[1m[95m[2023-Feb-22 10:41:59]Sample 221026_Dura -- Starting chromosome chr13
+[0m[1m[95m[2023-Feb-22 10:42:20]Sample 221026_Blood -- Done chromosome chr15
+[0m[1m[95m[2023-Feb-22 10:42:20]Sample 221026_Dura -- Starting chromosome chr15
+[0m[1m[95m[2023-Feb-22 10:42:34]Sample 221026_Dura -- Done chromosome chr13
+[0m[1m[95m[2023-Feb-22 10:42:34]Sample 221026_Tumor -- Starting chromosome chr13
+[0m[1m[95m[2023-Feb-22 10:42:50]Sample 221026_Tumor -- Done chromosome chr13
+[0m[1m[95m[2023-Feb-22 10:42:50]Sample 221026_Blood -- Starting chromosome chr14
+[0m[1m[95m[2023-Feb-22 10:43:06]Sample 221026_Dura -- Done chromosome chr11
+[0m[1m[95m[2023-Feb-22 10:43:06]Sample 221026_Tumor -- Starting chromosome chr11
+[0m[1m[95m[2023-Feb-22 10:43:14]Sample 221026_Blood -- Done chromosome chr14
+[0m[1m[95m[2023-Feb-22 10:43:14]Sample 221026_Dura -- Starting chromosome chr14
+[0m[1m[95m[2023-Feb-22 10:43:18]Sample 221026_Dura -- Done chromosome chr15
+[0m[1m[95m[2023-Feb-22 10:43:18]Sample 221026_Tumor -- Starting chromosome chr15
+[0m[1m[95m[2023-Feb-22 10:43:54]Sample 221026_Tumor -- Done chromosome chr15
+[0m[1m[95m[2023-Feb-22 10:43:54]Sample 221026_Blood -- Starting chromosome chr16
+[0m[1m[95m[2023-Feb-22 10:44:11]Sample 221026_Tumor -- Done chromosome chr11
+[0m[1m[95m[2023-Feb-22 10:44:11]Sample 221026_Blood -- Starting chromosome chr12
+[0m[1m[95m[2023-Feb-22 10:44:25]Sample 221026_Dura -- Done chromosome chr14
+[0m[1m[95m[2023-Feb-22 10:44:25]Sample 221026_Tumor -- Starting chromosome chr14
+[0m[1m[95m[2023-Feb-22 10:44:29]Sample 221026_Blood -- Done chromosome chr16
+[0m[1m[95m[2023-Feb-22 10:44:29]Sample 221026_Dura -- Starting chromosome chr16
+[0m[1m[95m[2023-Feb-22 10:44:48]Sample 221026_Blood -- Done chromosome chr12
+[0m[1m[95m[2023-Feb-22 10:44:48]Sample 221026_Dura -- Starting chromosome chr12
+[0m[1m[95m[2023-Feb-22 10:44:51]Sample 221026_Tumor -- Done chromosome chr14
+[0m[1m[95m[2023-Feb-22 10:44:51]Sample 221026_Blood -- Starting chromosome chr17
+[0m[1m[95m[2023-Feb-22 10:45:35]Sample 221026_Blood -- Done chromosome chr17
+[0m[1m[95m[2023-Feb-22 10:45:35]Sample 221026_Dura -- Starting chromosome chr17
+[0m[1m[95m[2023-Feb-22 10:45:38]Sample 221026_Dura -- Done chromosome chr16
+[0m[1m[95m[2023-Feb-22 10:45:38]Sample 221026_Tumor -- Starting chromosome chr16
+[0m[1m[95m[2023-Feb-22 10:46:18]Sample 221026_Tumor -- Done chromosome chr16
+[0m[1m[95m[2023-Feb-22 10:46:18]Sample 221026_Blood -- Starting chromosome chr19
+[0m[1m[95m[2023-Feb-22 10:46:33]Sample 221026_Dura -- Done chromosome chr12
+[0m[1m[95m[2023-Feb-22 10:46:33]Sample 221026_Tumor -- Starting chromosome chr12
+[0m[1m[95m[2023-Feb-22 10:47:04]Sample 221026_Blood -- Done chromosome chr19
+[0m[1m[95m[2023-Feb-22 10:47:04]Sample 221026_Dura -- Starting chromosome chr19
+[0m[1m[95m[2023-Feb-22 10:47:08]Sample 221026_Dura -- Done chromosome chr17
+[0m[1m[95m[2023-Feb-22 10:47:08]Sample 221026_Tumor -- Starting chromosome chr17
+[0m[1m[95m[2023-Feb-22 10:47:15]Sample 221026_Tumor -- Done chromosome chr12
+[0m[1m[95m[2023-Feb-22 10:47:15]Sample 221026_Blood -- Starting chromosome chr21
+[0m[1m[95m[2023-Feb-22 10:47:22]Sample 221026_Blood -- Done chromosome chr21
+[0m[1m[95m[2023-Feb-22 10:47:22]Sample 221026_Dura -- Starting chromosome chr21
+[0m[1m[95m[2023-Feb-22 10:47:39]Sample 221026_Dura -- Done chromosome chr21
+[0m[1m[95m[2023-Feb-22 10:47:39]Sample 221026_Tumor -- Starting chromosome chr21
+[0m[1m[95m[2023-Feb-22 10:47:49]Sample 221026_Tumor -- Done chromosome chr21
+[0m[1m[95m[2023-Feb-22 10:47:49]Sample 221026_Blood -- Starting chromosome chr22
+[0m[1m[95m[2023-Feb-22 10:47:51]Sample 221026_Tumor -- Done chromosome chr17
+[0m[1m[95m[2023-Feb-22 10:47:51]Sample 221026_Blood -- Starting chromosome chr18
+[0m[1m[95m[2023-Feb-22 10:48:01]Sample 221026_Blood -- Done chromosome chr18
+[0m[1m[95m[2023-Feb-22 10:48:01]Sample 221026_Dura -- Starting chromosome chr18
+[0m[1m[95m[2023-Feb-22 10:48:04]Sample 221026_Blood -- Done chromosome chr22
+[0m[1m[95m[2023-Feb-22 10:48:04]Sample 221026_Dura -- Starting chromosome chr22
+[0m[1m[95m[2023-Feb-22 10:48:25]Sample 221026_Dura -- Done chromosome chr19
+[0m[1m[95m[2023-Feb-22 10:48:25]Sample 221026_Tumor -- Starting chromosome chr19
+[0m[1m[95m[2023-Feb-22 10:48:30]Sample 221026_Dura -- Done chromosome chr18
+[0m[1m[95m[2023-Feb-22 10:48:30]Sample 221026_Tumor -- Starting chromosome chr18
+[0m[1m[95m[2023-Feb-22 10:48:32]Sample 221026_Dura -- Done chromosome chr22
+[0m[1m[95m[2023-Feb-22 10:48:32]Sample 221026_Tumor -- Starting chromosome chr22
+[0m[1m[95m[2023-Feb-22 10:48:43]Sample 221026_Tumor -- Done chromosome chr18
+[0m[1m[95m[2023-Feb-22 10:48:43]Sample 221026_Blood -- Starting chromosome chrX
+[0m[1m[95m[2023-Feb-22 10:48:57]Sample 221026_Blood -- Done chromosome chrX
+[0m[1m[95m[2023-Feb-22 10:48:57]Sample 221026_Dura -- Starting chromosome chrX
+[0m[1m[95m[2023-Feb-22 10:48:58]Sample 221026_Tumor -- Done chromosome chr19
+[0m[1m[95m[2023-Feb-22 10:48:58]Sample 221026_Blood -- Starting chromosome chr20
+[0m[1m[95m[2023-Feb-22 10:49:12]Sample 221026_Blood -- Done chromosome chr20
+[0m[1m[95m[2023-Feb-22 10:49:12]Sample 221026_Dura -- Starting chromosome chr20
+[0m[1m[95m[2023-Feb-22 10:49:26]Sample 221026_Dura -- Done chromosome chrX
+[0m[1m[95m[2023-Feb-22 10:49:26]Sample 221026_Tumor -- Starting chromosome chrX
+[0m[1m[95m[2023-Feb-22 10:49:39]Sample 221026_Tumor -- Done chromosome chrX
+[0m[1m[95m[2023-Feb-22 10:49:39]Sample 221026_Blood -- Starting chromosome chrY
+[0m[1m[95m[2023-Feb-22 10:49:40]Sample 221026_Blood -- Done chromosome chrY
+[0m[1m[95m[2023-Feb-22 10:49:40]Sample 221026_Dura -- Starting chromosome chrY
+[0m[1m[95m[2023-Feb-22 10:49:41]Sample 221026_Dura -- Done chromosome chrY
+[0m[1m[95m[2023-Feb-22 10:49:41]Sample 221026_Tumor -- Starting chromosome chrY
+[0m[1m[95m[2023-Feb-22 10:49:44]Sample 221026_Dura -- Done chromosome chr20
+[0m[1m[95m[2023-Feb-22 10:49:44]Sample 221026_Tumor -- Starting chromosome chr20
+[0m[1m[95m[2023-Feb-22 10:48:44]Sample 221026_Tumor -- Done chromosome chr22
+[0m[1m[95m[2023-Feb-22 10:49:42]Sample 221026_Tumor -- Done chromosome chrY
+[0m[1m[95m[2023-Feb-22 10:49:55]Sample 221026_Tumor -- Done chromosome chr20
+[0m[1m[95m[2023-Feb-22 10:49:55]Starting mosdepth on sample 221026_Blood with 1 threads
+[0m[1m[95m[2023-Feb-22 10:49:55]Starting mosdepth on sample 221026_Tumor with 1 threads
+[0m[1m[95m[2023-Feb-22 10:49:55]Starting mosdepth on sample 221026_Dura with 1 threads
+[0m[1m[95m[2023-Feb-22 10:53:02]Done mosdepth on sample 221026_Blood
+[0m[1m[95m[2023-Feb-22 10:53:25]Done mosdepth on sample 221026_Tumor
+[0m[1m[95m[2023-Feb-22 10:56:02]Done mosdepth on sample 221026_Dura
+[0m[W::tbx_parse1] Coordinate <= 0 detected. Did you forget to use the -0 option?
+[W::tbx_parse1] Coordinate <= 0 detected. Did you forget to use the -0 option?
+[W::tbx_parse1] Coordinate <= 0 detected. Did you forget to use the -0 option?
+[W::tbx_parse1] Coordinate <= 0 detected. Did you forget to use the -0 option?
+[W::tbx_parse1] Coordinate <= 0 detected. Did you forget to use the -0 option?
+[W::tbx_parse1] Coordinate <= 0 detected. Did you forget to use the -0 option?
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/multiprocessing/pool.py", line 121, in worker
+    result = (True, func(*args, **kwds))
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/multiprocessing/pool.py", line 44, in mapstar
+    return list(map(*args))
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/utils/count_reads.py", line 539, in run_chromosome_wrapper
+    run_chromosome(*param)
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/utils/count_reads.py", line 535, in run_chromosome
+    raise e
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/utils/count_reads.py", line 506, in run_chromosome
+    positions, _, _ = read_snps(baf_file, chromosome, all_names)
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/utils/count_reads.py", line 314, in read_snps
+    error(f'Expected {n_samples} samples, found {len(snps.SAMPLE.unique())} samples in SNPs file.')
+ValueError: [91mExpected 2 samples, found 1 samples in SNPs file.[0m
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/runpy.py", line 193, in _run_module_as_main
+    "__main__", mod_spec)
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/runpy.py", line 85, in _run_code
+    exec(code, run_globals)
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/__main__.py", line 65, in <module>
+    sys.exit(main())
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/__main__.py", line 61, in main
+    globals()[command](args)
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/hatchet/utils/count_reads.py", line 159, in main
+    p.map(run_chromosome_wrapper, params)
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/multiprocessing/pool.py", line 268, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/multiprocessing/pool.py", line 657, in get
+    raise self._value
+ValueError: [91mExpected 2 samples, found 1 samples in SNPs file.[0m

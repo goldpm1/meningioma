@@ -1,0 +1,33 @@
+[95m[1m# Checking and parsing input arguments
+[0m[95m[1m# Reading and parsing clustered bins in BBC file
+[0m[95m[1m# Reading and parsing bin clusters in SEG file
+[0m[95m[1m# Computing the cluster sizes
+[0m[95m[1m# Filtering clusters based on covered genome size and covered chromosomes
+[0m[96m# Selected clusters: 31, 38, 27, 26, 3
+[0m[96m## Features of selected clusters:
+[0m[96m## 31: SIZE= 422938.0	#CHRS= 9	(RDR, BAF)= (0.707537736058897, 0.21227997544575938)-(0.8412788429239697, 0.4309223809863566)
+## 38: SIZE= 240896.0	#CHRS= 10	(RDR, BAF)= (0.6895710518884111, 0.2320491568307305)-(0.9685810378845525, 0.5)
+## 27: SIZE= 102752.0	#CHRS= 22	(RDR, BAF)= (1.2471340597616982, 0.3803231854298723)-(0.9918480513101066, 0.43663188379099627)
+## 26: SIZE= 518145.0	#CHRS= 22	(RDR, BAF)= (1.0861138112662772, 0.43972054964948654)-(1.0725430280191808, 0.4963951801406587)
+## 3: SIZE= 2511521.0	#CHRS= 22	(RDR, BAF)= (1.0811598270496225, 0.5)-(1.0426088010837393, 0.5)
+[0m[95m[1m# Finding the neutral diploid/tetraploid cluster
+[0m[96m## Cluster selected as neutral (diploid/tetraploid) is 3
+[0m[95m[1m# Running diploid
+[0m[95m[1m## Running diploid with 2 clones
+[0mTraceback (most recent call last):
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/runpy.py", line 193, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/__main__.py", line 47, in <module>
+    solve([solve_bin] + args)
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/bin/HATCHet.py", line 214, in main
+    diploidObjs = runningDiploid(neutral=neutral, args=args)
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/bin/HATCHet.py", line 380, in runningDiploid
+    results.append((n , execute(args, basecmd, n, outprefix), outprefix))
+  File "/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/bin/HATCHet.py", line 643, in execute
+    raise RuntimeError(error("The following command failed: \n\t\t{}\nwith {}\n".format(cmd, buffer)))
+RuntimeError: [91m[1mThe following command failed: 
+		/opt/Yonsei/python/3.8.1/lib/python3.8/site-packages/hatchet/solve /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk -f  -e 6 -j 3 -p 400 -u 0.06 -r 11481 -M 2 -v 2 -c 3:1:1 -n 2 -o /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/07.RES/221026/results.diploid.n2
+with ['\x1b[95m\x1b[1m[09:49:22]### Parsing and checking input arguments\t\x1b[0m', '\x1b[92m[09:49:22]## \tInput prefix:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk', 'Input SEG:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk.seg', 'Input BBC:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/05.BBC/221026/bulk.bbc', 'Number of clones:  2', 'Clonal copy numbers:  { 3 [Cluster] : 1|1 [CN] }', 'Help message:  0', 'Maximum number of copy-number states:  -1', 'Maximum integer copy number:  6', 'Number of jobs:  3', 'Number of seeds:  400', 'Minimum tumor-clone threshold:  0.06', 'Maximum resident memory:  -1', 'Time limit:  -1', 'Maximum number of iteratios:  10', 'Random seed:  11481', 'Solving mode:  Coordinate-descent only', 'Verbose:  2', 'Output prefix:  /home/goldpm1/Meningioma/11.cnv/4.hatchet_v1.0/07.RES/221026/results.diploid.n2', 'Diploid threshold:  0.1', 'Base:  1', 'Force amp-del:  1\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:22]### Reading the input SEG file\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:22]### Scale the read-depth ratios into fractional copy numbers using the provided copy numbers\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:22]### Compute allele-specific fractional copy numbers using BAF\t\x1b[0m', '\x1b[95m\x1b[1m[09:49:22]### Starting coordinate descent algorithm on 400 seeds\t\x1b[0m', '\x1b[92m[09:49:22]## Coordinate Descence {\t\x1b[0m', "terminate called after throwing an instance of 'GRBException'", '', '', '', '', '', '', '']
+[0m

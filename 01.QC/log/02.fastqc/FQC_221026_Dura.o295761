@@ -1,0 +1,11 @@
+***Start_time: 2023. 02. 25. (토) 04:33:26 KST
+Sample_ID: 221026
+FASTQ_PATH_1: /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/221026_Dura.R1.fq.gz
+FASTQ_PATH_2: /home/goldpm1/Meningioma/01.QC/01.fastp/Dura/221026_Dura.R2.fq.gz
+FASQTC_PATH: /home/goldpm1/Meningioma/01.QC/02.fastqc/Dura
+Analysis complete for 221026_Dura.R1.fq.gz
+Analysis complete for 221026_Dura.R2.fq.gz
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2023. 02. 25. (토) 06:07:23 KST

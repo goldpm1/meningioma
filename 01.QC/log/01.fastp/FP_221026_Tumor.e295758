@@ -1,0 +1,52 @@
+Detecting adapter sequence for read1...
+>Illumina TruSeq Adapter Read 1
+AGATCGGAAGAGCACACGTCTGAACTCCAGTCA
+
+Detecting adapter sequence for read2...
+>Illumina TruSeq Adapter Read 2
+AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+
+Read1 before filtering:
+total reads: 51713754
+total bases: 7808776854
+Q20 bases: 7629392935(97.7028%)
+Q30 bases: 7337888259(93.9698%)
+
+Read2 before filtering:
+total reads: 51713754
+total bases: 7808776854
+Q20 bases: 7555202623(96.7527%)
+Q30 bases: 7186402211(92.0298%)
+
+Read1 after filtering:
+total reads: 50930068
+total bases: 7402632539
+Q20 bases: 7254807350(98.0031%)
+Q30 bases: 6988265132(94.4024%)
+
+Read2 aftering filtering:
+total reads: 50930068
+total bases: 7403026674
+Q20 bases: 7218390457(97.5059%)
+Q30 bases: 6883409356(92.981%)
+
+Filtering result:
+reads passed filter: 101860136
+reads failed due to low quality: 1338514
+reads failed due to too many N: 198
+reads failed due to too short: 193810
+reads failed due to low complexity: 34850
+reads with adapter trimmed: 24863651
+bases trimmed due to adapters: 561767357
+reads with polyX in 3' end: 593295
+bases trimmed in polyX tail: 9722238
+
+Duplication rate: 19.7368%
+
+Insert size peak (evaluated by paired-end reads): 151
+
+JSON report: fastp.json
+HTML report: /home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221026.html
+
+fastp -i /home/goldpm1/Meningioma/01.QC/00.raw/Tumor/300X/221026_Tumor_1.fq.gz -I /home/goldpm1/Meningioma/01.QC/00.raw/Tumor/300X/221026_Tumor_2.fq.gz -o /home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221026_Tumor.R1.fq -O /home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221026_Tumor.R2.fq -p -w 5 -5 -3 --trim_poly_g --trim_poly_x --length_required 15 -y --detect_adapter_for_pe -h /home/goldpm1/Meningioma/01.QC/01.fastp/Tumor/221026.html 
+fastp v0.21.0, time used: 578 seconds

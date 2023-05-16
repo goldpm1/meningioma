@@ -1,0 +1,7 @@
+***Start_time: Wed Feb 22 10:53:41 KST 2023
+Wed Feb 22 10:53:41 KST 2023
+python3 -m hatchet combine-counts     --array /home/goldpm1/Meningioma/11.cnv/3.hatchet/03.count-reads/221102 --baffile --TOTALCOUNTS --totalcounts  --refversion hg38      --outfile /home/goldpm1/Meningioma/11.cnv/3.hatchet/05.combine-counts/221102/221102.tsv     --msr 5000 --mtr 5000 --processes 3
+--------
+Job_exited_code: 2 (Check your Error log file or Contact to admin)
+--------
+***End_time: Wed Feb 22 10:53:48 KST 2023

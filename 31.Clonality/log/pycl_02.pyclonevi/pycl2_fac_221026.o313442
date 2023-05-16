@@ -1,0 +1,239 @@
+***Start_time: Tue Mar  7 13:44:01 KST 2023
+pyclone-vi fit -i /home/goldpm1/Meningioma/31.Clonality/01.make_matrix/221026/221026.facetcnv_to_pyclonevi.tsv -o /home/goldpm1/Meningioma/31.Clonality/02.pyclonevi/221026/221026.facetcnv_to_pyclonevi.h5 -c 6 -d beta-binomial -r 20 
+Removing 3 mutations with major copy number zero
+Samples: 221026_Dura 221026_Tumor
+Num mutations: 25
+Performing restart 0
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1056.3638889658046
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -206.7694440002793
+Number of clusters used: 5
+
+Performing restart 1
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -886.6525581326775
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.869619946698
+Number of clusters used: 4
+
+Performing restart 2
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -904.1892768788761
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -207.1710147117722
+Number of clusters used: 4
+
+Performing restart 3
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1204.5636073829946
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -208.19230962462694
+Number of clusters used: 4
+
+Performing restart 4
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -854.1632467418686
+Number of clusters used: 5
+
+Fitting completed
+ELBO: -205.86961994522625
+Number of clusters used: 4
+
+Performing restart 5
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1135.895577962608
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.86961994706218
+Number of clusters used: 4
+
+Performing restart 6
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -867.4379305214312
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.86961994452122
+Number of clusters used: 4
+
+Performing restart 7
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1111.4918009819423
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -206.76945900192214
+Number of clusters used: 5
+
+Performing restart 8
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -989.2408892935455
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.8696199441222
+Number of clusters used: 4
+
+Performing restart 9
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1671.243503822851
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -210.72472404264118
+Number of clusters used: 3
+
+Performing restart 10
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -6150.123846824289
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -208.86082613752316
+Number of clusters used: 4
+
+Performing restart 11
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -911.0551927935973
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.86961994783525
+Number of clusters used: 4
+
+Performing restart 12
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -2333.611576269564
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.86961994374997
+Number of clusters used: 4
+
+Performing restart 13
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1077.1909876297798
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -207.6090725333241
+Number of clusters used: 5
+
+Performing restart 14
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -2018.112574528036
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -213.0122843301066
+Number of clusters used: 3
+
+Performing restart 15
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -822.177205223967
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -210.72472404904187
+Number of clusters used: 3
+
+Performing restart 16
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -814.897545358195
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -210.72472404067736
+Number of clusters used: 3
+
+Performing restart 17
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -970.7196767861802
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -205.86961995660275
+Number of clusters used: 4
+
+Performing restart 18
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1852.8578440099607
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -208.86082613452803
+Number of clusters used: 4
+
+Performing restart 19
+Setting annealing factor to : 1.0
+
+Iteration: 0
+ELBO: -1076.5629111014905
+Number of clusters used: 6
+
+Fitting completed
+ELBO: -210.7247240538086
+Number of clusters used: 3
+
+All restarts completed
+Final ELBO: -205.86961994374997
+Number of clusters used: 4
+
+pyclone-vi fit done
+Tue Mar  7 13:44:13 KST 2023
+pyclone-vi write-results-file -i /home/goldpm1/Meningioma/31.Clonality/02.pyclonevi/221026/221026.facetcnv_to_pyclonevi.h5 -o /home/goldpm1/Meningioma/31.Clonality/02.pyclonevi/221026/221026.facetcnv_to_pyclonevi.tsv
+
+pyclone-vi write-results-file done
+Tue Mar  7 13:44:15 KST 2023
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Tue Mar  7 13:44:16 KST 2023

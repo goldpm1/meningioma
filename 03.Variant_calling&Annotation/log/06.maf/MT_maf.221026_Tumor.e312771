@@ -1,0 +1,2 @@
+mutect_pipe_22.manualmaf.py:372: FutureWarning: The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  df_maf = df_maf.append(pd.DataFrame.from_records(matrix, columns=maf_colnames))
