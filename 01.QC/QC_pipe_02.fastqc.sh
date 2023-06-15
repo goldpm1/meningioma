@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! options=$(getopt -o h --long Sample_ID:,FASTQ_PATH_1:,FASTQ_PATH_2:,FASTQC_PATH:, -- "$@")
+if ! options=$(getopt -o h --long Sample_ID:,FASTQ_PATH_1:,FASTQ_PATH_2:,FASTQC_DIR:, -- "$@")
 then
     echo "ERROR: invalid options"
     exit 1
@@ -22,8 +22,8 @@ while true; do
         --FASTQ_PATH_2)
             FASTQ_PATH_2=$2
         shift 2 ;;
-        --FASTQC_PATH)
-            FASTQC_PATH=$2
+        --FASTQC_DIR)
+            FASTQC_DIR=$2
         shift 2 ;;
         --)
             shift
@@ -32,8 +32,8 @@ while true; do
 done
 
 
-echo -e "Sample_ID: "$Sample_ID"\nFASTQ_PATH_1: "$FASTQ_PATH_1"\nFASTQ_PATH_2: "$FASTQ_PATH_2"\nFASQTC_PATH: "$FASTQC_PATH
+echo -e "Sample_ID: "$Sample_ID"\nFASTQ_PATH_1: "$FASTQ_PATH_1"\nFASTQ_PATH_2: "$FASTQ_PATH_2"\nFASTQC_DIR: "$FASTQC_DIR
 
 
-fastqc -o ${FASTQC_PATH} \
+fastqc -o ${FASTQC_DIR} \
             -f fastq ${FASTQ_PATH_1} ${FASTQ_PATH_2}

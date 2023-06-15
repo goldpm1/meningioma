@@ -83,16 +83,66 @@ done
 
 
 #1. Multiple sample mutect2 call
-gatk --java-options "-Xmx48g" Mutect2 \
--R $REF \
--I ${CASE_BAM_PATH1} \
--I ${CASE_BAM_PATH2} \
--I ${CONTROL_BAM_PATH} \
--normal ${Sample_ID}"_Blood" \
---panel-of-normals ${PON} \
---germline-resource ${gnomad} \
--O ${OUTPUT_VCF_GZ} \
---tmp-dir ${TMP_PATH}
+
+#1-1. 4개가 다 있는 경우 (Tumor, Dura, Ventricle, Cortex)
+if [[ ${CASE_BAM_PATH3} != "None" && ${CASE_BAM_PATH4} != "None" ]]; then
+    gatk --java-options "-Xmx48g" Mutect2 \
+    -R $REF \
+    -I ${CASE_BAM_PATH1} \
+    -I ${CASE_BAM_PATH2} \
+    -I ${CASE_BAM_PATH3} \
+    -I ${CASE_BAM_PATH4} \
+    -I ${CONTROL_BAM_PATH} \
+    -normal ${Sample_ID}"_Blood" \
+    --panel-of-normals ${PON} \
+    --germline-resource ${gnomad} \
+    -O ${OUTPUT_VCF_GZ} \
+    --tmp-dir ${TMP_PATH}
+fi
+
+#1-2. 3개만 다 있는 경우 (Tumor, Dura, Ventricle or Cortex)
+if [[ ${CASE_BAM_PATH3} != "None" || ${CASE_BAM_PATH4} == "None" ]]; then
+    gatk --java-options "-Xmx48g" Mutect2 \
+    -R $REF \
+    -I ${CASE_BAM_PATH1} \
+    -I ${CASE_BAM_PATH2} \
+    -I ${CASE_BAM_PATH3} \
+    -I ${CONTROL_BAM_PATH} \
+    -normal ${Sample_ID}"_Blood" \
+    --panel-of-normals ${PON} \
+    --germline-resource ${gnomad} \
+    -O ${OUTPUT_VCF_GZ} \
+    --tmp-dir ${TMP_PATH}
+fi
+
+if [[ ${CASE_BAM_PATH3} == "None" || ${CASE_BAM_PATH4} != "None" ]]; then
+    gatk --java-options "-Xmx48g" Mutect2 \
+    -R $REF \
+    -I ${CASE_BAM_PATH1} \
+    -I ${CASE_BAM_PATH2} \
+    -I ${CASE_BAM_PATH4} \
+    -I ${CONTROL_BAM_PATH} \
+    -normal ${Sample_ID}"_Blood" \
+    --panel-of-normals ${PON} \
+    --germline-resource ${gnomad} \
+    -O ${OUTPUT_VCF_GZ} \
+    --tmp-dir ${TMP_PATH}
+fi
+
+#1-2. 2개만 있는 경우 (Tumor, Dura, Ventricle or Cortex)
+if [[ ${CASE_BAM_PATH3} != "None" && ${CASE_BAM_PATH4} != "None" ]]; then
+    gatk --java-options "-Xmx48g" Mutect2 \
+    -R $REF \
+    -I ${CASE_BAM_PATH1} \
+    -I ${CASE_BAM_PATH2} \
+    -I ${CONTROL_BAM_PATH} \
+    -normal ${Sample_ID}"_Blood" \
+    --panel-of-normals ${PON} \
+    --germline-resource ${gnomad} \
+    -O ${OUTPUT_VCF_GZ} \
+    --tmp-dir ${TMP_PATH}
+fi
+
 
 
 gunzip ${OUTPUT_VCF_GZ}

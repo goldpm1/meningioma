@@ -5,7 +5,7 @@
 CURRENT_PATH=`pwd -P`
 logPath=$CURRENT_PATH"/log"
 
-DATA_PATH="/home/goldpm1/Meningioma/02.Align"
+DATA_PATH="/data/project/Meningioma/02.Align"
 
 if [ ! -d $logPath ] ; then
     mkdir $logPath
@@ -20,7 +20,7 @@ for sublog in "21.gvcf_call" "22.gvcf_remove_nonref"; do
 done
 
 
-GVCF_PATH="/home/goldpm1/Meningioma/05.gvcf"
+GVCF_PATH="/data/project/Meningioma/05.gvcf"
 
 sample_name_list=$(cat ${CURRENT_PATH%/*}"/sample_name.txt")
 sample_name_LIST=(${sample_name_list// / })     # array로 만듬

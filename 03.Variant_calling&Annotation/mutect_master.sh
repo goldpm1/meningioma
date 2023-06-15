@@ -79,11 +79,26 @@ for idx in ${!sample_name_LIST[@]}; do
         # --REF ${REF} --INPUT_VCF ${INPUT_VCF} --OUTPUT_VCF ${VEP_FMC_HF_RMBLACK_PATH}      
 
     done
-    
-    
-    #11. Multiple sample Mutect2 call (FMC, HF, RMBLACK 포함)
+done
+
+
+
+
+######################################  MULTIPLE CALL ########################################
+
+for idx in ${!sample_name_LIST[@]}; do
+    Sample_ID=${sample_name_LIST[idx]}        #220930, 221026, 221102
     CASE_BAM_PATH1=${DATA_PATH}"/"${hg}"/Tumor/05.Final_bam/"${Sample_ID}"_Tumor.bam"
     CASE_BAM_PATH2=${DATA_PATH}"/"${hg}"/Dura/05.Final_bam/"${Sample_ID}"_Dura.bam"
+    CASE_BAM_PATH3=${DATA_PATH}"/"${hg}"/Ventricle/05.Final_bam/"${Sample_ID}"_Ventricle.bam"
+    if [ -f ${CASE_BAM_PATH3} ]; then     # File이 있어야만 진행
+        CASE_BAM_PATH3="None"
+    fi
+    CASE_BAM_PATH4=${DATA_PATH}"/"${hg}"/Cortex/05.Final_bam/"${Sample_ID}"_Cortex.bam"
+    if [ -f ${CASE_BAM_PATH4} ]; then     # File이 있어야만 진행
+        CASE_BAM_PATH4="None"
+    fi
+    
     CONTROL_BAM_PATH=${DATA_PATH}"/Blood/05.Final_bam/"${Sample_ID}"_Blood.bam"
     OUTPUT_VCF_GZ=${DATA_PATH%/*}"/04.mutect/01.raw/"${Sample_ID}"_multiple.vcf.gz"
     OUTPUT_FMC_PATH=${DATA_PATH%/*}"/04.mutect/02.PASS/"${Sample_ID}"_multiple.MT2.FMC.vcf"
@@ -97,12 +112,15 @@ for idx in ${!sample_name_LIST[@]}; do
     REMOVE_MITOCHONDRIAL_DNA="True"
     BLACKLIST="/home/goldpm1/resources/RM+SegDup.bed"
     
-    # qsub -pe smp 6 -e $logPath"/11.multipleMT" -o $logPath"/11.multipleMT" -N "MT_11.."${Sample_ID}"_multiple" -hold_jid "doc_"${Sample_ID}"_Dura,doc_"${Sample_ID}"_Tumor" ${CURRENT_PATH}"/mutect_pipe_11.multipleMT.sh" \
-    # --Sample_ID ${Sample_ID} --CASE_BAM_PATH1 ${CASE_BAM_PATH1} --CASE_BAM_PATH2 ${CASE_BAM_PATH2}  --CONTROL_BAM_PATH ${CONTROL_BAM_PATH} \
-    # --OUTPUT_VCF_GZ ${OUTPUT_VCF_GZ} --OUTPUT_FMC_PATH ${OUTPUT_FMC_PATH}  --OUTPUT_FMC_HF_PATH ${OUTPUT_FMC_HF_PATH} --OUTPUT_FMC_HF_RMBLACK_PATH ${OUTPUT_FMC_HF_RMBLACK_PATH} \
-    # --PON ${PON} --REF ${REF} --gnomad ${gnomad} --INTERVAL ${INTERVAL} --TMP_PATH ${TMP_PATH} \
-    # --SAMPLE_THRESHOLD ${SAMPLE_THRESHOLD} --DP_THRESHOLD ${DP_THRESHOLD} --ALT_THRESHOLD ${ALT_THRESHOLD} --REMOVE_MULTIALLELIC ${REMOVE_MULTIALLELIC} --PASS ${PASS} --REMOVE_MITOCHONDRIAL_DNA ${REMOVE_MITOCHONDRIAL_DNA} \
-    # --BLACKLIST ${BLACKLIST}
+    #11. Multiple sample Mutect2 call (FMC, HF, RMBLACK 포함)
+    qsub -pe smp 6 -e $logPath"/11.multipleMT" -o $logPath"/11.multipleMT" -N "MT_11.."${Sample_ID}"_multiple" -hold_jid "doc_"${Sample_ID}"_Dura,doc_"${Sample_ID}"_Tumor" ${CURRENT_PATH}"/mutect_pipe_11.multipleMT.sh" \
+    --Sample_ID ${Sample_ID} \
+    --CASE_BAM_PATH1 ${CASE_BAM_PATH1} --CASE_BAM_PATH2 ${CASE_BAM_PATH2}  --CASE_BAM_PATH3 ${CASE_BAM_PATH3} --CASE_BAM_PATH4 ${CASE_BAM_PATH4}  \
+     --CONTROL_BAM_PATH ${CONTROL_BAM_PATH} \
+    --OUTPUT_VCF_GZ ${OUTPUT_VCF_GZ} --OUTPUT_FMC_PATH ${OUTPUT_FMC_PATH}  --OUTPUT_FMC_HF_PATH ${OUTPUT_FMC_HF_PATH} --OUTPUT_FMC_HF_RMBLACK_PATH ${OUTPUT_FMC_HF_RMBLACK_PATH} \
+    --PON ${PON} --REF ${REF} --gnomad ${gnomad} --INTERVAL ${INTERVAL} --TMP_PATH ${TMP_PATH} \
+    --SAMPLE_THRESHOLD ${SAMPLE_THRESHOLD} --DP_THRESHOLD ${DP_THRESHOLD} --ALT_THRESHOLD ${ALT_THRESHOLD} --REMOVE_MULTIALLELIC ${REMOVE_MULTIALLELIC} --PASS ${PASS} --REMOVE_MITOCHONDRIAL_DNA ${REMOVE_MITOCHONDRIAL_DNA} \
+    --BLACKLIST ${BLACKLIST}
     
     #12. VEP annotation  +  Nearest gene annotation
     INPUT_VCF=${OUTPUT_FMC_HF_RMBLACK_PATH}
@@ -118,49 +136,49 @@ done
 ############################################### RESCUE ########################################
 
 
-for idx in ${!sample_name_LIST[@]}; do
-    Sample_ID=${sample_name_LIST[idx]}        #220930, 221026, 221102
+# for idx in ${!sample_name_LIST[@]}; do
+#     Sample_ID=${sample_name_LIST[idx]}        #220930, 221026, 221102
     
-    for TISSUE in Tumor Dura ; do   #Tumor Dura
-        MULTIPLE_VCF_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_multiple.MT2.FMC.HF.RMBLACK.vep.vcf"
-        MULTIPLE_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_multiple.MT2.FMC.HF.RMBLACK.vep.vcf.gz"
-        INDIVIDUAL_VCF_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.vcf"
-        INDIVIDUAL_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.vcf.gz"
-        INDIVIDUAL_RESCUED_VCF_PATH=${DATA_PATH%/*}"/04.mutect/04.rescue/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.vcf"
-        INDIVIDUAL_RESCUED_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/04.rescue/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.vcf.gz"
-        INDIVIDUAL_UNIQUE_VCF_PATH=${DATA_PATH%/*}"/04.mutect/05.unique/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf"
-        INDIVIDUAL_UNIQUE_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/05.unique/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf.gz"
+#     for TISSUE in Tumor Dura ; do   #Tumor Dura
+#         MULTIPLE_VCF_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_multiple.MT2.FMC.HF.RMBLACK.vep.vcf"
+#         MULTIPLE_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_multiple.MT2.FMC.HF.RMBLACK.vep.vcf.gz"
+#         INDIVIDUAL_VCF_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.vcf"
+#         INDIVIDUAL_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/03.vep/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.vcf.gz"
+#         INDIVIDUAL_RESCUED_VCF_PATH=${DATA_PATH%/*}"/04.mutect/04.rescue/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.vcf"
+#         INDIVIDUAL_RESCUED_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/04.rescue/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.vcf.gz"
+#         INDIVIDUAL_UNIQUE_VCF_PATH=${DATA_PATH%/*}"/04.mutect/05.unique/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf"
+#         INDIVIDUAL_UNIQUE_VCF_GZ_PATH=${DATA_PATH%/*}"/04.mutect/05.unique/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf.gz"
 
-        for dir in ${INDIVIDUAL_RESCUED_VCF_PATH%/*}  ${INDIVIDUAL_UNIQUE_VCF_PATH%/*} ; do
-            if [ ! -d ${dir} ] ; then
-                mkdir ${dir}
-            fi
-        done
+#         for dir in ${INDIVIDUAL_RESCUED_VCF_PATH%/*}  ${INDIVIDUAL_UNIQUE_VCF_PATH%/*} ; do
+#             if [ ! -d ${dir} ] ; then
+#                 mkdir ${dir}
+#             fi
+#         done
 
-        # 04.rescue & 05.unique
-        qsub -pe smp 1 -e $logPath"/04.rescue" -o $logPath"/04.rescue" -N "MT_res."${Sample_ID}"_"${TISSUE}  ${CURRENT_PATH}"/mutect_pipe_21.rescue.sh" \
-            --Sample_ID ${Sample_ID} --TISSUE ${TISSUE} \
-            --MULTIPLE_VCF_PATH ${MULTIPLE_VCF_PATH}  --MULTIPLE_VCF_GZ_PATH ${MULTIPLE_VCF_GZ_PATH} \
-            --INDIVIDUAL_VCF_PATH ${INDIVIDUAL_VCF_PATH} --INDIVIDUAL_VCF_GZ_PATH ${INDIVIDUAL_VCF_GZ_PATH} \
-            --INDIVIDUAL_RESCUED_VCF_PATH ${INDIVIDUAL_RESCUED_VCF_PATH} --INDIVIDUAL_RESCUED_VCF_GZ_PATH ${INDIVIDUAL_RESCUED_VCF_GZ_PATH} \
-            --INDIVIDUAL_UNIQUE_VCF_PATH ${INDIVIDUAL_UNIQUE_VCF_PATH} --INDIVIDUAL_UNIQUE_VCF_GZ_PATH ${INDIVIDUAL_UNIQUE_VCF_GZ_PATH}
+#         # 04.rescue & 05.unique
+#         qsub -pe smp 1 -e $logPath"/04.rescue" -o $logPath"/04.rescue" -N "MT_res."${Sample_ID}"_"${TISSUE}  ${CURRENT_PATH}"/mutect_pipe_21.rescue.sh" \
+#             --Sample_ID ${Sample_ID} --TISSUE ${TISSUE} \
+#             --MULTIPLE_VCF_PATH ${MULTIPLE_VCF_PATH}  --MULTIPLE_VCF_GZ_PATH ${MULTIPLE_VCF_GZ_PATH} \
+#             --INDIVIDUAL_VCF_PATH ${INDIVIDUAL_VCF_PATH} --INDIVIDUAL_VCF_GZ_PATH ${INDIVIDUAL_VCF_GZ_PATH} \
+#             --INDIVIDUAL_RESCUED_VCF_PATH ${INDIVIDUAL_RESCUED_VCF_PATH} --INDIVIDUAL_RESCUED_VCF_GZ_PATH ${INDIVIDUAL_RESCUED_VCF_GZ_PATH} \
+#             --INDIVIDUAL_UNIQUE_VCF_PATH ${INDIVIDUAL_UNIQUE_VCF_PATH} --INDIVIDUAL_UNIQUE_VCF_GZ_PATH ${INDIVIDUAL_UNIQUE_VCF_GZ_PATH}
 
 
-        for dir in ${DATA_PATH%/*}"/04.mutect/06.maf/01.shared_yes/" ${DATA_PATH%/*}"/04.mutect/06.maf/02.shared_no/" ; do
-            if [ ! -d ${dir} ] ; then
-                mkdir -p ${dir}
-            fi
-        done
+#         for dir in ${DATA_PATH%/*}"/04.mutect/06.maf/01.shared_yes/" ${DATA_PATH%/*}"/04.mutect/06.maf/02.shared_no/" ; do
+#             if [ ! -d ${dir} ] ; then
+#                 mkdir -p ${dir}
+#             fi
+#         done
 
-        # 06. MAF annotation
-        INPUT_VCF=${INDIVIDUAL_RESCUED_VCF_PATH}
-        OUTPUT_MAF=${DATA_PATH%/*}"/04.mutect/06.maf/01.shared_yes/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.maf"
-        qsub -pe smp 1 -e $logPath"/06.maf" -o $logPath"/06.maf" -N "MT_maf."${Sample_ID}"_"${TISSUE} -hold_jid "MT_res."${Sample_ID}"_"${TISSUE}  ${CURRENT_PATH}"/mutect_pipe_22.manualmaf.sh" \
-        --INPUT_VCF ${INPUT_VCF} --OUTPUT_MAF ${OUTPUT_MAF} --SELECTED_DB "None"
+#         # 06. MAF annotation
+#         INPUT_VCF=${INDIVIDUAL_RESCUED_VCF_PATH}
+#         OUTPUT_MAF=${DATA_PATH%/*}"/04.mutect/06.maf/01.shared_yes/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.maf"
+#         qsub -pe smp 1 -e $logPath"/06.maf" -o $logPath"/06.maf" -N "MT_maf."${Sample_ID}"_"${TISSUE} -hold_jid "MT_res."${Sample_ID}"_"${TISSUE}  ${CURRENT_PATH}"/mutect_pipe_22.manualmaf.sh" \
+#         --INPUT_VCF ${INPUT_VCF} --OUTPUT_MAF ${OUTPUT_MAF} --SELECTED_DB "None"
 
-        INPUT_VCF=${INDIVIDUAL_UNIQUE_VCF_PATH}
-        OUTPUT_MAF=${DATA_PATH%/*}"/04.mutect/06.maf/02.shared_no/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.maf"
-        qsub -pe smp 1 -e $logPath"/06.maf" -o $logPath"/06.maf" -N "MT_maf."${Sample_ID}"_"${TISSUE} -hold_jid "MT_res."${Sample_ID}"_"${TISSUE}  ${CURRENT_PATH}"/mutect_pipe_22.manualmaf.sh" \
-        --INPUT_VCF ${INPUT_VCF} --OUTPUT_MAF ${OUTPUT_MAF} --SELECTED_DB "None"
-    done
-done
+#         INPUT_VCF=${INDIVIDUAL_UNIQUE_VCF_PATH}
+#         OUTPUT_MAF=${DATA_PATH%/*}"/04.mutect/06.maf/02.shared_no/"${Sample_ID}"_"${TISSUE}".MT2.FMC.HF.RMBLACK.vep.maf"
+#         qsub -pe smp 1 -e $logPath"/06.maf" -o $logPath"/06.maf" -N "MT_maf."${Sample_ID}"_"${TISSUE} -hold_jid "MT_res."${Sample_ID}"_"${TISSUE}  ${CURRENT_PATH}"/mutect_pipe_22.manualmaf.sh" \
+#         --INPUT_VCF ${INPUT_VCF} --OUTPUT_MAF ${OUTPUT_MAF} --SELECTED_DB "None"
+#     done
+# done

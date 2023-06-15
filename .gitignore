@@ -1,3 +1,7 @@
-*.Rproj
-*.Rdata
-*.Rhistory
+*/*.Rproj
+*/*.Rdata
+*/*.Rhistory
+*/log
+*/signeR
+*/MutationTimeR
+*/temp
