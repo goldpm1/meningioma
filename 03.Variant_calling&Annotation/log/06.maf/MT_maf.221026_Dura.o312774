@@ -1,6 +1,0 @@
-***Start_time: Mon Mar  6 17:34:29 KST 2023
-python3 mutect_pipe_22.manualmaf.py  --INPUTVCF /home/goldpm1/Meningioma/04.mutect/05.unique/221026_Dura.MT2.FMC.HF.RMBLACK.vep.rescue.unique.vcf --OUTPUT_MAF /home/goldpm1/Meningioma/04.mutect/06.maf/02.shared_no/221026_Dura.MT2.FMC.HF.RMBLACK.vep.maf --SELECTED_DB None
---------
-Job_exited_code: 0 (Success)
---------
-***End_time: Mon Mar  6 17:35:03 KST 2023
