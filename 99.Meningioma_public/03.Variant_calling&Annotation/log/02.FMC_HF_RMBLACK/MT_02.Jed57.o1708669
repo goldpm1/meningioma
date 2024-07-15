@@ -1,0 +1,8 @@
+***Start_time: 2024. 01. 04. (목) 10:55:21 KST
+REF : /home/goldpm1/reference/genome.fa OUTPUT_VCF_GZ :/data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/01.raw/Jed57.vcf.gz OUTPUT_FMC_PATH : /data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/02.PASS/Jed57.MT2.FMC.vcf
+sed -i '3i ##FILTER=<ID=RESCUE,Description=Rescued by Pysam>' /data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/02.PASS/Jed57.MT2.FMC.vcf
+python3 mutect_pipe_hardfilter.py --INPUT_VCF /data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/02.PASS/Jed57.MT2.FMC.vcf --OUTPUT_VCF /data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/02.PASS/Jed57.MT2.FMC.HF.vcf --SAMPLE_THRESHOLD all --DP_THRESHOLD 30 --ALT_THRESHOLD 1  --REMOVE_MULTIALLELIC True --PASS True --REMOVE_MITOCHONDRIAL_DNA True
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2024. 01. 04. (목) 11:28:31 KST

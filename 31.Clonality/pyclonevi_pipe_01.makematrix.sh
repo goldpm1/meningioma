@@ -90,6 +90,6 @@ python3 pyclonevi_pipe_01.makematrix_facetcnv_to_pyclonevi.py \
     --MUTECT_OUTPUT_PATH ${MUTECT_OUTPUT_PATH} \
     --HC_OUTPUT_PATH ${HC_OUTPUT_PATH} \
     --HC_BLOOD_RANDOM_PICK_PATH ${HC_BLOOD_RANDOM_PICK_PATH} \
-    --GVCF_OUTPUT_PATH ${GVCF_OUTPUT_PATH}
+    --GVCF_OUTPUT_PATH ${GVCF_OUTPUT_PATH} \
     --TISSUE ${TISSUE} \
     --Sample_ID ${Sample_ID}

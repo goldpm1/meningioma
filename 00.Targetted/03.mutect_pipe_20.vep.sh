@@ -69,8 +69,10 @@ Resource="/data/project/DC_WGS/Resource/"
 --dir_cache /data/public/VEP/101 \
 --plugin SpliceAI,snv=/data/project/DC_WGS/Resource/spliceAI/spliceai_scores.raw.snv.hg38.vcf.gz,indel=/data/project/DC_WGS/Resource/spliceAI/spliceai_scores.raw.indel.hg38.vcf.gz \
 --plugin dbNSFP,/home/goldpm1/tools/ANNOVAR/humandb/dbnsfp4.2a/dbNSFP4.0a.gz,ALL \
+--plugin AlphaMissense,file=/data/resource/annotation/human/Alphamissense/AlphaMissense_hg38.tsv.gz \
 --offline \
 --cache
+
 
 
 # ############ NEAREST GENE annotation #####################################

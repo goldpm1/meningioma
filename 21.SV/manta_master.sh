@@ -8,7 +8,8 @@
 
 REF_hg19="/home/goldpm1/reference/hg19/hg19.fa"
 REF_hg19="/home/goldpm1/reference/Broadhg19/Homo_sapiens_assembly19.fasta"             # 왜그런지는 모르겠지만 이 reference를 써야 돌아간다
-REF_hg38="/data/resource/reference/human/UCSC/hg38/WholeGenomeFasta/genome.fa"
+#REF_hg38="/data/resource/reference/human/UCSC/hg38/WholeGenomeFasta/genome.fa"
+REF_hg38="/home/goldpm1/reference/genome.fa"
 
 INTERVAL="/home/goldpm1/resources/Agilent_SureSelectXT_Human_All_Exon_Kit_V5_hg38/S04380110_Covered.bed.gz"
 dbSNP="/data/public/dbSNP/b154/GRCh38/GCF_000001405.38.re.common.vcf.gz"
@@ -26,8 +27,8 @@ for sublog in "01.manta"; do
     fi
 done
 
-DATA_PATH="/home/goldpm1/Meningioma/02.Align"
-MANTA_PATH="/home/goldpm1/Meningioma/21.SV/01.manta"
+DATA_PATH="/data/project/Meningioma/02.Align"
+MANTA_PATH="/data/project/Meningioma/21.SV/01.manta"
 
 for subpath in "01.raw" "02.PASS" "03.pandas"; do
     if [ ! -d $MANTA_PATH"/"$subpath ] ; then
@@ -61,11 +62,15 @@ for idx in ${!sample_name_LIST[@]}; do
         if [ ! -d ${OUTPUT_PASS_PATH%/*} ] ; then
             mkdir -p ${OUTPUT_PASS_PATH%/*}
         fi
-        qsub -pe smp 3 -o $logPath"/01.manta" -e $logPath"/01.manta" -N "man01_"${Sample_ID}"_"${TISSUE}  "manta_pipe_01.sh" \
-            --CONTROL_BAM_PATH ${CONTROL_BAM_PATH} --CASE_BAM_PATH ${CASE_BAM_PATH}   \
-            --REF ${REF_hg38} --CALLREGIONS ${INTERVAL} --OUTPUT_DIR ${OUTPUT_DIR} --OUTPUT_PASS_PATH ${OUTPUT_PASS_PATH}
+
+        #01. Manta configuration & Execution
+        # qsub -pe smp 3 -o $logPath"/01.manta" -e $logPath"/01.manta" -N "man01_"${Sample_ID}"_"${TISSUE}  "manta_pipe_01.sh" \
+        #     --CONTROL_BAM_PATH ${CONTROL_BAM_PATH} --CASE_BAM_PATH ${CASE_BAM_PATH}   \
+        #     --REF ${REF_hg38} --CALLREGIONS ${INTERVAL} --OUTPUT_DIR ${OUTPUT_DIR} --OUTPUT_PASS_PATH ${OUTPUT_PASS_PATH}
 
 
+
+        # 02. Pandas Dataframe으로 만들기
 
         INPUT_PATH=${MANTA_PATH}"/02.PASS/"${TISSUE}"/"${Sample_ID}"_"${TISSUE}".Manta.PASS.vcf"
         OUTPUT_PATH=${MANTA_PATH}"/02.PASS/"${TISSUE}"/"${Sample_ID}"/"${Sample_ID}"_"${TISSUE}".Manta.PASS.chr.vcf"

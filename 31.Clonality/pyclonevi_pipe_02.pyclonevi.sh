@@ -2,9 +2,7 @@
 #$ -cwd
 #$ -S /bin/bash
 
-# INPUT_TSV="/data/project/Alzheimer/EM_cluster/old/pilot/04.EM_input/pyclone_vi/pyclone_vi_220610.tsv"
-# OUTPUT_H5="/data/project/Alzheimer/EM_cluster/old/pilot/04.EM_input/pyclone_vi/pyclone_vi_220610.h5"
-# OUTPUT_TSV="/data/project/Alzheimer/EM_cluster/old/pilot/04.EM_input/pyclone_vi/pyclone_vi_output_220610.tsv"
+#/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/pyclone_vi/
 
 if ! options=$(getopt -o h --long INPUT_TSV:,OUTPUT_H5:,OUTPUT_TSV:, -- "$@")
 then
@@ -38,10 +36,13 @@ done
 
 source /home/goldpm1/.bashrc
 conda activate cnvpytor
+#module rm HDF5
+module load HDF5/1.12.0
 module switch HDF5/1.10.7 HDF5/1.12.0
+#module switch HDF5/1.10.7 HDF5/1.14.2
 
 
-rm -rf ${OUTPUT_H5} ${OUPTUT_TSV}
+rm -rf ${OUTPUT_H5} ${OUTPUT_TSV}
 
 echo -e "pyclone-vi fit -i ${INPUT_TSV} -o ${OUTPUT_H5} -c 6 -d beta-binomial -r 20 "
 pyclone-vi fit -i ${INPUT_TSV} -o ${OUTPUT_H5} -c 6 -d beta-binomial -r 20 
@@ -54,3 +55,9 @@ echo -e "pyclone-vi write-results-file -i ${OUTPUT_H5} -o ${OUTPUT_TSV}"
 pyclone-vi write-results-file -i ${OUTPUT_H5} -o ${OUTPUT_TSV}
 echo -e "\npyclone-vi write-results-file done"
 date
+
+
+
+python3 /data/project/Meningioma/script/31.Clonality/pyclonevi_pipe_02.sort.py \
+    --INPUT_TSV ${OUTPUT_TSV} \
+    --OUTPUT_TSV ${OUTPUT_TSV}

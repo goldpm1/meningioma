@@ -1,0 +1,10 @@
+***Start_time: Sat Dec 30 17:59:39 KST 2023
+SampleID: SRR10356001
+FASTQ_PATH_1: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/01.gz/SRR10356001_1.fq.gz
+FASTQ_PATH_2: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/01.gzSRR10356001_2.fq.gz
+FASTP_PATH_1: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/02.fastp/SRR10356001.R1.fq
+FASTP_PATH_2: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/02.fastp/SRR10356001.R2.fq
+--------
+Job_exited_code: 1 (Check your Error log file or Contact to admin)
+--------
+***End_time: Sat Dec 30 17:59:39 KST 2023

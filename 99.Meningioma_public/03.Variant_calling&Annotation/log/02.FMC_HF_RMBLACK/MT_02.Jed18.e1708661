@@ -1,0 +1,51 @@
+Using GATK jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar FilterMutectCalls -R /home/goldpm1/reference/genome.fa -V /data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/01.raw/Jed18.vcf.gz -O /data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/02.PASS/Jed18.MT2.FMC.vcf --max-events-in-region 1 --min-median-read-position 8 --min-median-base-quality 20 --min-reads-per-strand 1 --min-median-mapping-quality 20
+10:44:55.192 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+Jan 04, 2024 10:44:55 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+10:44:55.334 INFO  FilterMutectCalls - ------------------------------------------------------------
+10:44:55.335 INFO  FilterMutectCalls - The Genome Analysis Toolkit (GATK) v4.2.3.0
+10:44:55.335 INFO  FilterMutectCalls - For support and documentation go to https://software.broadinstitute.org/gatk/
+10:44:55.335 INFO  FilterMutectCalls - Executing as goldpm1@compute15 on Linux v3.10.0-957.el7.x86_64 amd64
+10:44:55.335 INFO  FilterMutectCalls - Java runtime: OpenJDK 64-Bit Server VM v12+33
+10:44:55.335 INFO  FilterMutectCalls - Start Date/Time: 2024년 1월 4일 오전 10시 44분 55초 KST
+10:44:55.335 INFO  FilterMutectCalls - ------------------------------------------------------------
+10:44:55.335 INFO  FilterMutectCalls - ------------------------------------------------------------
+10:44:55.336 INFO  FilterMutectCalls - HTSJDK Version: 2.24.1
+10:44:55.336 INFO  FilterMutectCalls - Picard Version: 2.25.4
+10:44:55.336 INFO  FilterMutectCalls - Built for Spark Version: 2.4.5
+10:44:55.336 INFO  FilterMutectCalls - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+10:44:55.336 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+10:44:55.336 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+10:44:55.336 INFO  FilterMutectCalls - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+10:44:55.336 INFO  FilterMutectCalls - Deflater: IntelDeflater
+10:44:55.337 INFO  FilterMutectCalls - Inflater: IntelInflater
+10:44:55.337 INFO  FilterMutectCalls - GCS max retries/reopens: 20
+10:44:55.337 INFO  FilterMutectCalls - Requester pays: disabled
+10:44:55.337 INFO  FilterMutectCalls - Initializing engine
+10:44:55.625 INFO  FeatureManager - Using codec VCFCodec to read file file:///data/project/Meningioma/99.Meningioma_public/SRP261564/04.mutect/01.raw/Jed18.vcf.gz
+10:44:55.798 INFO  FilterMutectCalls - Done initializing engine
+10:44:55.884 INFO  ProgressMeter - Starting traversal
+10:44:55.884 INFO  ProgressMeter -        Current Locus  Elapsed Minutes    Variants Processed  Variants/Minute
+10:44:55.885 INFO  FilterMutectCalls - Starting pass 0 through the variants
+10:44:56.357 WARN  IntelInflater - Zero Bytes Written : 0
+10:44:56.495 INFO  FilterMutectCalls - Finished pass 0 through the variants
+10:44:56.764 INFO  FilterMutectCalls - Starting pass 1 through the variants
+10:44:56.909 WARN  IntelInflater - Zero Bytes Written : 0
+10:44:57.023 INFO  FilterMutectCalls - Finished pass 1 through the variants
+10:44:57.087 INFO  FilterMutectCalls - Starting pass 2 through the variants
+10:44:57.231 WARN  IntelInflater - Zero Bytes Written : 0
+10:44:57.324 INFO  FilterMutectCalls - Finished pass 2 through the variants
+10:44:57.326 INFO  FilterMutectCalls - Starting pass 3 through the variants
+10:44:57.715 WARN  IntelInflater - Zero Bytes Written : 0
+10:44:57.874 INFO  FilterMutectCalls - Finished pass 3 through the variants
+10:44:57.880 INFO  FilterMutectCalls - No variants filtered by: AllowAllVariantsVariantFilter
+10:44:57.881 INFO  FilterMutectCalls - 0 read(s) filtered by: AllowAllReadsReadFilter 
+
+10:44:57.881 INFO  ProgressMeter -       chr15:73323045              0.0                  8812         264757.1
+10:44:57.881 INFO  ProgressMeter - Traversal complete. Processed 8812 total variants in 0.0 minutes.
+10:44:58.031 INFO  FilterMutectCalls - Shutting down engine
+[2024년 1월 4일 오전 10시 44분 58초 KST] org.broadinstitute.hellbender.tools.walkers.mutect.filtering.FilterMutectCalls done. Elapsed time: 0.05 minutes.
+Runtime.totalMemory()=1145044992
+Smartmatch is experimental at /data/public/VEP/108/Plugins/AlphaMissense.pm line 154.

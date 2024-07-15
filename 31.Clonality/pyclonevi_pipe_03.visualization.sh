@@ -3,7 +3,7 @@
 #$ -S /bin/bash
 
 
-if ! options=$(getopt -o h --long Sample_ID:,SEQUENZA_TO_PYCLONEVI_MATRIX_PATH:,SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH:,FACETCNV_TO_PYCLONEVI_MATRIX_PATH:,FACETCNV_TO_PYCLONEVI_OUTPUT_PATH:,OUTPUT_PATH_SHARED:,OUTPUT_PATH_TOTAL:, -- "$@")
+if ! options=$(getopt -o h --long Sample_ID:,SEQUENZA_TO_PYCLONEVI_MATRIX_PATH:,SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH:,FACETCNV_TO_PYCLONEVI_MATRIX_PATH:,FACETCNV_TO_PYCLONEVI_OUTPUT_PATH:,OUTPUT_PATH_SHARED:,OUTPUT_DIR1:,OUTPUT_DIR2:, -- "$@")
 then
     echo "ERROR: invalid options"
     exit 1
@@ -34,8 +34,11 @@ while true; do
         --OUTPUT_PATH_SHARED)
             OUTPUT_PATH_SHARED=$2
         shift 2 ;;
-        --OUTPUT_PATH_TOTAL)
-            OUTPUT_PATH_TOTAL=$2
+        --OUTPUT_DIR1)
+            OUTPUT_DIR1=$2
+        shift 2 ;;
+        --OUTPUT_DIR2)
+            OUTPUT_DIR2=$2
         shift 2 ;;
         --)
             shift
@@ -48,15 +51,6 @@ done
 source /home/goldpm1/.bashrc
 conda activate cnvpytor
 
-echo -e "python3 pyclonevi_pipe_03.visualization.py \
-        --Sample_ID ${Sample_ID} \
-        --SEQUENZA_TO_PYCLONEVI_MATRIX_PATH ${SEQUENZA_TO_PYCLONEVI_MATRIX_PATH} \
-        --SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH ${SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH} \
-        --FACETCNV_TO_PYCLONEVI_MATRIX_PATH ${FACETCNV_TO_PYCLONEVI_MATRIX_PATH} \
-        --FACETCNV_TO_PYCLONEVI_OUTPUT_PATH ${FACETCNV_TO_PYCLONEVI_OUTPUT_PATH} \
-        --OUTPUT_PATH_SHARED ${OUTPUT_PATH_SHARED} \
-        --OUTPUT_PATH_TOTAL ${OUTPUT_PATH_TOTAL}"
-
 python3 pyclonevi_pipe_03.visualization.py \
         --Sample_ID ${Sample_ID} \
         --SEQUENZA_TO_PYCLONEVI_MATRIX_PATH ${SEQUENZA_TO_PYCLONEVI_MATRIX_PATH} \
@@ -64,4 +58,5 @@ python3 pyclonevi_pipe_03.visualization.py \
         --FACETCNV_TO_PYCLONEVI_MATRIX_PATH ${FACETCNV_TO_PYCLONEVI_MATRIX_PATH} \
         --FACETCNV_TO_PYCLONEVI_OUTPUT_PATH ${FACETCNV_TO_PYCLONEVI_OUTPUT_PATH} \
         --OUTPUT_PATH_SHARED ${OUTPUT_PATH_SHARED} \
-        --OUTPUT_PATH_TOTAL ${OUTPUT_PATH_TOTAL}
+        --OUTPUT_DIR1 ${OUTPUT_DIR1} \
+        --OUTPUT_DIR2 ${OUTPUT_DIR2}

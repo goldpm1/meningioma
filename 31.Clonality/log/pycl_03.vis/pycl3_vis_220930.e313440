@@ -1,8 +1,0 @@
-usage: pyclonevi_pipe_03.visualization.py [-h] [--Sample_ID SAMPLE_ID]
-                                          [--SEQUENZA_TO_PYCLONEVI_MATRIX_PATH SEQUENZA_TO_PYCLONEVI_MATRIX_PATH]
-                                          [--SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH]
-                                          [--FACETCNV_TO_PYCLONEVI_MATRIX_PATH FACETCNV_TO_PYCLONEVI_MATRIX_PATH]
-                                          [--FACETCNV_TO_PYCLONEVI_OUTPUT_PATH FACETCNV_TO_PYCLONEVI_OUTPUT_PATH]
-                                          [--OUTPUT_PATH_SHARED OUTPUT_PATH_SHARED]
-                                          [--OUTPUT_PATH_TOTAL OUTPUT_PATH_TOTAL]
-pyclonevi_pipe_03.visualization.py: error: argument --SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH: expected one argument

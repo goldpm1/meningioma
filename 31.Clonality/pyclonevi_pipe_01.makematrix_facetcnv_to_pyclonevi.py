@@ -3,18 +3,18 @@ import gzip, os
 import argparse
 import pybedtools
 import warnings
-warnings.simplefilter (action = 'ignore', category = FutureWarning)
+warnings.simplefilter (action = 'ignore')
 
 parser = argparse.ArgumentParser( description='The below is usage direction.')
-parser.add_argument('--Sample_ID', type=str, default="221026")
+parser.add_argument('--Sample_ID', type=str, default="230405_2")
 parser.add_argument('--TISSUE', type=str, default="Tumor")
-parser.add_argument('--FACETCNV_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/11.cnv/5.facetcnv/221026/Tumor/221026.vcf.gz")
+parser.add_argument('--FACETCNV_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/11.cnv/5.facetcnv/230405_2/Tumor/230405_2.vcf.gz")
 parser.add_argument('--FACETCNV_TO_BED_DF_PATH', type=str, default="")
-parser.add_argument('--FACETCNV_TO_PYCLONEVI_MATRIX_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/221026/221026.facetcnv_to_pyclonevi.tsv")
-parser.add_argument('--FACETCNV_PURITY_PLODY_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/221026/221026.facetcnv_to_pyclonevi.tsv")
-parser.add_argument('--MUTECT_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/04.mutect/02.PASS/221026_Tumor.MT2.FMC.HF.vcf")
-parser.add_argument('--HC_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/06.hc/01.call/221026/Tumor/221026_Tumor.vcf")
-parser.add_argument('--HC_BLOOD_RANDOM_PICK_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/221026/221026.HC.random_pick_50.bed")
+parser.add_argument('--FACETCNV_TO_PYCLONEVI_MATRIX_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.facetcnv_to_pyclonevi.tsv")
+parser.add_argument('--FACETCNV_PURITY_PLODY_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.facetcnv_to_pyclonevi.tsv")
+parser.add_argument('--MUTECT_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/04.mutect/02.PASS/230405_2_Tumor.MT2.FMC.HF.vcf")
+parser.add_argument('--HC_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/06.hc/01.call/230405_2/Tumor/230405_2_Tumor.vcf")
+parser.add_argument('--HC_BLOOD_RANDOM_PICK_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.HC.random_pick_50.bed")
 
 args = parser.parse_args()
 
@@ -66,16 +66,17 @@ bed_df = pd.DataFrame (columns = colnames)
 for line in input_file.readlines():
     if "gz" in FACETCNV_OUTPUT_PATH:
 	    line = line.decode('utf-8')
-    
     line = line.rstrip('\n')
+
      
     
     if line[0] == "#": # Header 저장
         if line[0:8] == "##purity":
             TUMOR_PURITY = line.split("=")[1]
             if TUMOR_PURITY == "NA":
-                TUMOR_PURITY = "1.0"
-            TUMOR_PURITY = round ( float(TUMOR_PURITY), 2 )
+                TUMOR_PURITY = 1.0
+            else:
+                TUMOR_PURITY = round ( float(TUMOR_PURITY), 2 )
         elif line[0:8] == "##ploidy":
             TOTAL_PLOIDY = line.split("=")[1]
         continue
@@ -87,9 +88,11 @@ for line in input_file.readlines():
         try:   #"LCN_EM에 . 같은 게 있어서 에러날 때가 있다"
             MAJOR_CN, MINOR_CN =  int(info_dict["TCN_EM"])  - int (info_dict["LCN_EM"]),  int (info_dict["LCN_EM"])
             NORMAL_CN = 2           
+            if (MAJOR_CN == 0) & (MINOR_CN == 0): #230419_Tumor는 chr22에서 이상하게 TCN_EM=0;LCN_EM=0;로 나와서 pyclone-vi를 못 돌리게 한다
+                MAJOR_CN, MINOR_CNt = 1, 0
         except:
             continue
-        output_line = [str(CHR), str(START), str(END), str(MAJOR_CN), str(MINOR_CN), str(NORMAL_CN),  str(TUMOR_PURITY) ]
+        output_line = [str(CHR), str(START), str(END), str(MAJOR_CN), str(MINOR_CN), str(NORMAL_CN),  str(TUMOR_PURITY)  ]
         output_dict = {}
         for colname_index, colname in enumerate (colnames):
             output_dict[colname] = output_line[colname_index]
@@ -122,6 +125,7 @@ output_file = open(FACETCNV_TO_PYCLONEVI_MATRIX_PATH, "a")
 
 for interval in input_file.readlines():
     interval = interval.rstrip("\n").split("\t")
+
     
     line_dict = {}
     
@@ -130,7 +134,7 @@ for interval in input_file.readlines():
             parsing_sample_index = index 
             break
 
-    line_dict ["mutation_id"] = str(interval [0]) + "_" + str(interval[1])
+    line_dict ["mutation_id"] = str(interval [0]) + "_" + str(interval[1]) + "_" + str(interval[3]) + "_" + str(interval[4])
     line_dict ["sample_id"] = SAMPLE_ID
     line_dict ["ref_counts"] = str( interval[ parsing_sample_index + 2].split(":")[1].split(",")[0])
     line_dict ["alt_counts"] = str( interval[ parsing_sample_index + 2].split(":")[1].split(",")[1])

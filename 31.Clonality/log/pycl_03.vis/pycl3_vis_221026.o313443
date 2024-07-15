@@ -1,6 +1,0 @@
-***Start_time: Tue Mar  7 13:44:19 KST 2023
-python3 pyclonevi_pipe_03.visualization.py         --Sample_ID 221026         --SEQUENZA_TO_PYCLONEVI_MATRIX_PATH /home/goldpm1/Meningioma/31.Clonality/01.make_matrix/221026/221026.sequenza_to_pyclonevi.tsv         --SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH --FACETCNV_TO_PYCLONEVI_MATRIX_PATH         --FACETCNV_TO_PYCLONEVI_MATRIX_PATH          --FACETCNV_TO_PYCLONEVI_OUTPUT_PATH --OUTPUT_PATH_SHARED         --OUTPUT_PATH_SHARED          --OUTPUT_PATH_TOTAL /home/goldpm1/Meningioma/31.Clonality/02.pyclonevi/221026/221026.total.png
---------
-Job_exited_code: 2 (Check your Error log file or Contact to admin)
---------
-***End_time: Tue Mar  7 13:44:41 KST 2023

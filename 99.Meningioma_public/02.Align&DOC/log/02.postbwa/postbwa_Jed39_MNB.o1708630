@@ -1,0 +1,17 @@
+***Start_time: 2024. 01. 04. (목) 00:19:38 KST
+2024. 01. 04. (목) 00:27:27 KST
+Mark & Remove duplicate done
+2024. 01. 04. (목) 00:28:37 KST
+AddOrReplaceRG done
+Tool returned:
+SUCCESS
+2024. 01. 04. (목) 01:01:38 KST
+1st BaseRecalibrator done
+2024. 01. 04. (목) 01:03:28 KST
+1st ApplyBQSR done
+Left alignment done
+2024. 01. 04. (목) 01:03:53 KST
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2024. 01. 04. (목) 01:03:53 KST

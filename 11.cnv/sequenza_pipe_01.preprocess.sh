@@ -51,14 +51,20 @@ date
 # -o ${WIGGZ}
 
 #2. Process a BAM and Wiggle files to produce a seqz file
-# sequenza-utils bam2seqz \
-# -t ${CASE_BAM}  \
-# -n ${CONTROL_BAM} \
-# --fasta ${REF} \
-# -gc ${WIGGZ} \
-# -o ${SEQUENZA_SEQZ}
+sequenza-utils bam2seqz \
+-t ${CASE_BAM}  \
+-n ${CONTROL_BAM} \
+--fasta ${REF} \
+-gc ${WIGGZ} \
+-o ${SEQUENZA_SEQZ}
 
 #3. Post-Process by binning the original seqz file
+echo -e "sequenza-utils seqz_binning \
+--seqz ${SEQUENZA_SEQZ} \
+-o ${SEQUENZA_SMALL_SEQZ} \
+-w 500 \
+--tabix /opt/Yonsei/htslib/1.14/bin/tabix"
+
 sequenza-utils seqz_binning \
 --seqz ${SEQUENZA_SEQZ} \
 -o ${SEQUENZA_SMALL_SEQZ} \

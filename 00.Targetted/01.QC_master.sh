@@ -19,14 +19,13 @@ for sublog in 01.fastp 02.fastqc; do
     fi
 done
 
-sample_name_list=$(cat ${CURRENT_PATH}"/sample_name.txt")
-
-sample_name_LIST=(${sample_name_list// / })     # array로 만듬
+# sample_name_list=$(cat ${CURRENT_PATH}"/sample_name.txt")
+# sample_name_LIST=(${sample_name_list// / })     # array로 만듬
+# for idx in ${!sample_name_LIST[@]}; do
+#     Sample_ID=${sample_name_LIST[idx]}        #220930, 221026, 221102
 
 # 01.QC
-
-for idx in ${!sample_name_LIST[@]}; do
-    Sample_ID=${sample_name_LIST[idx]}        #220930, 221026, 221102
+for Sample_ID in 230526_2 230526_3; do
     echo $Sample_ID
     
     for TISSUE in Dura; do

@@ -1,17 +1,24 @@
 import pandas as pd
 import numpy as np
-import csv
-import gzip
-import glob
-import time
 import sys
+import argparse
 
-InputPath = sys.argv[1]
-PANDAS_DIR = sys.argv[2]
-ID = sys.argv[3]
+parser = argparse.ArgumentParser(description='Here is usage direction.')
+parser.add_argument('--INPUT_PATH', default="/data/project/Meningioma/21.SV/02.manta_multiple/02.PASS/02.Diploid/220930.Manta.Diploid.PASS.vcf")
+parser.add_argument('--PANDAS_DIR', default="/data/project/Meningioma/21.SV/02.manta_multiple/03.pandas")
+parser.add_argument('--ID', default="220930")
+parser.add_argument('--CONTROL_SAMPLE', default="220930_Blood")
+
+args = parser.parse_args()
+INPUT_PATH = args.INPUT_PATH
+PANDAS_DIR = args.PANDAS_DIR
+ID = args.ID
+CONTROL_SAMPLE = args.CONTROL_SAMPLE
 
 
-input_file = open (InputPath, "r")
+
+
+input_file = open (INPUT_PATH, "r")
 
 
 matrix = []

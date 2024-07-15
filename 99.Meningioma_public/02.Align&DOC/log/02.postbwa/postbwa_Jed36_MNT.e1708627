@@ -1,0 +1,421 @@
+INFO	2024-01-04 00:08:09	MarkDuplicates	
+
+********** NOTE: Picard's command line syntax is changing.
+**********
+********** For more information, please see:
+********** https://github.com/broadinstitute/picard/wiki/Command-Line-Syntax-Transition-For-Users-(Pre-Transition)
+**********
+********** The command line looks like this in the new syntax:
+**********
+**********    MarkDuplicates -I /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/01.Pre_bam/Jed36_MNT.sorted.bam -O /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/02.MarkDuplicate/Jed36_MNT.mkdp.sorted.bam -M /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/02.MarkDuplicate/Jed36_MNT.MarkDuplicate.txt -CREATE_INDEX true -REMOVE_DUPLICATES true -REMOVE_SEQUENCING_DUPLICATES true -TMP_DIR /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp
+**********
+
+
+00:08:09.963 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/Yonsei/Picard/2.26.4/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Thu Jan 04 00:08:09 KST 2024] MarkDuplicates REMOVE_SEQUENCING_DUPLICATES=true INPUT=[/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/01.Pre_bam/Jed36_MNT.sorted.bam] OUTPUT=/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/02.MarkDuplicate/Jed36_MNT.mkdp.sorted.bam METRICS_FILE=/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/02.MarkDuplicate/Jed36_MNT.MarkDuplicate.txt REMOVE_DUPLICATES=true TMP_DIR=[/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp] CREATE_INDEX=true    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 TAG_DUPLICATE_SET_MEMBERS=false TAGGING_POLICY=DontTag CLEAR_DT=true DUPLEX_UMI=false ADD_PG_TAG_TO_READS=true ASSUME_SORTED=false DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 MAX_OPTICAL_DUPLICATE_SET_SIZE=300000 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Thu Jan 04 00:08:09 KST 2024] Executing as goldpm1@compute17 on Linux 3.10.0-1160.el7.x86_64 amd64; OpenJDK 64-Bit Server VM 12+33; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.26.4
+INFO	2024-01-04 00:08:10	MarkDuplicates	Start of doWork freeMemory: 193629728; totalMemory: 201326592; maxMemory: 64424509440
+INFO	2024-01-04 00:08:10	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2024-01-04 00:08:10	MarkDuplicates	Will retain up to 233422135 data points before spilling to disk.
+WARNING	2024-01-04 00:08:10	AbstractOpticalDuplicateFinderCommandLineProgram	A field field parsed out of a read name was expected to contain an integer and did not. Read name: SRR11788641.2. Cause: String 'SRR11788641.2' did not start with a parsable number.
+INFO	2024-01-04 00:08:15	MarkDuplicates	Read     1,000,000 records.  Elapsed time: 00:00:05s.  Time for last 1,000,000:    5s.  Last read position: chr1:151,400,075
+INFO	2024-01-04 00:08:15	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:19	MarkDuplicates	Read     2,000,000 records.  Elapsed time: 00:00:09s.  Time for last 1,000,000:    4s.  Last read position: chr2:3,671,060
+INFO	2024-01-04 00:08:19	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:23	MarkDuplicates	Read     3,000,000 records.  Elapsed time: 00:00:12s.  Time for last 1,000,000:    3s.  Last read position: chr2:159,149,087
+INFO	2024-01-04 00:08:23	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:26	MarkDuplicates	Read     4,000,000 records.  Elapsed time: 00:00:15s.  Time for last 1,000,000:    3s.  Last read position: chr3:38,126,139
+INFO	2024-01-04 00:08:26	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:29	MarkDuplicates	Read     5,000,000 records.  Elapsed time: 00:00:18s.  Time for last 1,000,000:    3s.  Last read position: chr3:170,102,576
+INFO	2024-01-04 00:08:29	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:32	MarkDuplicates	Read     6,000,000 records.  Elapsed time: 00:00:21s.  Time for last 1,000,000:    3s.  Last read position: chr4:158,232,745
+INFO	2024-01-04 00:08:32	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:35	MarkDuplicates	Read     7,000,000 records.  Elapsed time: 00:00:24s.  Time for last 1,000,000:    3s.  Last read position: chr5:151,094,053
+INFO	2024-01-04 00:08:35	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:38	MarkDuplicates	Read     8,000,000 records.  Elapsed time: 00:00:27s.  Time for last 1,000,000:    3s.  Last read position: chr7:5,371,113
+INFO	2024-01-04 00:08:38	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:41	MarkDuplicates	Read     9,000,000 records.  Elapsed time: 00:00:30s.  Time for last 1,000,000:    3s.  Last read position: chr7:151,017,946
+INFO	2024-01-04 00:08:41	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:45	MarkDuplicates	Read    10,000,000 records.  Elapsed time: 00:00:34s.  Time for last 1,000,000:    3s.  Last read position: chr9:32,500,772
+INFO	2024-01-04 00:08:45	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:49	MarkDuplicates	Read    11,000,000 records.  Elapsed time: 00:00:38s.  Time for last 1,000,000:    4s.  Last read position: chr10:18,642,423
+INFO	2024-01-04 00:08:49	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:52	MarkDuplicates	Read    12,000,000 records.  Elapsed time: 00:00:41s.  Time for last 1,000,000:    3s.  Last read position: chr11:5,440,968
+INFO	2024-01-04 00:08:52	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:55	MarkDuplicates	Read    13,000,000 records.  Elapsed time: 00:00:44s.  Time for last 1,000,000:    3s.  Last read position: chr11:92,761,768
+INFO	2024-01-04 00:08:55	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:08:58	MarkDuplicates	Read    14,000,000 records.  Elapsed time: 00:00:47s.  Time for last 1,000,000:    3s.  Last read position: chr12:55,936,977
+INFO	2024-01-04 00:08:58	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:01	MarkDuplicates	Read    15,000,000 records.  Elapsed time: 00:00:50s.  Time for last 1,000,000:    3s.  Last read position: chr13:95,980,680
+INFO	2024-01-04 00:09:01	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:04	MarkDuplicates	Read    16,000,000 records.  Elapsed time: 00:00:53s.  Time for last 1,000,000:    3s.  Last read position: chr15:63,043,747
+INFO	2024-01-04 00:09:04	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:07	MarkDuplicates	Read    17,000,000 records.  Elapsed time: 00:00:56s.  Time for last 1,000,000:    3s.  Last read position: chr16:49,524,972
+INFO	2024-01-04 00:09:07	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:10	MarkDuplicates	Read    18,000,000 records.  Elapsed time: 00:00:59s.  Time for last 1,000,000:    3s.  Last read position: chr17:29,165,830
+INFO	2024-01-04 00:09:10	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:13	MarkDuplicates	Read    19,000,000 records.  Elapsed time: 00:01:02s.  Time for last 1,000,000:    3s.  Last read position: chr18:7,231,327
+INFO	2024-01-04 00:09:13	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:17	MarkDuplicates	Read    20,000,000 records.  Elapsed time: 00:01:06s.  Time for last 1,000,000:    3s.  Last read position: chr19:35,120,918
+INFO	2024-01-04 00:09:17	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:21	MarkDuplicates	Read    21,000,000 records.  Elapsed time: 00:01:10s.  Time for last 1,000,000:    3s.  Last read position: chr20:33,241,954
+INFO	2024-01-04 00:09:21	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:24	MarkDuplicates	Read    22,000,000 records.  Elapsed time: 00:01:13s.  Time for last 1,000,000:    3s.  Last read position: chr22:41,647,085
+INFO	2024-01-04 00:09:24	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:28	MarkDuplicates	Read    23,000,000 records.  Elapsed time: 00:01:17s.  Time for last 1,000,000:    3s.  Last read position: chr19_GL949753v2_alt:231,375
+INFO	2024-01-04 00:09:28	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2024-01-04 00:09:28	MarkDuplicates	Read 23016732 records. 0 pairs never matched.
+INFO	2024-01-04 00:09:28	MarkDuplicates	After buildSortedReadEndLists freeMemory: 5780508304; totalMemory: 11374952448; maxMemory: 64424509440
+INFO	2024-01-04 00:09:30	MarkDuplicates	Will retain up to 1006632960 duplicate indices before spilling to disk.
+INFO	2024-01-04 00:09:31	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2024-01-04 00:09:31	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2024-01-04 00:09:32	MarkDuplicates	Sorting list of duplicate records.
+INFO	2024-01-04 00:09:33	MarkDuplicates	After generateDuplicateIndexes freeMemory: 14939392360; totalMemory: 31079792640; maxMemory: 64424509440
+INFO	2024-01-04 00:09:33	MarkDuplicates	Marking 20328212 records as duplicates.
+INFO	2024-01-04 00:09:33	MarkDuplicates	Found 0 optical duplicate clusters.
+INFO	2024-01-04 00:09:33	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2024-01-04 00:10:57	MarkDuplicates	Writing complete. Closing input iterator.
+INFO	2024-01-04 00:10:57	MarkDuplicates	Duplicate Index cleanup.
+INFO	2024-01-04 00:10:57	MarkDuplicates	Getting Memory Stats.
+INFO	2024-01-04 00:10:57	MarkDuplicates	Before output close freeMemory: 19512272360; totalMemory: 27598520320; maxMemory: 64424509440
+INFO	2024-01-04 00:10:57	MarkDuplicates	Closed outputs. Getting more Memory Stats.
+INFO	2024-01-04 00:10:57	MarkDuplicates	After output close freeMemory: 19382248936; totalMemory: 27464302592; maxMemory: 64424509440
+[Thu Jan 04 00:10:57 KST 2024] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 2.80 minutes.
+Runtime.totalMemory()=27464302592
+INFO	2024-01-04 00:10:58	AddOrReplaceReadGroups	
+
+********** NOTE: Picard's command line syntax is changing.
+**********
+********** For more information, please see:
+********** https://github.com/broadinstitute/picard/wiki/Command-Line-Syntax-Transition-For-Users-(Pre-Transition)
+**********
+********** The command line looks like this in the new syntax:
+**********
+**********    AddOrReplaceReadGroups -I /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/02.MarkDuplicate/Jed36_MNT.mkdp.sorted.bam -O /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/03.AddOrReplaceReadGroups/Jed36_MNT.arg.mkdp.sorted.bam -SORT_ORDER coordinate -RGLB Meningioma -RGPL Illumina -RGPU Illumina -RGSM Jed36_MNT -CREATE_INDEX true -VALIDATION_STRINGENCY LENIENT -TMP_DIR /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp
+**********
+
+
+00:10:58.704 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/Yonsei/Picard/2.26.4/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Thu Jan 04 00:10:58 KST 2024] AddOrReplaceReadGroups INPUT=/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/02.MarkDuplicate/Jed36_MNT.mkdp.sorted.bam OUTPUT=/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/03.AddOrReplaceReadGroups/Jed36_MNT.arg.mkdp.sorted.bam SORT_ORDER=coordinate RGLB=Meningioma RGPL=Illumina RGPU=Illumina RGSM=Jed36_MNT TMP_DIR=[/data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp] VALIDATION_STRINGENCY=LENIENT CREATE_INDEX=true    RGID=1 VERBOSITY=INFO QUIET=false COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Thu Jan 04 00:10:58 KST 2024] Executing as goldpm1@compute17 on Linux 3.10.0-1160.el7.x86_64 amd64; OpenJDK 64-Bit Server VM 12+33; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.26.4
+INFO	2024-01-04 00:10:58	AddOrReplaceReadGroups	Created read-group ID=1 PL=Illumina LB=Meningioma SM=Jed36_MNT
+
+INFO	2024-01-04 00:11:19	AddOrReplaceReadGroups	Processed     1,000,000 records.  Elapsed time: 00:00:20s.  Time for last 1,000,000:   20s.  Last read position: chr7:76,482,473
+INFO	2024-01-04 00:11:36	AddOrReplaceReadGroups	Processed     2,000,000 records.  Elapsed time: 00:00:37s.  Time for last 1,000,000:   17s.  Last read position: chr16:73,433,827
+[Thu Jan 04 00:11:52 KST 2024] picard.sam.AddOrReplaceReadGroups done. Elapsed time: 0.90 minutes.
+Runtime.totalMemory()=1124073472
+Using GATK jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar BaseRecalibrator -I /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/03.AddOrReplaceReadGroups/Jed36_MNT.arg.mkdp.sorted.bam -R /home/goldpm1/reference/genome.fa --known-sites /data/public/dbSNP/b155/GRCh38/GCF_000001405.39.re.vcf.gz -O /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/04.BQSR/Jed36_MNT.time.recal.table --tmp-dir /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp
+00:11:54.197 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+Jan 04, 2024 12:12:00 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+00:12:00.344 INFO  BaseRecalibrator - ------------------------------------------------------------
+00:12:00.344 INFO  BaseRecalibrator - The Genome Analysis Toolkit (GATK) v4.2.3.0
+00:12:00.344 INFO  BaseRecalibrator - For support and documentation go to https://software.broadinstitute.org/gatk/
+00:12:00.344 INFO  BaseRecalibrator - Executing as goldpm1@compute17 on Linux v3.10.0-1160.el7.x86_64 amd64
+00:12:00.344 INFO  BaseRecalibrator - Java runtime: OpenJDK 64-Bit Server VM v12+33
+00:12:00.345 INFO  BaseRecalibrator - Start Date/Time: 2024년 1월 4일 오전 12시 11분 54초 KST
+00:12:00.345 INFO  BaseRecalibrator - ------------------------------------------------------------
+00:12:00.345 INFO  BaseRecalibrator - ------------------------------------------------------------
+00:12:00.345 INFO  BaseRecalibrator - HTSJDK Version: 2.24.1
+00:12:00.345 INFO  BaseRecalibrator - Picard Version: 2.25.4
+00:12:00.345 INFO  BaseRecalibrator - Built for Spark Version: 2.4.5
+00:12:00.346 INFO  BaseRecalibrator - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+00:12:00.346 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+00:12:00.346 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+00:12:00.346 INFO  BaseRecalibrator - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+00:12:00.346 INFO  BaseRecalibrator - Deflater: IntelDeflater
+00:12:00.346 INFO  BaseRecalibrator - Inflater: IntelInflater
+00:12:00.346 INFO  BaseRecalibrator - GCS max retries/reopens: 20
+00:12:00.346 INFO  BaseRecalibrator - Requester pays: disabled
+00:12:00.346 INFO  BaseRecalibrator - Initializing engine
+00:12:00.629 INFO  FeatureManager - Using codec VCFCodec to read file file:///data/public/dbSNP/b155/GRCh38/GCF_000001405.39.re.vcf.gz
+00:12:00.715 WARN  IndexUtils - Feature file "file:///data/public/dbSNP/b155/GRCh38/GCF_000001405.39.re.vcf.gz" appears to contain no sequence dictionary. Attempting to retrieve a sequence dictionary from the associated index file
+00:12:00.778 WARN  IntelInflater - Zero Bytes Written : 0
+00:12:00.789 INFO  BaseRecalibrator - Done initializing engine
+00:12:00.791 INFO  BaseRecalibrationEngine - The covariates being used here: 
+00:12:00.791 INFO  BaseRecalibrationEngine - 	ReadGroupCovariate
+00:12:00.792 INFO  BaseRecalibrationEngine - 	QualityScoreCovariate
+00:12:00.792 INFO  BaseRecalibrationEngine - 	ContextCovariate
+00:12:00.792 INFO  BaseRecalibrationEngine - 	CycleCovariate
+00:12:00.823 INFO  ProgressMeter - Starting traversal
+00:12:00.823 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+00:12:11.046 INFO  ProgressMeter -         chr1:6095384              0.2                  9000          52832.4
+00:12:21.514 INFO  ProgressMeter -        chr1:16707936              0.3                 23000          66698.9
+00:12:31.562 INFO  ProgressMeter -        chr1:27547282              0.5                 39000          76127.3
+00:12:41.630 INFO  ProgressMeter -        chr1:39928891              0.7                 54000          79400.1
+00:12:52.139 INFO  ProgressMeter -        chr1:54605068              0.9                 70000          81847.4
+00:13:02.794 INFO  ProgressMeter -        chr1:77425346              1.0                 81000          78423.8
+00:13:13.434 INFO  ProgressMeter -       chr1:102898608              1.2                 93000          76847.9
+00:13:23.867 INFO  ProgressMeter -       chr1:119915183              1.4                107000          77309.3
+00:13:34.114 INFO  ProgressMeter -       chr1:155086407              1.6                125000          80393.6
+00:13:44.933 INFO  ProgressMeter -       chr1:169536485              1.7                145000          83565.5
+00:13:55.486 INFO  ProgressMeter -       chr1:186307226              1.9                160000          83723.6
+00:14:05.925 INFO  ProgressMeter -       chr1:205269724              2.1                175000          83931.5
+00:14:16.762 INFO  ProgressMeter -       chr1:222482398              2.3                189000          83419.8
+00:14:26.800 INFO  ProgressMeter -       chr1:235365645              2.4                204000          83849.4
+00:14:36.889 INFO  ProgressMeter -         chr2:2835224              2.6                216000          83041.8
+00:14:47.677 INFO  ProgressMeter -        chr2:17779960              2.8                227000          81628.2
+00:14:58.012 INFO  ProgressMeter -        chr2:30736606              3.0                243000          82285.5
+00:15:08.659 INFO  ProgressMeter -        chr2:43709701              3.1                253000          80815.2
+00:15:19.317 INFO  ProgressMeter -        chr2:55655964              3.3                262000          79196.3
+00:15:30.120 INFO  ProgressMeter -        chr2:70921225              3.5                272000          77975.3
+00:15:40.503 INFO  ProgressMeter -        chr2:86617830              3.7                286000          78113.6
+00:15:50.530 INFO  ProgressMeter -       chr2:104005705              3.8                300000          78360.7
+00:16:01.144 INFO  ProgressMeter -       chr2:120047473              4.0                312000          77896.1
+00:16:11.473 INFO  ProgressMeter -       chr2:134130823              4.2                324000          77558.3
+00:16:23.247 INFO  ProgressMeter -       chr2:156575542              4.4                335000          76593.6
+00:16:33.601 INFO  ProgressMeter -       chr2:173258612              4.5                348000          76545.8
+00:16:44.306 INFO  ProgressMeter -       chr2:191008865              4.7                363000          76830.0
+00:16:54.607 INFO  ProgressMeter -       chr2:207488177              4.9                375000          76586.9
+00:17:06.019 INFO  ProgressMeter -       chr2:222450395              5.1                390000          76672.0
+00:17:16.573 INFO  ProgressMeter -       chr2:235677466              5.3                403000          76579.6
+00:17:27.162 INFO  ProgressMeter -         chr3:4896411              5.4                417000          76668.7
+00:17:37.598 INFO  ProgressMeter -        chr3:14541860              5.6                428000          76252.7
+00:17:48.741 INFO  ProgressMeter -        chr3:31648381              5.8                437000          75362.6
+00:17:58.885 INFO  ProgressMeter -        chr3:45523967              6.0                452000          75741.1
+00:18:09.418 INFO  ProgressMeter -        chr3:53765811              6.1                475000          77320.6
+00:18:19.574 INFO  ProgressMeter -        chr3:68449191              6.3                485000          76831.5
+00:18:30.287 INFO  ProgressMeter -        chr3:87845649              6.5                492000          75796.7
+00:18:40.327 INFO  ProgressMeter -       chr3:109459821              6.7                501000          75243.3
+00:18:50.625 INFO  ProgressMeter -       chr3:124434299              6.8                513000          75109.6
+00:19:01.290 INFO  ProgressMeter -       chr3:136326739              7.0                528000          75344.8
+00:19:11.344 INFO  ProgressMeter -       chr3:154303379              7.2                540000          75257.7
+00:19:22.204 INFO  ProgressMeter -       chr3:176362288              7.4                551000          74901.3
+00:19:32.427 INFO  ProgressMeter -       chr3:193314925              7.5                564000          74933.1
+00:19:42.613 INFO  ProgressMeter -         chr4:3439346              7.7                578000          75099.1
+00:19:53.842 INFO  ProgressMeter -        chr4:13599734              7.9                590000          74838.4
+00:20:04.220 INFO  ProgressMeter -        chr4:33346216              8.1                599000          74348.8
+00:20:14.491 INFO  ProgressMeter -        chr4:53496428              8.2                610000          74139.0
+00:20:25.157 INFO  ProgressMeter -        chr4:75033851              8.4                621000          73879.6
+00:20:36.174 INFO  ProgressMeter -        chr4:95153202              8.6                634000          73813.8
+00:20:47.262 INFO  ProgressMeter -       chr4:118552180              8.8                646000          73626.8
+00:20:58.063 INFO  ProgressMeter -       chr4:142320227              9.0                657000          73375.0
+00:21:08.149 INFO  ProgressMeter -       chr4:158825859              9.1                667000          73119.1
+00:21:19.213 INFO  ProgressMeter -       chr4:181533331              9.3                676000          72637.4
+00:21:29.698 INFO  ProgressMeter -         chr5:5146147              9.5                688000          72564.4
+00:21:40.889 INFO  ProgressMeter -        chr5:23407634              9.7                698000          72198.7
+00:21:50.982 INFO  ProgressMeter -        chr5:42688853              9.8                709000          72082.4
+00:22:02.218 INFO  ProgressMeter -        chr5:65572262             10.0                719000          71733.3
+00:22:12.595 INFO  ProgressMeter -        chr5:81305022             10.2                730000          71595.3
+00:22:24.276 INFO  ProgressMeter -       chr5:107797169             10.4                741000          71312.6
+00:22:35.446 INFO  ProgressMeter -       chr5:126425033             10.6                750000          70908.4
+00:22:45.790 INFO  ProgressMeter -       chr5:138647784             10.7                762000          70887.5
+00:22:56.054 INFO  ProgressMeter -       chr5:149639267             10.9                779000          71333.6
+00:23:07.451 INFO  ProgressMeter -       chr5:165464406             11.1                792000          71284.2
+00:23:17.892 INFO  ProgressMeter -       chr5:176822908             11.3                802000          71071.0
+00:23:27.950 INFO  ProgressMeter -         chr6:7052490             11.5                815000          71165.9
+00:23:38.086 INFO  ProgressMeter -        chr6:26980301             11.6                825000          70991.9
+00:23:48.434 INFO  ProgressMeter -        chr6:43062877             11.8                838000          71056.1
+00:23:58.748 INFO  ProgressMeter -        chr6:63280593             12.0                849000          70954.5
+00:24:09.065 INFO  ProgressMeter -        chr6:89080829             12.1                859000          70773.3
+00:24:19.565 INFO  ProgressMeter -       chr6:115224636             12.3                870000          70660.7
+00:24:29.595 INFO  ProgressMeter -       chr6:139579354             12.5                881000          70595.6
+00:24:39.716 INFO  ProgressMeter -       chr6:158146705             12.6                891000          70444.7
+00:24:50.277 INFO  ProgressMeter -         chr7:1448468             12.8                902000          70335.7
+00:25:01.690 INFO  ProgressMeter -        chr7:10974215             13.0                913000          70152.8
+00:25:12.705 INFO  ProgressMeter -        chr7:29653215             13.2                924000          70010.4
+00:25:23.188 INFO  ProgressMeter -        chr7:45101954             13.4                937000          70067.9
+00:25:33.970 INFO  ProgressMeter -        chr7:63642338             13.6                947000          69876.7
+00:25:44.032 INFO  ProgressMeter -        chr7:77241636             13.7                959000          69897.3
+00:25:54.988 INFO  ProgressMeter -        chr7:97854685             13.9                971000          69842.4
+00:26:05.954 INFO  ProgressMeter -       chr7:111811841             14.1                990000          70285.0
+00:26:16.776 INFO  ProgressMeter -       chr7:131623247             14.3               1003000          70307.6
+00:26:27.440 INFO  ProgressMeter -       chr7:149100342             14.4               1016000          70342.5
+00:26:38.066 INFO  ProgressMeter -          chr8:544568             14.6               1031000          70516.4
+00:26:49.247 INFO  ProgressMeter -        chr8:14537847             14.8               1039000          70169.2
+00:26:59.916 INFO  ProgressMeter -        chr8:27446125             15.0               1051000          70137.3
+00:27:10.423 INFO  ProgressMeter -        chr8:43018304             15.2               1064000          70184.7
+00:27:20.835 INFO  ProgressMeter -        chr8:61643848             15.3               1074000          70042.6
+00:27:30.923 INFO  ProgressMeter -        chr8:80823930             15.5               1084000          69928.0
+00:27:41.240 INFO  ProgressMeter -        chr8:99759688             15.7               1094000          69798.8
+00:27:51.851 INFO  ProgressMeter -       chr8:120309912             15.9               1105000          69714.0
+00:28:02.628 INFO  ProgressMeter -       chr8:136486611             16.0               1116000          69619.1
+00:28:13.138 INFO  ProgressMeter -         chr9:2081809             16.2               1132000          69853.9
+00:28:23.905 INFO  ProgressMeter -        chr9:21073864             16.4               1141000          69638.2
+00:28:34.240 INFO  ProgressMeter -        chr9:37745330             16.6               1154000          69698.8
+00:28:45.446 INFO  ProgressMeter -        chr9:81992605             16.7               1165000          69578.3
+00:28:55.768 INFO  ProgressMeter -        chr9:95726224             16.9               1178000          69639.2
+00:29:05.968 INFO  ProgressMeter -       chr9:111727604             17.1               1191000          69707.2
+00:29:16.629 INFO  ProgressMeter -       chr9:125986456             17.3               1206000          69858.7
+00:29:27.260 INFO  ProgressMeter -       chr9:134408041             17.4               1225000          70238.4
+00:29:37.448 INFO  ProgressMeter -        chr10:3780051             17.6               1242000          70526.4
+00:29:47.838 INFO  ProgressMeter -       chr10:16869693             17.8               1252000          70402.1
+00:29:58.245 INFO  ProgressMeter -       chr10:32849715             18.0               1263000          70334.6
+00:30:08.330 INFO  ProgressMeter -       chr10:49779455             18.1               1275000          70344.4
+00:30:18.667 INFO  ProgressMeter -       chr10:70037943             18.3               1286000          70283.2
+00:30:29.586 INFO  ProgressMeter -       chr10:84142685             18.5               1300000          70348.7
+00:30:40.186 INFO  ProgressMeter -       chr10:99403442             18.7               1316000          70540.1
+00:30:50.910 INFO  ProgressMeter -      chr10:113649995             18.8               1331000          70667.1
+00:31:01.028 INFO  ProgressMeter -      chr10:125771996             19.0               1344000          70724.1
+00:31:11.609 INFO  ProgressMeter -        chr11:1085661             19.2               1358000          70803.8
+00:31:22.185 INFO  ProgressMeter -       chr11:10308031             19.4               1374000          70985.6
+00:31:33.124 INFO  ProgressMeter -       chr11:27282044             19.5               1387000          70988.6
+00:31:43.182 INFO  ProgressMeter -       chr11:44882747             19.7               1397000          70892.2
+00:31:53.403 INFO  ProgressMeter -       chr11:61437955             19.9               1414000          71139.9
+00:32:03.471 INFO  ProgressMeter -       chr11:69430565             20.0               1440000          71841.5
+00:32:14.406 INFO  ProgressMeter -       chr11:82351984             20.2               1456000          71985.2
+00:32:24.935 INFO  ProgressMeter -      chr11:102073435             20.4               1467000          71905.2
+00:32:35.023 INFO  ProgressMeter -      chr11:117282197             20.6               1480000          71949.5
+00:32:45.319 INFO  ProgressMeter -      chr11:128839481             20.7               1497000          72173.8
+00:32:56.135 INFO  ProgressMeter -        chr12:5994409             20.9               1511000          72221.1
+00:33:06.151 INFO  ProgressMeter -       chr12:20862705             21.1               1526000          72360.7
+00:33:16.736 INFO  ProgressMeter -       chr12:41087006             21.3               1537000          72277.7
+00:33:26.868 INFO  ProgressMeter -       chr12:53975134             21.4               1557000          72641.3
+00:33:37.019 INFO  ProgressMeter -       chr12:69812879             21.6               1575000          72905.6
+00:33:47.760 INFO  ProgressMeter -       chr12:92951190             21.8               1586000          72811.5
+00:33:58.389 INFO  ProgressMeter -      chr12:108652223             22.0               1599000          72816.1
+00:34:08.772 INFO  ProgressMeter -      chr12:120131148             22.1               1614000          72924.5
+00:34:18.876 INFO  ProgressMeter -      chr12:130707587             22.3               1628000          73001.6
+00:34:29.650 INFO  ProgressMeter -       chr13:27544333             22.5               1642000          73041.2
+00:34:40.290 INFO  ProgressMeter -       chr13:43869275             22.7               1654000          72999.3
+00:34:51.714 INFO  ProgressMeter -       chr13:67227070             22.8               1665000          72872.3
+00:35:02.125 INFO  ProgressMeter -       chr13:92622004             23.0               1673000          72670.6
+00:35:12.831 INFO  ProgressMeter -      chr13:110428422             23.2               1684000          72585.8
+00:35:23.595 INFO  ProgressMeter -       chr14:30659816             23.4               1701000          72755.9
+00:35:34.220 INFO  ProgressMeter -       chr14:55385701             23.6               1712000          72676.0
+00:35:44.227 INFO  ProgressMeter -       chr14:73263572             23.7               1724000          72670.9
+00:35:54.490 INFO  ProgressMeter -       chr14:92581649             23.9               1736000          72652.9
+00:36:04.531 INFO  ProgressMeter -      chr14:105498865             24.1               1750000          72729.4
+00:36:14.701 INFO  ProgressMeter -       chr15:40364818             24.2               1761000          72674.6
+00:36:24.756 INFO  ProgressMeter -       chr15:52709560             24.4               1780000          72954.2
+00:36:35.227 INFO  ProgressMeter -       chr15:66489617             24.6               1793000          72965.1
+00:36:45.415 INFO  ProgressMeter -       chr15:78024130             24.7               1809000          73111.0
+00:36:55.461 INFO  ProgressMeter -       chr15:90352662             24.9               1823000          73181.6
+00:37:05.469 INFO  ProgressMeter -         chr16:658521             25.1               1835000          73173.4
+00:37:17.011 INFO  ProgressMeter -        chr16:8776366             25.3               1854000          73368.2
+00:37:27.439 INFO  ProgressMeter -       chr16:22324798             25.4               1866000          73338.7
+00:37:38.353 INFO  ProgressMeter -       chr16:46401019             25.6               1884000          73520.6
+00:37:48.581 INFO  ProgressMeter -       chr16:58749207             25.8               1899000          73616.2
+00:37:59.547 INFO  ProgressMeter -       chr16:73766617             26.0               1916000          73752.6
+00:38:09.906 INFO  ProgressMeter -       chr16:84183065             26.2               1925000          73609.9
+00:38:20.563 INFO  ProgressMeter -        chr17:1478444             26.3               1939000          73645.1
+00:38:31.105 INFO  ProgressMeter -       chr17:10392801             26.5               1962000          74024.6
+00:38:42.203 INFO  ProgressMeter -       chr17:27311559             26.7               1979000          74148.5
+00:38:52.423 INFO  ProgressMeter -       chr17:41443625             26.9               1998000          74385.7
+00:39:03.008 INFO  ProgressMeter -       chr17:52752516             27.0               2020000          74714.0
+00:39:13.291 INFO  ProgressMeter -       chr17:66316804             27.2               2036000          74831.5
+00:39:23.824 INFO  ProgressMeter -       chr17:77457349             27.4               2054000          75009.1
+00:39:34.599 INFO  ProgressMeter -        chr18:2703553             27.6               2072000          75173.4
+00:39:45.653 INFO  ProgressMeter -       chr18:26916171             27.7               2084000          75106.8
+00:39:55.838 INFO  ProgressMeter -       chr18:49429341             27.9               2094000          75008.3
+00:40:07.641 INFO  ProgressMeter -       chr18:70859417             28.1               2103000          74803.6
+00:40:17.888 INFO  ProgressMeter -        chr19:2767110             28.3               2117000          74846.9
+00:40:27.997 INFO  ProgressMeter -       chr19:10116922             28.5               2139000          75176.9
+00:40:38.272 INFO  ProgressMeter -       chr19:18167259             28.6               2163000          75565.6
+00:40:48.882 INFO  ProgressMeter -       chr19:33204601             28.8               2181000          75726.6
+00:40:59.058 INFO  ProgressMeter -       chr19:42578430             29.0               2206000          76146.2
+00:41:09.249 INFO  ProgressMeter -       chr19:50508211             29.1               2230000          76526.0
+00:41:19.878 INFO  ProgressMeter -        chr20:2467567             29.3               2253000          76848.1
+00:41:29.907 INFO  ProgressMeter -       chr20:17973967             29.5               2265000          76819.5
+00:41:40.349 INFO  ProgressMeter -       chr20:33277954             29.7               2278000          76807.0
+00:41:50.750 INFO  ProgressMeter -       chr20:44924166             29.8               2294000          76897.0
+00:42:00.776 INFO  ProgressMeter -       chr20:55251241             30.0               2309000          76968.7
+00:42:10.966 INFO  ProgressMeter -       chr20:63685647             30.2               2325000          77065.7
+00:42:21.002 INFO  ProgressMeter -       chr21:29067529             30.3               2334000          76937.5
+00:42:31.291 INFO  ProgressMeter -       chr21:42102109             30.5               2347000          76931.1
+00:42:41.631 INFO  ProgressMeter -       chr22:20819769             30.7               2364000          77053.2
+00:42:52.874 INFO  ProgressMeter -       chr22:35407383             30.9               2379000          77071.4
+00:43:03.749 INFO  ProgressMeter -       chr22:45543306             31.0               2394000          77104.6
+00:43:14.200 INFO  ProgressMeter -        chrX:14953308             31.2               2407000          77090.7
+00:43:24.209 INFO  ProgressMeter -        chrX:49075850             31.4               2422000          77158.9
+00:43:35.338 INFO  ProgressMeter -        chrX:91878776             31.6               2438000          77212.4
+00:43:45.558 INFO  ProgressMeter -       chrX:132889971             31.7               2453000          77270.6
+00:43:53.877 WARN  IntelInflater - Zero Bytes Written : 0
+00:43:53.878 INFO  BaseRecalibrator - 384087 read(s) filtered by: MappingQualityNotZeroReadFilter 
+0 read(s) filtered by: MappingQualityAvailableReadFilter 
+0 read(s) filtered by: MappedReadFilter 
+12919 read(s) filtered by: NotSecondaryAlignmentReadFilter 
+0 read(s) filtered by: NotDuplicateReadFilter 
+0 read(s) filtered by: PassesVendorQualityCheckReadFilter 
+0 read(s) filtered by: WellformedReadFilter 
+397006 total reads filtered
+00:43:53.878 INFO  ProgressMeter - chrUn_JTFH01001710v1_decoy:752             31.9               2481282          77821.6
+00:43:53.878 INFO  ProgressMeter - Traversal complete. Processed 2481282 total reads in 31.9 minutes.
+00:43:53.962 INFO  BaseRecalibrator - Calculating quantized quality scores...
+00:43:53.970 INFO  BaseRecalibrator - Writing recalibration report...
+00:43:54.657 INFO  BaseRecalibrator - ...done!
+00:43:54.657 INFO  BaseRecalibrator - BaseRecalibrator was able to recalibrate 2481282 reads
+00:43:54.657 INFO  BaseRecalibrator - Shutting down engine
+[2024년 1월 4일 오전 12시 43분 54초 KST] org.broadinstitute.hellbender.tools.walkers.bqsr.BaseRecalibrator done. Elapsed time: 32.01 minutes.
+Runtime.totalMemory()=3422552064
+Using GATK jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar ApplyBQSR -R /home/goldpm1/reference/genome.fa -bqsr-recal-file /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/04.BQSR/Jed36_MNT.time.recal.table -I /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/03.AddOrReplaceReadGroups/Jed36_MNT.arg.mkdp.sorted.bam -O /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/04.BQSR/Jed36_MNT.recal.arg.mkdp.sorted.bam --tmp-dir /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp
+00:43:56.655 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+Jan 04, 2024 12:44:02 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+00:44:02.834 INFO  ApplyBQSR - ------------------------------------------------------------
+00:44:02.834 INFO  ApplyBQSR - The Genome Analysis Toolkit (GATK) v4.2.3.0
+00:44:02.834 INFO  ApplyBQSR - For support and documentation go to https://software.broadinstitute.org/gatk/
+00:44:02.834 INFO  ApplyBQSR - Executing as goldpm1@compute17 on Linux v3.10.0-1160.el7.x86_64 amd64
+00:44:02.835 INFO  ApplyBQSR - Java runtime: OpenJDK 64-Bit Server VM v12+33
+00:44:02.835 INFO  ApplyBQSR - Start Date/Time: 2024년 1월 4일 오전 12시 43분 56초 KST
+00:44:02.835 INFO  ApplyBQSR - ------------------------------------------------------------
+00:44:02.835 INFO  ApplyBQSR - ------------------------------------------------------------
+00:44:02.835 INFO  ApplyBQSR - HTSJDK Version: 2.24.1
+00:44:02.836 INFO  ApplyBQSR - Picard Version: 2.25.4
+00:44:02.836 INFO  ApplyBQSR - Built for Spark Version: 2.4.5
+00:44:02.836 INFO  ApplyBQSR - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+00:44:02.836 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+00:44:02.836 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+00:44:02.836 INFO  ApplyBQSR - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+00:44:02.836 INFO  ApplyBQSR - Deflater: IntelDeflater
+00:44:02.836 INFO  ApplyBQSR - Inflater: IntelInflater
+00:44:02.836 INFO  ApplyBQSR - GCS max retries/reopens: 20
+00:44:02.836 INFO  ApplyBQSR - Requester pays: disabled
+00:44:02.836 INFO  ApplyBQSR - Initializing engine
+00:44:03.180 INFO  ApplyBQSR - Done initializing engine
+00:44:03.219 INFO  ProgressMeter - Starting traversal
+00:44:03.219 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+00:44:13.241 INFO  ProgressMeter -       chr3:109291513              0.2                521000        3119760.5
+00:44:23.245 INFO  ProgressMeter -        chr8:34541361              0.3               1103000        3304868.9
+00:44:33.251 INFO  ProgressMeter -      chr12:119713176              0.5               1680000        3356419.8
+00:44:43.257 INFO  ProgressMeter -       chr19:36639285              0.7               2289000        3430412.6
+00:44:51.103 WARN  IntelInflater - Zero Bytes Written : 0
+00:44:51.106 INFO  ApplyBQSR - 0 read(s) filtered by: WellformedReadFilter 
+
+00:44:51.106 INFO  ProgressMeter -             unmapped              0.8               2878288        3606349.9
+00:44:51.106 INFO  ProgressMeter - Traversal complete. Processed 2878288 total reads in 0.8 minutes.
+00:44:51.159 INFO  ApplyBQSR - Shutting down engine
+[2024년 1월 4일 오전 12시 44분 51초 KST] org.broadinstitute.hellbender.tools.walkers.bqsr.ApplyBQSR done. Elapsed time: 0.91 minutes.
+Runtime.totalMemory()=1375731712
+Using GATK jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar
+Running:
+    java -Dsamjdk.use_async_io_read_samtools=false -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=false -Dsamjdk.compression_level=2 -jar /opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar LeftAlignIndels -R /home/goldpm1/reference/genome.fa -I /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/04.BQSR/Jed36_MNT.recal.arg.mkdp.sorted.bam -O /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/hg38/05.Final_bam/Jed36_MNT.bam --tmp-dir /data/project/Meningioma/99.Meningioma_public/SRP261564/03.bam/temp
+00:44:52.962 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/opt/Yonsei/GATK/4.2.3.0/gatk-package-4.2.3.0-local.jar!/com/intel/gkl/native/libgkl_compression.so
+Jan 04, 2024 12:44:59 AM shaded.cloud_nio.com.google.auth.oauth2.ComputeEngineCredentials runningOnComputeEngine
+INFO: Failed to detect whether we are running on Google Compute Engine.
+00:44:59.156 INFO  LeftAlignIndels - ------------------------------------------------------------
+00:44:59.157 INFO  LeftAlignIndels - The Genome Analysis Toolkit (GATK) v4.2.3.0
+00:44:59.157 INFO  LeftAlignIndels - For support and documentation go to https://software.broadinstitute.org/gatk/
+00:44:59.157 INFO  LeftAlignIndels - Executing as goldpm1@compute17 on Linux v3.10.0-1160.el7.x86_64 amd64
+00:44:59.157 INFO  LeftAlignIndels - Java runtime: OpenJDK 64-Bit Server VM v12+33
+00:44:59.158 INFO  LeftAlignIndels - Start Date/Time: 2024년 1월 4일 오전 12시 44분 52초 KST
+00:44:59.158 INFO  LeftAlignIndels - ------------------------------------------------------------
+00:44:59.158 INFO  LeftAlignIndels - ------------------------------------------------------------
+00:44:59.158 INFO  LeftAlignIndels - HTSJDK Version: 2.24.1
+00:44:59.158 INFO  LeftAlignIndels - Picard Version: 2.25.4
+00:44:59.159 INFO  LeftAlignIndels - Built for Spark Version: 2.4.5
+00:44:59.159 INFO  LeftAlignIndels - HTSJDK Defaults.COMPRESSION_LEVEL : 2
+00:44:59.159 INFO  LeftAlignIndels - HTSJDK Defaults.USE_ASYNC_IO_READ_FOR_SAMTOOLS : false
+00:44:59.159 INFO  LeftAlignIndels - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_SAMTOOLS : true
+00:44:59.159 INFO  LeftAlignIndels - HTSJDK Defaults.USE_ASYNC_IO_WRITE_FOR_TRIBBLE : false
+00:44:59.159 INFO  LeftAlignIndels - Deflater: IntelDeflater
+00:44:59.159 INFO  LeftAlignIndels - Inflater: IntelInflater
+00:44:59.159 INFO  LeftAlignIndels - GCS max retries/reopens: 20
+00:44:59.159 INFO  LeftAlignIndels - Requester pays: disabled
+00:44:59.159 INFO  LeftAlignIndels - Initializing engine
+00:44:59.447 INFO  LeftAlignIndels - Done initializing engine
+00:44:59.497 INFO  ProgressMeter - Starting traversal
+00:44:59.497 INFO  ProgressMeter -        Current Locus  Elapsed Minutes       Reads Processed     Reads/Minute
+00:45:09.506 INFO  ProgressMeter -       chr18:45884491              0.2               2187000       13114131.5
+00:45:13.669 WARN  IntelInflater - Zero Bytes Written : 0
+00:45:13.671 INFO  LeftAlignIndels - 0 read(s) filtered by: WellformedReadFilter 
+
+00:45:13.671 INFO  ProgressMeter -             unmapped              0.2               2878288       12184948.8
+00:45:13.672 INFO  ProgressMeter - Traversal complete. Processed 2878288 total reads in 0.2 minutes.
+00:45:13.726 INFO  LeftAlignIndels - Shutting down engine
+[2024년 1월 4일 오전 12시 45분 13초 KST] org.broadinstitute.hellbender.tools.LeftAlignIndels done. Elapsed time: 0.35 minutes.
+Runtime.totalMemory()=1975517184

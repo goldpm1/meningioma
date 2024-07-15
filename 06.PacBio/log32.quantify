@@ -1,0 +1,48 @@
+***Start_time: 2024. 04. 21. (일) 20:32:03 KST
+***Start_time: 2024. 04. 21. (일) 20:32:03 KST
+***Start_time: 2024. 04. 21. (일) 20:32:03 KST
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/230323_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/230323_Tumor.hifi_reads.fastq.gz -p 16 --use_hisat2 /home/goldpm1/reference/hisat_index/hg38_hisat2 --use_minimap2 1 
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/221026_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/221026_Tumor.hifi_reads.fastq.gz -p 16 --use hisat_2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+***Start_time: 2024. 04. 21. (일) 20:32:04 KST
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/221102_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/221102_Tumor.hifi_reads.fastq.gz -p 16 --use hisat_2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/230526_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/230526_Tumor.hifi_reads.fastq.gz -p 16 --use hisat_2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+--------
+Job_exited_code: 2 (Check your Error log file or Contact to admin)
+--------
+--------
+Job_exited_code: 2 (Check your Error log file or Contact to admin)
+--------
+***End_time: 2024. 04. 21. (일) 20:32:05 KST
+***End_time: 2024. 04. 21. (일) 20:32:05 KST
+--------
+Job_exited_code: 2 (Check your Error log file or Contact to admin)
+--------
+***End_time: 2024. 04. 21. (일) 20:32:06 KST
+--------
+Job_exited_code: 2 (Check your Error log file or Contact to admin)
+--------
+***End_time: 2024. 04. 21. (일) 20:32:06 KST
+***Start_time: 2024. 04. 21. (일) 20:32:52 KST
+***Start_time: 2024. 04. 21. (일) 20:32:53 KST
+***Start_time: 2024. 04. 21. (일) 20:32:53 KST
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/221102_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/221102_Tumor.hifi_reads.fastq.gz -p 16 --use_hisat2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+***Start_time: 2024. 04. 21. (일) 20:32:53 KST
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/230323_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/230323_Tumor.hifi_reads.fastq.gz -p 16 --use_hisat2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/221026_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/221026_Tumor.hifi_reads.fastq.gz -p 16 --use_hisat2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+python3 /home/goldpm1/tools/TAGET/TransAnnot.py -o /data/project/Meningioma/01.PacBio/Isoseq_RNA/03.matrix/03.TAGET/230526_Tumor -a /home/goldpm1/resources/gencode.v38.annotation.gtf -g /home/goldpm1/reference/genome.fa -f /data/project/Meningioma/01.PacBio/Isoseq_RNA/00.raw/230526_Tumor.hifi_reads.fastq.gz -p 16 --use_hisat2 /home/goldpm1/reference/hisat_index/hg38_hisat2
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2024. 04. 21. (일) 20:32:54 KST
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2024. 04. 21. (일) 20:32:55 KST
+--------
+Job_exited_code: 0 (Success)
+--------
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: 2024. 04. 21. (일) 20:32:55 KST
+***End_time: 2024. 04. 21. (일) 20:32:55 KST

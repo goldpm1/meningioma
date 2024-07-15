@@ -1,0 +1,10 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[http]
+	postBuffer = 524288000
+[remote "meningioma"]
+	url = https://goldpm1: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@github.com/goldpm1/meningioma
+	fetch = +refs/heads/*:refs/remotes/meningioma/*

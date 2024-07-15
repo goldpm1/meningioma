@@ -37,9 +37,6 @@ COSMIC_df = COSMIC_df.set_index("Type").rename(index=row_mapping).sort_index().r
 COSMIC_df = COSMIC_df.set_index( SIGNER_df.index ).drop ("Type", axis = 1)
 
 
-# Define two matrices
-matrix1 = np.array([[1, 2, 3, 4 ], [3, 4, 6, 10], [5, 6, 10, 21]])    # SBS 개수 * 96 signatrues
-matrix2 = np.array( [ [1, 2.2, 3.1, 4.4] ] )   # 1 * 96 signatures
 
 # Compute cosine similarity
 cos_sim = cosine_similarity( COSMIC_df.values.transpose(), SIGNER_df.values.transpose() )

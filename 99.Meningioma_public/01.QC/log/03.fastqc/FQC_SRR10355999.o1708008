@@ -1,0 +1,11 @@
+***Start_time: Sat Dec 30 18:05:34 KST 2023
+Sample_ID: SRR10355999
+FASTQ_PATH_1: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/02.fastp/SRR10355999.R1.fq.gz
+FASTQ_PATH_2: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/02.fastp/SRR10355999.R2.fq.gz
+FASTQC_DIR: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/03.fastqc/
+Analysis complete for SRR10355999.R1.fq.gz
+Analysis complete for SRR10355999.R2.fq.gz
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Sat Dec 30 18:05:37 KST 2023

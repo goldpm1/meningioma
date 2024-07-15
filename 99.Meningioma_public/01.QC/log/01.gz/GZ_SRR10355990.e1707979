@@ -1,0 +1,2 @@
+mv: cannot stat ‘/data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/01.gz/SRR10355990_1.fastq’: No such file or directory
+mv: cannot stat ‘/data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/01.gz/SRR10355990_2.fastq’: No such file or directory

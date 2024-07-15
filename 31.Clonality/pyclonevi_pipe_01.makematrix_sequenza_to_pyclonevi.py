@@ -3,6 +3,8 @@ import pybedtools
 import pysam
 import argparse
 import random
+import warnings
+warnings.simplefilter (action = 'ignore')
 
 parser = argparse.ArgumentParser( description='The below is usage direction.')
 parser.add_argument('--Sample_ID', type=str, default="220930")
@@ -44,7 +46,9 @@ segment_df = pd.read_csv (SEQUENZA_SEGMENT_PATH, sep = "\t")
 
 mutation_df["end"] = mutation_df["position"]
 mutation_df["start"] = mutation_df["position"] - 1
-if "map_ratio" in mutation_df.columns():  #hgt19to38의 경우 map_ratio라는 쓸데없는 column이 있다
+
+
+if "map_ratio" in mutation_df.columns:  #hgt19to38의 경우 map_ratio라는 쓸데없는 column이 있다
     mutation_df = mutation_df.drop ('map_ratio', axis = 1)
 
  
@@ -66,20 +70,20 @@ for index, contents in enumerate( ab[0] ):
 output_file = open(SEQUENZA_TO_PYCLONEVI_MATRIX_PATH, "a")
 
 for interval in ab:
-    CHR, POS = interval[0], interval[2]
+    CHR, POS, REF, ALT = interval[0], interval[2], interval [ segment_df.shape[1] + 3 ], interval [ segment_df.shape[1] + 4  ]
     line_dict = {}
 
-    line_dict ["mutation_id"] = str(CHR) + "_"  + str(POS)
+    line_dict ["mutation_id"] = str(CHR) + "_"  + str(POS) + "_" + str(REF) + "_" + str(ALT)
     line_dict ["sample_id"] = SAMPLE_ID
     line_dict ["ref_counts"] = str( interval[parsing_sample_index + 2].split(":")[1].split(",")[0])
     line_dict ["alt_counts"] = str( interval[parsing_sample_index + 2].split(":")[1].split(",")[1])
-    line_dict["normal_cn"] = str ( 2 )
-    line_dict["major_cn"] = str ( interval[10] )
-    line_dict["minor_cn"] = str ( interval[11] )
-    line_dict["tumour_content"] = str( TUMOR_PURITY  )
-    line_dict["type"] = "Mutect2"
+    line_dict ["normal_cn"] = str ( 2 )
+    line_dict ["major_cn"] = str ( interval[10] )
+    line_dict ["minor_cn"] = str ( interval[11] )
+    line_dict ["tumour_content"] = str( TUMOR_PURITY  )
+    line_dict ["type"] = "Mutect2"
 
-    #print ( interval [parsing_sample_index - 1 : parsing_sample_index + 2])
+    #print ( interval [parsing_sample_index - 1 : parsing_sample_index + 2])   # interval[parsing_sample_index] GT:AD:AF:DP:F1R2:F2R1:FAD:SB
     line_dict["gene"] = str( interval [parsing_sample_index - 1] ).split(";")[-1].split("|")[3]
     line_dict["Variant_Classification"] = str( interval [parsing_sample_index - 1] ).split(";")[-1].split("|")[1]
     
@@ -125,3 +129,5 @@ for interval in ab:
 output_file.close()
 
 pd.DataFrame ( { "Purity" : [ TUMOR_PURITY ], " Ploidy" : [ TOTAL_PLOIDY ] }).to_csv ( SEQUENZA_PURITY_PLOIDY_PATH, sep = "\t", index = False, header = True)
+
+

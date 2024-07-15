@@ -1,0 +1,15 @@
+Error to read gzip file
+Error to read gzip file
+Error to read gzip file
+Error to read gzip file
+Detecting adapter sequence for read1...
+Error to read gzip file
+No adapter detected for read1
+
+Detecting adapter sequence for read2...
+Error to read gzip file
+No adapter detected for read2
+
+ERROR: file '/data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/01.gz/SRR10355993_1.fq.gz' doesn't exist, quit now
+gzip: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/02.fastp/SRR10355993.R1.fq: No such file or directory
+gzip: /data/project/Meningioma/99.Meningioma_public/SRP227246/02.fastq/02.fastp/SRR10355993.R2.fq: No such file or directory

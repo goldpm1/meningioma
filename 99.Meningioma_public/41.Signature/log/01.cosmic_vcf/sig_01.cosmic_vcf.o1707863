@@ -1,0 +1,16 @@
+***Start_time: Fri Dec 29 19:48:11 KST 2023
+Starting matrix generation for SNVs and DINUCs...Completed! Elapsed time: 2.86 seconds.
+Starting matrix generation for INDELs...Completed! Elapsed time: 2.59 seconds.
+Matrices generated for 7 samples with 0 errors. Total of 988 SNVs, 2 DINUCs, and 32 INDELs were successfully analyzed.
+The following signatures are excluded: SBS11 SBS25 SBS31 SBS35 SBS86 SBS87 SBS90 SBS11 SBS25 SBS31 SBS32 SBS35 SBS86 SBS87 SBS90 SBS27 SBS43 SBS45 SBS46 SBS47 SBS48 SBS49 SBS50 SBS51 SBS52 SBS53 SBS54 SBS55 SBS56 SBS57 SBS58 SBS59 SBS60 SBS95
+Assigning COSMIC sigs or Signature Database ...... 
+|████████████████████████████████████████| 7/7 [100%] in 0.7s (9.53/s) 
+
+
+ 
+Your Job Is Successfully Completed! Thank You For Using SigProfilerAssignment.
+ 
+--------
+Job_exited_code: 0 (Success)
+--------
+***End_time: Fri Dec 29 19:49:24 KST 2023
