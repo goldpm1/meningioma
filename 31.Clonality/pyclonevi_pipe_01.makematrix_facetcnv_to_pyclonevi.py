@@ -1,9 +1,30 @@
 import pandas as pd
-import gzip, os
+import gzip, os, vcf
 import argparse
 import pybedtools
 import warnings
 warnings.simplefilter (action = 'ignore')
+import re
+
+# 숫자 추출 함수 정의
+def extract_chr_num(chr_str):
+    match = re.search(r'chr(\d+|X|Y|M)', chr_str)
+    if match:
+        val = match.group(1)
+        # X, Y, M 처리
+        if val == 'X':
+            return 23
+        elif val == 'Y':
+            return 24
+        elif val in ('M', 'MT'):
+            return 25
+        else:
+            return int(val)
+    else:
+        return float('inf')  # 알 수 없는 경우 맨 뒤로
+    
+
+
 
 parser = argparse.ArgumentParser( description='The below is usage direction.')
 parser.add_argument('--Sample_ID', type=str, default="230405_2")
@@ -12,9 +33,10 @@ parser.add_argument('--FACETCNV_OUTPUT_PATH', type=str, default="/home/goldpm1/M
 parser.add_argument('--FACETCNV_TO_BED_DF_PATH', type=str, default="")
 parser.add_argument('--FACETCNV_TO_PYCLONEVI_MATRIX_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.facetcnv_to_pyclonevi.tsv")
 parser.add_argument('--FACETCNV_PURITY_PLODY_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.facetcnv_to_pyclonevi.tsv")
-parser.add_argument('--MUTECT_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/04.mutect/02.PASS/230405_2_Tumor.MT2.FMC.HF.vcf")
-parser.add_argument('--HC_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/06.hc/01.call/230405_2/Tumor/230405_2_Tumor.vcf")
-parser.add_argument('--HC_BLOOD_RANDOM_PICK_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.HC.random_pick_50.bed")
+parser.add_argument('--MUTECT_PATH', type=str, default="/home/goldpm1/Meningioma/04.mutect/02.PASS/230405_2_Tumor.MT2.FMC.HF.vcf")
+parser.add_argument('--REMOVE_TEMP', type=str, default="True")
+# parser.add_argument('--HC_OUTPUT_PATH', type=str, default="/home/goldpm1/Meningioma/06.hc/01.call/230405_2/Tumor/230405_2_Tumor.vcf")
+# parser.add_argument('--HC_BLOOD_RANDOM_PICK_PATH', type=str, default="/home/goldpm1/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.HC.random_pick_50.bed")
 
 args = parser.parse_args()
 
@@ -24,11 +46,11 @@ TISSUE = args.TISSUE
 FACETCNV_OUTPUT_PATH = args.FACETCNV_OUTPUT_PATH
 FACETCNV_TO_BED_DF_PATH=args.FACETCNV_TO_BED_DF_PATH
 FACETCNV_PURITY_PLODY_PATH=args.FACETCNV_PURITY_PLODY_PATH
-MUTECT_OUTPUT_PATH = args.MUTECT_OUTPUT_PATH
-HC_OUTPUT_PATH=args.HC_OUTPUT_PATH
-HC_BLOOD_RANDOM_PICK_PATH=args.HC_BLOOD_RANDOM_PICK_PATH
+MUTECT_PATH = args.MUTECT_PATH
+# HC_OUTPUT_PATH=args.HC_OUTPUT_PATH
+# HC_BLOOD_RANDOM_PICK_PATH=args.HC_BLOOD_RANDOM_PICK_PATH
 FACETCNV_TO_PYCLONEVI_MATRIX_PATH = args.FACETCNV_TO_PYCLONEVI_MATRIX_PATH
-
+REMOVE_TEMP = args.REMOVE_TEMP
 
 # GVCF_OUTPUT_PATH="/home/goldpm1/Meningioma/05.gvcf/01.call/221026/221026_Tumor.g.vcf.gz"
 # tbx = pysam.TabixFile (GVCF_OUTPUT_PATH)
@@ -58,6 +80,8 @@ def parsing (line):
     return CHR, POS, REF, ALT, info_list, info_dict
 
 
+
+# FACETCNV 의 vcf.gz를 읽어서 bed file로 바꾸는 것. 그런데 빈 공간이 있어서 주의
 
 matrix = [] 
 colnames = ['CHR','START','END', 'MAJOR_CN', 'MINOR_CN', 'NORMAL_CN', 'TUMOR_PURITY' ]
@@ -101,6 +125,34 @@ for line in input_file.readlines():
         #bed_df = pd.concat ( [bed_df,  pd.Series( output_dict )], axis = 0)
 
 
+################### Gap interval도 채워서 넣어주기 #####################################
+# 이전 end 값 계산
+bed_df ["prev_END"] = bed_df .groupby("CHR")["END"].shift(1)    # 즉, 같은 chromosome 안에서 바로 이전 구간의 END 위치를 현재 행에 기록함.
+bed_df ["prev_CHR"] = bed_df ["CHR"].shift(1)
+
+# gap이 있는 경우만 필터링
+gaps = bed_df [(bed_df ["CHR"] == bed_df ["prev_CHR"]) & (bed_df ["START"] > bed_df ["prev_END"]) ].copy()
+
+# gap interval 만들기
+gap_bed = pd.DataFrame({
+    "CHR": gaps["CHR"],    "START": gaps["prev_END"],     "END": gaps["START"],
+    "MAJOR_CN": 1,    "MINOR_CN": 1,    "NORMAL_CN": 2,     "TUMOR_PURITY": 1.0
+})
+
+bed_df = bed_df.drop ( columns = ["prev_END", "prev_CHR" ] ) # 원래 bed_f에서 보조 컬럼 제거
+merged_df = pd.concat ( [ bed_df, gap_bed ], ignore_index = True) # 기존 bed_f와 gap df 합치기
+
+
+# 자연스러운 chr 순서로 정렬
+merged_df = merged_df.astype ( {'START':'int' , 'END' : 'int' , 'MAJOR_CN':'int', "MINOR_CN" : "int", "NORMAL_CN" : "int", "TUMOR_PURITY" : "float" } )
+merged_df["CHR_sort"] = merged_df["CHR"].apply(extract_chr_num)
+merged_df = merged_df.sort_values(by=["CHR_sort", "START"]).drop(columns="CHR_sort").reset_index(drop=True)
+
+bed_df = merged_df
+
+
+
+
 
 bed_df.to_csv (FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp1", sep = "\t", index = False, header = False)
 bed_df.to_csv (FACETCNV_TO_BED_DF_PATH, sep = "\t", index = False, header = True)
@@ -114,11 +166,19 @@ pd.DataFrame ( { "Purity" : [ TUMOR_PURITY ], " Ploidy" : [ TOTAL_PLOIDY ] }).to
 ####################################################################################################
 ######## Mutect call을 골라줌 ###################
 bed_pybed_object = pybedtools.BedTool.from_dataframe(bed_df)                   # CNV 정보를 가지고 있는 segment 정보
-# mutect_pybed_object = pybedtools.BedTool( MUTECT_OUTPUT_PATH )       # mutect으로 call한 mutation
+# mutect_pybed_object = pybedtools.BedTool( MUTECT_PATH )       # mutect으로 call한 mutation
 # a = bed_pybed_object.intersect(mutect_pybed_object, wb = True) 
 
 
-os.system ("bedtools intersect -a " + MUTECT_OUTPUT_PATH + " -b " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp1" +  " -wa -wb > " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp2")
+os.system ("bedtools intersect -a " + MUTECT_PATH + " -b " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp1" +  " -wa -wb > " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp2")
+
+vcf_reader = vcf.Reader(open (MUTECT_PATH , "r"))
+for sampleindex, samplename in enumerate(vcf_reader.samples):
+    if "Blood" not in samplename:
+        #print ( samplename, sampleindex)       # Tumor, Dura, Falx가  vcf 파일에서 0번째인지 1번째인지 보는 것
+        break
+
+
 
 input_file = open (FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp2", "r")
 output_file = open(FACETCNV_TO_PYCLONEVI_MATRIX_PATH, "a")
@@ -132,12 +192,13 @@ for interval in input_file.readlines():
     for index, contents in enumerate( interval ):
         if "GT:" in contents:
             parsing_sample_index = index 
+
             break
 
     line_dict ["mutation_id"] = str(interval [0]) + "_" + str(interval[1]) + "_" + str(interval[3]) + "_" + str(interval[4])
     line_dict ["sample_id"] = SAMPLE_ID
-    line_dict ["ref_counts"] = str( interval[ parsing_sample_index + 2].split(":")[1].split(",")[0])
-    line_dict ["alt_counts"] = str( interval[ parsing_sample_index + 2].split(":")[1].split(",")[1])
+    line_dict ["ref_counts"] = str( interval[ parsing_sample_index + 1 + sampleindex ].split(":")[1].split(",")[0])     # GT 다음칸인지, 다다음칸인지는 sample name이 몇 번째에 오는지를 보고 판단해야 한다
+    line_dict ["alt_counts"] = str( interval[ parsing_sample_index + 1 + sampleindex ].split(":")[1].split(",")[1])
     line_dict["normal_cn"] = str (interval[-2])
     line_dict["major_cn"] = str (interval[-4])
     line_dict["minor_cn"] = str (interval[-3])
@@ -151,10 +212,10 @@ for interval in input_file.readlines():
 
 input_file.close()
 
-
-os.system ("rm -rf " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".txt")
-os.system ("rm -rf " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp1")
-os.system ("rm -rf " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp2")
+if REMOVE_TEMP == "True":
+    os.system ("rm -rf " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".txt")
+    os.system ("rm -rf " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp1")
+    os.system ("rm -rf " + FACETCNV_TO_PYCLONEVI_MATRIX_PATH + ".temp2")
     
 
 

@@ -33,31 +33,37 @@ while true; do
 done
 
 
+# source /home/goldpm1/.bashrc
+# conda activate cnvpytor
+# #module rm HDF5
+# module load HDF5/1.12.0
+# #module switch HDF5/1.10.7 HDF5/1.12.0
+# #module switch HDF5/1.10.7 HDF5/1.14.2
 
-source /home/goldpm1/.bashrc
-conda activate cnvpytor
-#module rm HDF5
-module load HDF5/1.12.0
-module switch HDF5/1.10.7 HDF5/1.12.0
-#module switch HDF5/1.10.7 HDF5/1.14.2
 
+# pyclonevi는 numpy 1.24.0 이상이면 에러난다. 1.23 이하로 유지하자
+
+echo -e "Start time: $(date)\n\n"
+
+eval "$(mamba shell hook --shell bash)"
+mamba activate goldpm1   # hdf 5 1.14.0 설치된 환경
 
 rm -rf ${OUTPUT_H5} ${OUTPUT_TSV}
 
-echo -e "pyclone-vi fit -i ${INPUT_TSV} -o ${OUTPUT_H5} -c 6 -d beta-binomial -r 20 "
+echo -e "\npyclone-vi fit -i ${INPUT_TSV} -o ${OUTPUT_H5} -c 6 -d beta-binomial -r 20 "
 pyclone-vi fit -i ${INPUT_TSV} -o ${OUTPUT_H5} -c 6 -d beta-binomial -r 20 
-echo -e "\npyclone-vi fit done"
-date
+echo -e "pyclone-vi fit done : $(date)"
 
-
-
-echo -e "pyclone-vi write-results-file -i ${OUTPUT_H5} -o ${OUTPUT_TSV}"
+echo -e "\npyclone-vi write-results-file -i ${OUTPUT_H5} -o ${OUTPUT_TSV}"
 pyclone-vi write-results-file -i ${OUTPUT_H5} -o ${OUTPUT_TSV}
-echo -e "\npyclone-vi write-results-file done"
-date
+echo -e "\npyclone-vi write-results-file done : $(date)"
 
 
 
 python3 /data/project/Meningioma/script/31.Clonality/pyclonevi_pipe_02.sort.py \
     --INPUT_TSV ${OUTPUT_TSV} \
     --OUTPUT_TSV ${OUTPUT_TSV}
+
+
+mamba deactivate
+echo -e "\n\nEnd time: $(date)"

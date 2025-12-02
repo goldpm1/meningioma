@@ -3,6 +3,7 @@ def order_by_chrpos ( df  ):
     df = df.drop_duplicates(["mutation_id", "sample_id"],  keep = 'first')
     df [["chr", "pos"]]  = df["mutation_id"].str.split("_", 1 , expand = True)  # chr, pos로 펼쳐준 다음 예쁘게 sorting 하기
     df.loc[:,"chr"] = df.loc[:,"chr"].str.replace ("chr", "")
+    df = df [~df["chr"].isin(["chrX", "chrY", "X", "Y"])]
     df = df.astype({'chr': 'int'} )
 
     df.sort_values ( ['chr', "pos", 'sample_id'], axis = 0, ascending = True, inplace = True)
@@ -59,33 +60,38 @@ if __name__ == "__main__":
     warnings.simplefilter (action = 'ignore')
 
     parser = argparse.ArgumentParser( description='The below is usage direction.')
-    parser.add_argument('--Sample_ID', type=str, default="220930")
-    parser.add_argument('--TISSUE', type=str, default="Tumor")
-    parser.add_argument('--SEQUENZA_TO_PYCLONEVI_MATRIX_PATH', type=str, default="")
+    #parser.add_argument('--SEQUENZA_TO_PYCLONEVI_MATRIX_PATH', type=str, default="")
     parser.add_argument('--FACETCNV_TO_PYCLONEVI_MATRIX_PATH', type=str, default="")
-    parser.add_argument('--RESCUE_UNIQUEMUTATION', type=bool)
+    parser.add_argument('--RESCUE_UNIQUEMUTATION', type=str)
 
     args = parser.parse_args()
 
-    Sample_ID = args.Sample_ID
-    TISSUE = args.TISSUE
-    SEQUENZA_TO_PYCLONEVI_MATRIX_PATH = args.SEQUENZA_TO_PYCLONEVI_MATRIX_PATH
     FACETCNV_TO_PYCLONEVI_MATRIX_PATH = args.FACETCNV_TO_PYCLONEVI_MATRIX_PATH
-    RESCUE_UNIQUEMUTATION = bool (args.RESCUE_UNIQUEMUTATION)
+    RESCUE_UNIQUEMUTATION = args.RESCUE_UNIQUEMUTATION
 
 
-    df_SEQUENZA_TO_PYCLONEVI = pd.read_csv (SEQUENZA_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", names =["mutation_id", "sample_id", 'ref_counts', 'alt_counts', 'normal_cn', 'major_cn', 'minor_cn', 'tumour_content', 'types' , 'gene', 'variant_classification'] )
-    df_FACETCNV_TO_PYCLONEVI = pd.read_csv (FACETCNV_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", names =["mutation_id", "sample_id", 'ref_counts', 'alt_counts', 'normal_cn', 'major_cn', 'minor_cn', 'tumour_content', 'types' , 'gene', 'variant_classification'] )
+    header = ["mutation_id", "sample_id", "ref_counts", "alt_counts", "normal_cn", "major_cn", "minor_cn", "tumour_content", "types", "gene", "variant_classification"]
+    df_FACETCNV_TO_PYCLONEVI = pd.read_csv (FACETCNV_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", names = header  )
+    
+    # 만약 첫 줄과 header가 겹친다면, 첫 줄을 지워주고 reset_index해줘
+    first_row = df_FACETCNV_TO_PYCLONEVI.iloc[0].tolist()
+    if all(str(first_row[i]).strip() == header[i] for i in range(len(header))):
+        df_FACETCNV_TO_PYCLONEVI = df_FACETCNV_TO_PYCLONEVI.iloc[1:].reset_index(drop=True)
 
     #살려줄거면 살려주기
-    if RESCUE_UNIQUEMUTATION == True:
-        df_SEQUENZA_TO_PYCLONEVI = rescue_unique_mutation ( df_SEQUENZA_TO_PYCLONEVI )
+    if RESCUE_UNIQUEMUTATION == "True":
         df_FACETCNV_TO_PYCLONEVI = rescue_unique_mutation ( df_FACETCNV_TO_PYCLONEVI )
 
     # 예쁘게 정렬
-    df_SEQUENZA_TO_PYCLONEVI = order_by_chrpos ( df_SEQUENZA_TO_PYCLONEVI )
     df_FACETCNV_TO_PYCLONEVI = order_by_chrpos ( df_FACETCNV_TO_PYCLONEVI )
 
     # SAVE
-    df_SEQUENZA_TO_PYCLONEVI.to_csv (SEQUENZA_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", index = False)
     df_FACETCNV_TO_PYCLONEVI.to_csv (FACETCNV_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", index = False)
+    
+    
+    #SEQUENZA_TO_PYCLONEVI_MATRIX_PATH = args.SEQUENZA_TO_PYCLONEVI_MATRIX_PATH
+    #df_SEQUENZA_TO_PYCLONEVI = pd.read_csv (SEQUENZA_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", names = header )
+    #if RESCUE_UNIQUEMUTATION == "True":
+        #df_SEQUENZA_TO_PYCLONEVI = rescue_unique_mutation ( df_SEQUENZA_TO_PYCLONEVI )
+    #df_SEQUENZA_TO_PYCLONEVI = order_by_chrpos ( df_SEQUENZA_TO_PYCLONEVI )
+    #df_SEQUENZA_TO_PYCLONEVI.to_csv (SEQUENZA_TO_PYCLONEVI_MATRIX_PATH, sep = "\t", index = False)

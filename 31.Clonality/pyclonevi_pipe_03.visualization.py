@@ -13,7 +13,7 @@ def visualization_decomposition( df, OUTPUT_SUPTITLE, ax ):
     ax.tick_params( axis = 'y', labelsize = 8, pad = -1 )
     sns.set_style("white") 
     for axis in ['left', 'right', 'top', 'bottom']:
-        ax.spines[axis].set_linewidth ( 1.5 )
+        ax.spines[axis].set_linewidth ( 1.25 )
 
 
 
@@ -60,13 +60,18 @@ def visualization_decomposition( df, OUTPUT_SUPTITLE, ax ):
                 vaf_Dura = 0
             k2 = k + 1
 
-        size = [ 100, 150, 150, 150 ]
+        size = [ 140, 150, 150, 150 ]
         ax.scatter ( vaf_Dura, vaf_Tumor,  alpha = 0.7, s = size[i], 
                         color = colorlist [ df.iloc[k]["cluster_id"]], 
                         marker = shapelist[i], linewidths=0,
                         label = "{}".format ( df.iloc [k]["cluster_id"]) )
-        if df.iloc[k]["gene"] in ["NF2", "AKT1", "KLF4", "TRAF7"]:
-            ax.text ( vaf_Dura, vaf_Tumor, df.iloc[k]["gene"],   ha = "left", va = "bottom", fontdict = {"fontsize": 11, "fontweight" : "bold", "fontstyle": "italic"} )
+        
+    
+        if ( df.iloc[k]["gene"] in ["NF2", "AKT1", "KLF4", "TRAF7"] ):
+            if vaf_Dura != 0:
+                ax.text ( vaf_Dura, vaf_Tumor, df.iloc[k]["gene"],   ha = "left", va = "bottom", fontdict = {"fontsize": 11, "fontweight" : "bold", "fontstyle": "italic"} )
+            else:
+                ax.text ( vaf_Dura, vaf_Tumor, df.iloc[k]["gene"],   ha = "left", va = "bottom", fontdict = {"fontsize": 8, "fontweight" : "normal", "fontstyle": "italic"} )
         vaf_Tumor_list.append (vaf_Tumor)
         vaf_Dura_list.append (vaf_Dura)
         set_cluster_id.add ( df.iloc[k]["cluster_id"]  )
@@ -78,7 +83,7 @@ def visualization_decomposition( df, OUTPUT_SUPTITLE, ax ):
 
     # ax 정하기
 
-    if ("190426" in OUTPUT_SUPTITLE) | ("221102" in OUTPUT_SUPTITLE) | ("230127" in OUTPUT_SUPTITLE) | ("230405" in OUTPUT_SUPTITLE) | ("230419" in OUTPUT_SUPTITLE) | ("230822" in OUTPUT_SUPTITLE) | ("230920" in OUTPUT_SUPTITLE):
+    if ("190426" in OUTPUT_SUPTITLE) | ("221102" in OUTPUT_SUPTITLE) | ("230127" in OUTPUT_SUPTITLE) | ("230405" in OUTPUT_SUPTITLE) | ("230419" in OUTPUT_SUPTITLE) | ("230802" in OUTPUT_SUPTITLE) | ("230822" in OUTPUT_SUPTITLE) | ("230920" in OUTPUT_SUPTITLE):
         ax.set_xlim([0,  0.7]);  ax.set_ylim([0,  0.7])
     elif "220930" in OUTPUT_SUPTITLE:
         ax.set_xlim([0,  0.55]);  ax.set_ylim([0,  0.55])
@@ -98,7 +103,6 @@ def visualization_decomposition( df, OUTPUT_SUPTITLE, ax ):
 
 
 
-
 def visualization_decomposition_scaled ( df, OUTPUT_SUPTITLE, ax ):
     ax.set_title(OUTPUT_SUPTITLE, fontsize = 11, fontweight='bold')
     ax.set_xlabel("VAF_Dura", fontdict = {"fontsize" : 8}, labelpad = 2 )
@@ -107,19 +111,19 @@ def visualization_decomposition_scaled ( df, OUTPUT_SUPTITLE, ax ):
     ax.tick_params( axis = 'y', labelsize = 8, pad = -1 )
     sns.set_style("white") 
     for axis in ['left', 'right', 'top', 'bottom']:
-        ax.spines[axis].set_linewidth ( 1.5 )
+        ax.spines[axis].set_linewidth ( 1.25 )
 
 
-    if ("221102" in OUTPUT_SUPTITLE) | ("221202" in OUTPUT_SUPTITLE) | ("230303" in OUTPUT_SUPTITLE) | ("230419" in OUTPUT_SUPTITLE) | ("230526" in OUTPUT_SUPTITLE):
+    if ("221102" in OUTPUT_SUPTITLE) | ("221202" in OUTPUT_SUPTITLE) | ("230303" in OUTPUT_SUPTITLE) | ("230419" in OUTPUT_SUPTITLE) | ("230526" in OUTPUT_SUPTITLE) | ("240412" in OUTPUT_SUPTITLE) | ("230802" in OUTPUT_SUPTITLE) | ("231006" in OUTPUT_SUPTITLE) | ("231206" in OUTPUT_SUPTITLE) | ("190524" in OUTPUT_SUPTITLE)  :
         MULTIPLIER = 5        # Dura 0.03 까지 보여준다
         xtick = np.round ( np.arange (0, 0.21, 0.01)  , 2) 
-    elif ("230127" in OUTPUT_SUPTITLE) | ("230405" in OUTPUT_SUPTITLE) | ("230920" in OUTPUT_SUPTITLE)   :
+    elif ("230127" in OUTPUT_SUPTITLE) | ("230405" in OUTPUT_SUPTITLE) | ("230920" in OUTPUT_SUPTITLE)    | ("240403" in OUTPUT_SUPTITLE)    | ("230822" in OUTPUT_SUPTITLE)   | ("231025" in OUTPUT_SUPTITLE) | ("240320" in OUTPUT_SUPTITLE)  | ("240325" in OUTPUT_SUPTITLE)  | ("241023" in OUTPUT_SUPTITLE)   :
         MULTIPLIER = 3       # Dura 0.05까지 보여준다
         xtick = np.round ( np.arange (0, 0.21, 0.01)  , 2)      
-    elif ("230822" in OUTPUT_SUPTITLE)  :
-        MULTIPLIER = 2       # 
+    elif ("220930" in OUTPUT_SUPTITLE) | ("241016" in OUTPUT_SUPTITLE) | ("241211" in OUTPUT_SUPTITLE) | ("250425" in OUTPUT_SUPTITLE) | ("250212" in OUTPUT_SUPTITLE) | ("250502" in OUTPUT_SUPTITLE) | ("250509" in OUTPUT_SUPTITLE) :
+        MULTIPLIER = 2       # Dura 0.09까지 보여준다
         xtick = np.round ( np.arange (0, 0.21, 0.01)  , 2)      
-    elif ("221026" in OUTPUT_SUPTITLE):
+    elif ("221026" in OUTPUT_SUPTITLE) | ("241127" in OUTPUT_SUPTITLE) :
         MULTIPLIER = 0.75  # Dura 0.25까지 보여준다
         xtick = np.round ( np.arange (0, 0.3, 0.05)   , 2 )
     else:
@@ -167,14 +171,18 @@ def visualization_decomposition_scaled ( df, OUTPUT_SUPTITLE, ax ):
                 vaf_Dura = 0
             k2 = k + 1
             
-        print ( vaf_Dura, pow (10, MULTIPLIER *  vaf_Dura ) - 1, vaf_Tumor, df.iloc[k]["gene"] )
-        size = [ 100, 150, 150, 150 ]
+        #print ( vaf_Dura, pow (10, MULTIPLIER *  vaf_Dura ) - 1, vaf_Tumor, df.iloc[k]["gene"] )
+        size = [ 140, 150, 150, 150 ]
         ax.scatter ( pow (10, MULTIPLIER *  vaf_Dura ) - 1, vaf_Tumor,  alpha = 0.7, s = size[i], 
                         color = colorlist [ df.iloc[k]["cluster_id"]], 
                         marker = shapelist[i], linewidths=0,
                         label = "{}".format ( df.iloc [k]["cluster_id"]) )
         if df.iloc[k]["gene"] in ["NF2", "AKT1", "KLF4", "TRAF7"]:
-            ax.text ( pow (10, MULTIPLIER *  vaf_Dura ) - 1, vaf_Tumor, df.iloc[k]["gene"],   ha = "left", va = "bottom", fontdict = {"fontsize": 11, "fontweight" : "bold", "fontstyle": "italic"} )
+            if vaf_Dura != 0:
+                ax.text ( pow (10, MULTIPLIER *  vaf_Dura ) - 1, vaf_Tumor, df.iloc[k]["gene"],   ha = "left", va = "bottom", fontdict = {"fontsize": 11, "fontweight" : "bold", "fontstyle": "italic"} )
+            else:
+                ax.text ( pow (10, MULTIPLIER *  vaf_Dura ) - 1, vaf_Tumor, df.iloc[k]["gene"],   ha = "left", va = "bottom", fontdict = {"fontsize": 8, "fontweight" : "normal", "fontstyle": "italic"} )
+    
         vaf_Tumor_list.append (vaf_Tumor)
         vaf_Dura_list.append (vaf_Dura)
         set_cluster_id.add ( df.iloc[k]["cluster_id"]  )
@@ -187,7 +195,11 @@ def visualization_decomposition_scaled ( df, OUTPUT_SUPTITLE, ax ):
     ax.set_xticklabels ( xtick ) 
     
     ax.set_xlim([0,  0.5 ])
-    ax.set_ylim([0,  0.7])
+
+    if ("241023" in OUTPUT_SUPTITLE) :
+        ax.set_ylim([0,  0.9])
+    else:
+        ax.set_ylim([0,  0.7])
 
     ax.text( ax.get_xlim()[1] / 2 , ax.get_ylim()[1] / 1.2, "Purity of Tumor = {}\nPurity of Dura = {}".format(df[df['sample_id'].str.contains('Tumor')].iloc[0]["tumour_content"], df[df['sample_id'].str.contains('Dura')].iloc[0]["tumour_content"] ), ha='center', fontsize = 8 )
     for i in range ( len(df_count[0]) ) :
@@ -214,15 +226,24 @@ if __name__ == "__main__":
     import palettable, argparse
     import numpy as np
     import seaborn as sns
+    import matplotlib as mpl
+    import os, glob
+
+    # List all available fonts
+    file_paths = glob.glob( "/home/goldpm1/miniconda3/envs/cnvpytor/lib/python3.7/site-packages/matplotlib/mpl-data/fonts/ttf/arial*" )
+    absolute_file_paths = [os.path.abspath(file_path) for file_path in file_paths]
+    for absolute_file_path in absolute_file_paths:
+        mpl.font_manager.fontManager.addfont( absolute_file_path )
+    plt.rcParams["font.family"] = 'Arial'
 
 
     parser = argparse.ArgumentParser( description='The below is usage direction.')
     parser.add_argument('--Sample_ID', type=str, default="230405_2")
-    parser.add_argument('--SEQUENZA_TO_PYCLONEVI_MATRIX_PATH', type=str, default="/data/project/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.sequenza_to_pyclonevi.tsv")
-    parser.add_argument('--SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH', type=str, default="/data/project/Meningioma/31.Clonality/02.pyclonevi/230405_2/230405_2.sequenza_to_pyclonevi.tsv")
     parser.add_argument('--FACETCNV_TO_PYCLONEVI_MATRIX_PATH', type=str, default="/data/project/Meningioma/31.Clonality/01.make_matrix/230405_2/230405_2.facetcnv_to_pyclonevi.tsv")
     parser.add_argument('--FACETCNV_TO_PYCLONEVI_OUTPUT_PATH', type=str, default="/data/project/Meningioma/31.Clonality/02.pyclonevi/230405_2/230405_2.facetcnv_to_pyclonevi.tsv")
-    parser.add_argument('--OUTPUT_PATH_SHARED', type=str, default="/data/project/Meningioma/31.Clonality/02.pyclonevi/230405_2/230405_2.decomposed.pdf")
+    parser.add_argument('--OUTPUT_VIS_FIG1', type=str, default="")
+    parser.add_argument('--OUTPUT_VIS_FIG2', type=str, default="")
+    parser.add_argument('--OUTPUT_VIS_DF', type=str, default="")
     parser.add_argument('--OUTPUT_DIR1', type=str, default="/data/project/Meningioma/31.Clonality/02.pyclonevi/decomposed")
     parser.add_argument('--OUTPUT_DIR2', type=str, default="/data/project/Meningioma/31.Clonality/02.pyclonevi/scaled")
 
@@ -231,50 +252,39 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     Sample_ID = args.Sample_ID
-    SEQUENZA_TO_PYCLONEVI_MATRIX_PATH = args.SEQUENZA_TO_PYCLONEVI_MATRIX_PATH
-    SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH = args.SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH
     FACETCNV_TO_PYCLONEVI_MATRIX_PATH = args.FACETCNV_TO_PYCLONEVI_MATRIX_PATH
     FACETCNV_TO_PYCLONEVI_OUTPUT_PATH = args.FACETCNV_TO_PYCLONEVI_OUTPUT_PATH
-    OUTPUT_PATH_SHARED = args.OUTPUT_PATH_SHARED
+    OUTPUT_VIS_FIG1 = args.OUTPUT_VIS_FIG1
+    OUTPUT_VIS_FIG2 = args.OUTPUT_VIS_FIG2
+    OUTPUT_VIS_DF = args.OUTPUT_VIS_DF
     OUTPUT_DIR1 = args.OUTPUT_DIR1
     OUTPUT_DIR2 = args.OUTPUT_DIR2
 
 
-    # df_seq_to_pycl = pd.read_csv (SEQUENZA_TO_PYCLONEVI_OUTPUT_PATH, sep = "\t")
-    # df_seq_to_pycl = df_seq_to_pycl.drop_duplicates (['mutation_id'], keep = 'first').sort_values ( ['mutation_id'], axis = 0, ascending = True)[ [ "mutation_id", "cluster_id"] ].reset_index().drop ('index', axis = 1)
-    #df_seq_matrix = pd.read_csv (SEQUENZA_TO_PYCLONEVI_MATRIX_PATH, sep = "\t")
-     
-    # # Sequenza visualization
-    # fig, ax = plt.subplots( figsize=(3, 3), nrows = 1, ncols = 1 )
-    # fig.subplots_adjust (wspace = 0.15, hspace = 0.1, bottom = 0.10, top = 0.92, left = 0.15, right = 0.98)
-    # df_seq_integrated = pd.merge (df_seq_matrix, df_seq_to_pycl, left_on = "mutation_id", right_on = "mutation_id")
-    # print ("\n\n## Decomposed - Sequenza")
-    # df, ax = visualization_decomposition ( df_seq_integrated, "{} - Sequenza".format(Sample_ID), ax )
-    # fig.savefig ( OUTPUT_PATH_SHARED.replace (".pdf", "-sequenza.pdf") )
-    # df.to_csv ( OUTPUT_PATH_SHARED.replace (".pdf", "-sequenza.tsv"), sep = "\t", index = False)
-
 
 
     df_facet_to_pycl = pd.read_csv (FACETCNV_TO_PYCLONEVI_OUTPUT_PATH, sep = "\t")
-    df_facet_to_pycl = df_facet_to_pycl.drop_duplicates (['mutation_id'], keep = 'first').sort_values ( ['mutation_id'], axis = 0, ascending = True)[ [ "mutation_id", "cluster_id"] ].reset_index().drop ('index', axis = 1)
-    df_facet_matrix = pd.read_csv (FACETCNV_TO_PYCLONEVI_MATRIX_PATH, sep = "\t")
+    df_facet_to_pycl = df_facet_to_pycl.drop_duplicates (['mutation_id'], keep = 'first') [ [ "mutation_id", "cluster_id"] ].reset_index().drop ('index', axis = 1)
+    df_facet_matrix = pd.read_csv (FACETCNV_TO_PYCLONEVI_MATRIX_PATH, sep = "\t")   
 
     # FacetCNV visualization
-    fig, ax = plt.subplots( figsize=(2.5, 2.5), nrows = 1, ncols = 1 )
-    fig.subplots_adjust (wspace = 0.15, hspace = 0.1, bottom = 0.12, top = 0.90, left = 0.15, right = 0.96)
+    fig, ax = plt.subplots( figsize=(2, 2), nrows = 1, ncols = 1 )
+    fig.subplots_adjust (wspace = 0.15, hspace = 0.1, bottom = 0.14, top = 0.88, left = 0.18, right = 0.96)
     df_facet_integrated = pd.merge (df_facet_matrix, df_facet_to_pycl, left_on = "mutation_id", right_on = "mutation_id")
     print ("\n\n## Decomposed - FacetCNV")
     df, ax = visualization_decomposition ( df_facet_integrated, "{}".format(Sample_ID), ax )
-    fig.savefig ( OUTPUT_PATH_SHARED.replace (".pdf", "-facetcnv.pdf"), dpi = 300)
-    fig.savefig ( OUTPUT_DIR1 + "/" + str(Sample_ID) + ".decomposed-facetcnv.pdf", dpi = 300 )
-    df.to_csv ( OUTPUT_PATH_SHARED.replace (".pdf", "-facetcnv.tsv"), sep = "\t", index = False)
+    fig.savefig ( OUTPUT_VIS_FIG1, dpi = 300)
+    fig.savefig ( OUTPUT_DIR1 + "/" + str(Sample_ID) + ".facetcnv.pdf", dpi = 300 )
+    print (OUTPUT_VIS_DF)
+    df.to_csv ( OUTPUT_VIS_DF, sep = "\t", index = False)
 
 
-    # FacetCNV visualization
-    fig, ax = plt.subplots( figsize=(2.5, 2.5), nrows = 1, ncols = 1 )
-    fig.subplots_adjust (wspace = 0.15, hspace = 0.1, bottom = 0.12, top = 0.90, left = 0.15, right = 0.96)
+    # FacetCNV visualization (Scaled)
+    fig, ax = plt.subplots( figsize=(2, 2), nrows = 1, ncols = 1 )
+    fig.subplots_adjust (wspace = 0.15, hspace = 0.1, bottom = 0.14, top = 0.88, left = 0.18, right = 0.96)
     df_facet_integrated = pd.merge (df_facet_matrix, df_facet_to_pycl, left_on = "mutation_id", right_on = "mutation_id")
     print ("\n\n## Decomposed & Scaled FacetCNV")
     df, ax = visualization_decomposition_scaled ( df_facet_integrated, "{}".format(Sample_ID), ax )
-    fig.savefig ( OUTPUT_PATH_SHARED.replace (".pdf", "-scaled.facetcnv.pdf"), dpi = 300 )
-    fig.savefig ( OUTPUT_DIR2 + "/" + str(Sample_ID) + ".scaled-facetcnv.pdf", dpi = 300 )
+    fig.savefig ( OUTPUT_VIS_FIG2, dpi = 300 )
+    fig.savefig ( OUTPUT_DIR2 + "/" + str(Sample_ID) + ".facetcnv.pdf", dpi = 300 )
+    fig.savefig ( OUTPUT_DIR2 + "_jpg/" + str(Sample_ID) + ".facetcnv.jpg", dpi = 300 )
